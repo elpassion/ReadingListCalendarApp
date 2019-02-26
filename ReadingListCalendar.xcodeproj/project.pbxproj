@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
-		313DBD7A22257145003B0242 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7822257145003B0242 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		313DBD7122257144003B0242 /* RLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313DBD7422257144003B0242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		313DBD7622257145003B0242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		313DBD7922257145003B0242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		313DBD7B22257145003B0242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadingListCalendarApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,7 +43,7 @@
 		313DBD7222257144003B0242 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				313DBD7122257144003B0242 /* RLC.app */,
+				313DBD7122257144003B0242 /* Reading List Calendar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,7 +54,7 @@
 				313DBD7422257144003B0242 /* AppDelegate.swift */,
 				313DBD7622257145003B0242 /* Assets.xcassets */,
 				313DBD7B22257145003B0242 /* Info.plist */,
-				313DBD7822257145003B0242 /* MainMenu.xib */,
+				31143F63222603ED00580FE3 /* Main.storyboard */,
 				313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */,
 			);
 			path = ReadingListCalendarApp;
@@ -77,7 +77,7 @@
 			);
 			name = ReadingListCalendarApp;
 			productName = ReadingListCalendarApp;
-			productReference = 313DBD7122257144003B0242 /* RLC.app */;
+			productReference = 313DBD7122257144003B0242 /* Reading List Calendar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,8 +118,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31143F65222603ED00580FE3 /* Main.storyboard in Resources */,
 				313DBD7722257145003B0242 /* Assets.xcassets in Resources */,
-				313DBD7A22257145003B0242 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,12 +137,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		313DBD7822257145003B0242 /* MainMenu.xib */ = {
+		31143F63222603ED00580FE3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				313DBD7922257145003B0242 /* Base */,
+				31143F64222603ED00580FE3 /* Base */,
 			);
-			name = MainMenu.xib;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -281,7 +281,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ReadingListCalendarApp;
-				PRODUCT_NAME = RLC;
+				PRODUCT_NAME = "Reading List Calendar";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -298,7 +298,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ReadingListCalendarApp;
-				PRODUCT_NAME = RLC;
+				PRODUCT_NAME = "Reading List Calendar";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "313DBD7022257144003B0242"
-               BuildableName = "ReadingListCalendarApp.app"
+               BuildableName = "Reading List Calendar.app"
                BlueprintName = "ReadingListCalendarApp"
                ReferencedContainer = "container:ReadingListCalendar.xcodeproj">
             </BuildableReference>
@@ -34,7 +34,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "313DBD7022257144003B0242"
-            BuildableName = "ReadingListCalendarApp.app"
+            BuildableName = "Reading List Calendar.app"
             BlueprintName = "ReadingListCalendarApp"
             ReferencedContainer = "container:ReadingListCalendar.xcodeproj">
          </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "313DBD7022257144003B0242"
-            BuildableName = "ReadingListCalendarApp.app"
+            BuildableName = "Reading List Calendar.app"
             BlueprintName = "ReadingListCalendarApp"
             ReferencedContainer = "container:ReadingListCalendar.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "313DBD7022257144003B0242"
-            BuildableName = "ReadingListCalendarApp.app"
+            BuildableName = "Reading List Calendar.app"
             BlueprintName = "ReadingListCalendarApp"
             ReferencedContainer = "container:ReadingListCalendar.xcodeproj">
          </BuildableReference>
