@@ -148,9 +148,6 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="changeBookmarksPathAction:" target="XfG-lQ-9wD" id="3cF-fS-12u"/>
-                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="nll-CA-9ep" column="yzj-33-8pi" headOfMergedCell="o2K-S5-6x9" id="o2K-S5-6x9">
@@ -198,9 +195,6 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="authorizeCalendarAction:" target="XfG-lQ-9wD" id="cr9-Zf-vzo"/>
-                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="pFm-sT-hok" column="yzj-33-8pi" id="GZ3-cv-2dX">
@@ -227,9 +221,6 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
-                                            <connections>
-                                                <action selector="calendarSelectionAction:" target="XfG-lQ-9wD" id="qT9-pa-kM7"/>
-                                            </connections>
                                         </popUpButton>
                                     </gridCell>
                                     <gridCell row="pow-gu-WhP" column="yzj-33-8pi" headOfMergedCell="P9m-v6-R0V" id="P9m-v6-R0V">
@@ -269,9 +260,6 @@
 DQ
 </string>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="synchronizeAction:" target="XfG-lQ-9wD" id="H4t-W2-UOm"/>
-                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="iVm-EI-qot" column="yzj-33-8pi" headOfMergedCell="rf2-VR-J8J" id="rf2-VR-J8J">

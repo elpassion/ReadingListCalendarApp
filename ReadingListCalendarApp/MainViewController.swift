@@ -13,20 +13,4 @@ class MainViewController: NSViewController {
     @IBOutlet weak var synchronizeButton: NSButton!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
 
-    @IBAction func changeBookmarksPathAction(_ sender: Any) {
-
-    }
-
-    @IBAction func authorizeCalendarAction(_ sender: Any) {
-
-    }
-
-    @IBAction func calendarSelectionAction(_ sender: Any) {
-
-    }
-
-    @IBAction func synchronizeAction(_ sender: Any) {
-
-    }
-
 }
