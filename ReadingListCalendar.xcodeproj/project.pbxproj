@@ -10,8 +10,19 @@
 		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
+		318732E62226F3D5009F5289 /* ReadingListCalendarAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		318732E82226F3D5009F5289 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 313DBD6922257144003B0242 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 313DBD7022257144003B0242;
+			remoteInfo = ReadingListCalendarApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -20,11 +31,21 @@
 		313DBD7622257145003B0242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		313DBD7B22257145003B0242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadingListCalendarApp.entitlements; sourceTree = "<group>"; };
+		318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListCalendarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListCalendarAppTests.swift; sourceTree = "<group>"; };
+		318732E72226F3D5009F5289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318AAA0F2226A61C0033CAA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		313DBD6E22257144003B0242 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		318732E02226F3D4009F5289 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				313DBD7322257144003B0242 /* ReadingListCalendarApp */,
+				318732E42226F3D5009F5289 /* ReadingListCalendarAppTests */,
 				313DBD7222257144003B0242 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				313DBD7122257144003B0242 /* Reading List Calendar.app */,
+				318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +84,15 @@
 				313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */,
 			);
 			path = ReadingListCalendarApp;
+			sourceTree = "<group>";
+		};
+		318732E42226F3D5009F5289 /* ReadingListCalendarAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				318732E72226F3D5009F5289 /* Info.plist */,
+				318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */,
+			);
+			path = ReadingListCalendarAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +115,24 @@
 			productReference = 313DBD7122257144003B0242 /* Reading List Calendar.app */;
 			productType = "com.apple.product-type.application";
 		};
+		318732E22226F3D4009F5289 /* ReadingListCalendarAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 318732EC2226F3D5009F5289 /* Build configuration list for PBXNativeTarget "ReadingListCalendarAppTests" */;
+			buildPhases = (
+				318732DF2226F3D4009F5289 /* Sources */,
+				318732E02226F3D4009F5289 /* Frameworks */,
+				318732E12226F3D4009F5289 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				318732E92226F3D5009F5289 /* PBXTargetDependency */,
+			);
+			name = ReadingListCalendarAppTests;
+			productName = ReadingListCalendarAppTests;
+			productReference = 318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +145,10 @@
 				TargetAttributes = {
 					313DBD7022257144003B0242 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					318732E22226F3D4009F5289 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 313DBD7022257144003B0242;
 					};
 				};
 			};
@@ -112,6 +166,7 @@
 			projectRoot = "";
 			targets = (
 				313DBD7022257144003B0242 /* ReadingListCalendarApp */,
+				318732E22226F3D4009F5289 /* ReadingListCalendarAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +178,13 @@
 			files = (
 				31143F65222603ED00580FE3 /* Main.storyboard in Resources */,
 				313DBD7722257145003B0242 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		318732E12226F3D4009F5289 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +200,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		318732DF2226F3D4009F5289 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				318732E62226F3D5009F5289 /* ReadingListCalendarAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		318732E92226F3D5009F5289 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 313DBD7022257144003B0242 /* ReadingListCalendarApp */;
+			targetProxy = 318732E82226F3D5009F5289 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		31143F63222603ED00580FE3 /* Main.storyboard */ = {
@@ -307,6 +385,42 @@
 			};
 			name = Release;
 		};
+		318732EA2226F3D5009F5289 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ReadingListCalendarAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ReadingListCalendarAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reading List Calendar.app/Contents/MacOS/Reading List Calendar";
+			};
+			name = Debug;
+		};
+		318732EB2226F3D5009F5289 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ReadingListCalendarAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ReadingListCalendarAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reading List Calendar.app/Contents/MacOS/Reading List Calendar";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -324,6 +438,15 @@
 			buildConfigurations = (
 				313DBD8022257145003B0242 /* Debug */,
 				313DBD8122257145003B0242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		318732EC2226F3D5009F5289 /* Build configuration list for PBXNativeTarget "ReadingListCalendarAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				318732EA2226F3D5009F5289 /* Debug */,
+				318732EB2226F3D5009F5289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
