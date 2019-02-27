@@ -5,6 +5,16 @@
 
 WIP
 
+## Setup
+
+Requirements: 
+
+- Xcode 10.1
+- [SwiftLint](https://github.com/realm/SwiftLint)
+- [Carthage](https://github.com/Carthage/Carthage)
+
+To set up the project, run `setup.sh` in Terminal.
+
 ## License
 
 Copyright © 2019 [EL Passion](https://www.elpassion.com)
