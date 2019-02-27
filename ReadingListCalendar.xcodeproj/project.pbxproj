@@ -450,6 +450,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ReadingListCalendarApp;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "Reading List Calendar";
 				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Mac Development";
 				SWIFT_VERSION = 4.2;
@@ -469,6 +470,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ReadingListCalendarApp;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "Reading List Calendar";
 				SWIFT_VERSION = 4.2;
 			};
