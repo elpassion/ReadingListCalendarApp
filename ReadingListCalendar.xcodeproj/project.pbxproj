@@ -34,6 +34,8 @@
 		318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListCalendarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListCalendarAppTests.swift; sourceTree = "<group>"; };
 		318732E72226F3D5009F5289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		318732F02226F552009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318AAA0F2226A61C0033CAA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +78,7 @@
 		313DBD7322257144003B0242 /* ReadingListCalendarApp */ = {
 			isa = PBXGroup;
 			children = (
+				318732EF2226F53B009F5289 /* .swiftlint.yml */,
 				313DBD7422257144003B0242 /* AppDelegate.swift */,
 				313DBD7622257145003B0242 /* Assets.xcassets */,
 				313DBD7B22257145003B0242 /* Info.plist */,
@@ -89,6 +92,7 @@
 		318732E42226F3D5009F5289 /* ReadingListCalendarAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				318732F02226F552009F5289 /* .swiftlint.yml */,
 				318732E72226F3D5009F5289 /* Info.plist */,
 				318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */,
 			);
@@ -102,6 +106,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 313DBD7F22257145003B0242 /* Build configuration list for PBXNativeTarget "ReadingListCalendarApp" */;
 			buildPhases = (
+				318732ED2226F4AB009F5289 /* Run SwiftLint */,
 				313DBD6D22257144003B0242 /* Sources */,
 				313DBD6E22257144003B0242 /* Frameworks */,
 				313DBD6F22257144003B0242 /* Resources */,
@@ -119,6 +124,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 318732EC2226F3D5009F5289 /* Build configuration list for PBXNativeTarget "ReadingListCalendarAppTests" */;
 			buildPhases = (
+				318732EE2226F4CD009F5289 /* Run SwiftLint */,
 				318732DF2226F3D4009F5289 /* Sources */,
 				318732E02226F3D4009F5289 /* Frameworks */,
 				318732E12226F3D4009F5289 /* Resources */,
@@ -189,6 +195,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		318732ED2226F4AB009F5289 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nif ! which swiftlint > /dev/null; then\n  echo \"error: SwiftLint is not installed. Visit http://github.com/realm/SwiftLint to learn more.\"\n  exit 1\nfi\n\ncd $TARGET_NAME\nswiftlint\n";
+		};
+		318732EE2226F4CD009F5289 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nif ! which swiftlint > /dev/null; then\n  echo \"error: SwiftLint is not installed. Visit http://github.com/realm/SwiftLint to learn more.\"\n  exit 1\nfi\n\ncd $TARGET_NAME\nswiftlint\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		313DBD6D22257144003B0242 /* Sources */ = {
