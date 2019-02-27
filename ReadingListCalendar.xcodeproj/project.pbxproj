@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31140E0D2227025B00522D23 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		31140E0E2227025B00522D23 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		31140E0F2227025B00522D23 /* SnapshotTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106812226FA1F00703714 /* SnapshotTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
+		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
+		314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; };
+		314A86B32226FD0000B73B69 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106812226FA1F00703714 /* SnapshotTesting.framework */; };
 		318732E62226F3D5009F5289 /* ReadingListCalendarAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +30,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		31140E0C2227024C00522D23 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				31140E0D2227025B00522D23 /* Nimble.framework in Embed Frameworks */,
+				31140E0E2227025B00522D23 /* Quick.framework in Embed Frameworks */,
+				31140E0F2227025B00522D23 /* SnapshotTesting.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +59,9 @@
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318732F02226F552009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318AAA0F2226A61C0033CAA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		31E106802226FA1E00703714 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		31E106812226FA1F00703714 /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/Mac/SnapshotTesting.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,10 +72,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		318732E02226F3D4009F5289 /* Frameworks */ = {
+		314A86B02226FCEE00B73B69 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */,
+				314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */,
+				314A86B32226FD0000B73B69 /* SnapshotTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +88,10 @@
 		313DBD6822257144003B0242 = {
 			isa = PBXGroup;
 			children = (
+				31E1067E2226F97800703714 /* Frameworks */,
+				313DBD7222257144003B0242 /* Products */,
 				313DBD7322257144003B0242 /* ReadingListCalendarApp */,
 				318732E42226F3D5009F5289 /* ReadingListCalendarAppTests */,
-				313DBD7222257144003B0242 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +128,16 @@
 			path = ReadingListCalendarAppTests;
 			sourceTree = "<group>";
 		};
+		31E1067E2226F97800703714 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31E1067F2226FA0300703714 /* Nimble.framework */,
+				31E106802226FA1E00703714 /* Quick.framework */,
+				31E106812226FA1F00703714 /* SnapshotTesting.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,8 +165,9 @@
 			buildPhases = (
 				318732EE2226F4CD009F5289 /* Run SwiftLint */,
 				318732DF2226F3D4009F5289 /* Sources */,
-				318732E02226F3D4009F5289 /* Frameworks */,
+				314A86B02226FCEE00B73B69 /* Frameworks */,
 				318732E12226F3D4009F5289 /* Resources */,
+				31140E0C2227024C00522D23 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -441,6 +481,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P38XW29864;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ReadingListCalendarAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -459,6 +503,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ReadingListCalendarAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
