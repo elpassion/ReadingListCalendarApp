@@ -16,7 +16,7 @@
 		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
 		314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; };
 		314A86B32226FD0000B73B69 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106812226FA1F00703714 /* SnapshotTesting.framework */; };
-		318732E62226F3D5009F5289 /* ReadingListCalendarAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */; };
+		318732E62226F3D5009F5289 /* ReadingListCalendarAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318732E52226F3D5009F5289 /* ReadingListCalendarAppSpec.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,7 @@
 		313DBD7B22257145003B0242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadingListCalendarApp.entitlements; sourceTree = "<group>"; };
 		318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListCalendarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListCalendarAppTests.swift; sourceTree = "<group>"; };
+		318732E52226F3D5009F5289 /* ReadingListCalendarAppSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListCalendarAppSpec.swift; sourceTree = "<group>"; };
 		318732E72226F3D5009F5289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318732F02226F552009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			children = (
 				318732F02226F552009F5289 /* .swiftlint.yml */,
 				318732E72226F3D5009F5289 /* Info.plist */,
-				318732E52226F3D5009F5289 /* ReadingListCalendarAppTests.swift */,
+				318732E52226F3D5009F5289 /* ReadingListCalendarAppSpec.swift */,
 			);
 			path = ReadingListCalendarAppTests;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				318732E62226F3D5009F5289 /* ReadingListCalendarAppTests.swift in Sources */,
+				318732E62226F3D5009F5289 /* ReadingListCalendarAppSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
