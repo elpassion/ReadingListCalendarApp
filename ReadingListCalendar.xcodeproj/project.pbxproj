@@ -10,13 +10,18 @@
 		31140E0D2227025B00522D23 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31140E0E2227025B00522D23 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31140E0F2227025B00522D23 /* SnapshotTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106812226FA1F00703714 /* SnapshotTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		31140E112227279400522D23 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E102227279400522D23 /* MainWindowController.swift */; };
+		31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E1222272A4400522D23 /* MainWindowControllerCreating.swift */; };
+		31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E1422272A6600522D23 /* MainWindowControllerFactory.swift */; };
+		31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E1622272B8300522D23 /* MainWindowControllerSpec.swift */; };
+		31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E1822272C6B00522D23 /* AppDelegateSpec.swift */; };
+		31140E2422273E3500522D23 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E2322273E3500522D23 /* main.swift */; };
 		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
 		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
 		314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; };
 		314A86B32226FD0000B73B69 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106812226FA1F00703714 /* SnapshotTesting.framework */; };
-		318732E62226F3D5009F5289 /* ReadingListCalendarAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318732E52226F3D5009F5289 /* ReadingListCalendarAppSpec.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31140E102227279400522D23 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		31140E1222272A4400522D23 /* MainWindowControllerCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerCreating.swift; sourceTree = "<group>"; };
+		31140E1422272A6600522D23 /* MainWindowControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerFactory.swift; sourceTree = "<group>"; };
+		31140E1622272B8300522D23 /* MainWindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerSpec.swift; sourceTree = "<group>"; };
+		31140E1822272C6B00522D23 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
+		31140E2322273E3500522D23 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313DBD7422257144003B0242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +65,6 @@
 		313DBD7B22257145003B0242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadingListCalendarApp.entitlements; sourceTree = "<group>"; };
 		318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListCalendarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		318732E52226F3D5009F5289 /* ReadingListCalendarAppSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListCalendarAppSpec.swift; sourceTree = "<group>"; };
 		318732E72226F3D5009F5289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318732F02226F552009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -85,6 +95,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31140E2722274C4900522D23 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				313DBD7422257144003B0242 /* AppDelegate.swift */,
+				31140E2322273E3500522D23 /* main.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		31140E2822274C6B00522D23 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				313DBD7622257145003B0242 /* Assets.xcassets */,
+				313DBD7B22257145003B0242 /* Info.plist */,
+				31143F63222603ED00580FE3 /* Main.storyboard */,
+				313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		31140E2922274D0300522D23 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				318AAA0F2226A61C0033CAA5 /* MainViewController.swift */,
+				31140E102227279400522D23 /* MainWindowController.swift */,
+				31140E1222272A4400522D23 /* MainWindowControllerCreating.swift */,
+				31140E1422272A6600522D23 /* MainWindowControllerFactory.swift */,
+			);
+			path = MainWindow;
+			sourceTree = "<group>";
+		};
+		31140E2A22274D3E00522D23 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				31140E1822272C6B00522D23 /* AppDelegateSpec.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		31140E2B22274D5100522D23 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				31140E1622272B8300522D23 /* MainWindowControllerSpec.swift */,
+			);
+			path = MainWindow;
+			sourceTree = "<group>";
+		};
+		31140E2D22274DC100522D23 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				318732E72226F3D5009F5289 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		313DBD6822257144003B0242 = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				318732EF2226F53B009F5289 /* .swiftlint.yml */,
-				313DBD7422257144003B0242 /* AppDelegate.swift */,
-				313DBD7622257145003B0242 /* Assets.xcassets */,
-				313DBD7B22257145003B0242 /* Info.plist */,
-				31143F63222603ED00580FE3 /* Main.storyboard */,
-				318AAA0F2226A61C0033CAA5 /* MainViewController.swift */,
-				313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */,
+				31140E2722274C4900522D23 /* Application */,
+				31140E2922274D0300522D23 /* MainWindow */,
+				31140E2822274C6B00522D23 /* Resources */,
 			);
 			path = ReadingListCalendarApp;
 			sourceTree = "<group>";
@@ -122,8 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				318732F02226F552009F5289 /* .swiftlint.yml */,
-				318732E72226F3D5009F5289 /* Info.plist */,
-				318732E52226F3D5009F5289 /* ReadingListCalendarAppSpec.swift */,
+				31140E2A22274D3E00522D23 /* Application */,
+				31140E2B22274D5100522D23 /* MainWindow */,
+				31140E2D22274DC100522D23 /* Resources */,
 			);
 			path = ReadingListCalendarAppTests;
 			sourceTree = "<group>";
@@ -282,6 +345,10 @@
 			files = (
 				313DBD7522257144003B0242 /* AppDelegate.swift in Sources */,
 				318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */,
+				31140E2422273E3500522D23 /* main.swift in Sources */,
+				31140E112227279400522D23 /* MainWindowController.swift in Sources */,
+				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
+				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				318732E62226F3D5009F5289 /* ReadingListCalendarAppSpec.swift in Sources */,
+				31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */,
+				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,11 +508,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ReadingListCalendarApp/ReadingListCalendarApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ReadingListCalendarApp/Resources/ReadingListCalendarApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P38XW29864;
-				INFOPLIST_FILE = ReadingListCalendarApp/Info.plist;
+				INFOPLIST_FILE = ReadingListCalendarApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -461,10 +529,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ReadingListCalendarApp/ReadingListCalendarApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ReadingListCalendarApp/Resources/ReadingListCalendarApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = ReadingListCalendarApp/Info.plist;
+				INFOPLIST_FILE = ReadingListCalendarApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -487,7 +555,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = ReadingListCalendarAppTests/Info.plist;
+				INFOPLIST_FILE = ReadingListCalendarAppTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -509,7 +577,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = ReadingListCalendarAppTests/Info.plist;
+				INFOPLIST_FILE = ReadingListCalendarAppTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
