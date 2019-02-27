@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Reading_List_Calendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Reading_List_Calendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="542" height="407"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -111,7 +111,7 @@
                                 </rows>
                                 <columns>
                                     <gridColumn id="yzj-33-8pi"/>
-                                    <gridColumn width="123" id="G77-vm-lLm"/>
+                                    <gridColumn width="160" id="G77-vm-lLm"/>
                                 </columns>
                                 <gridCells>
                                     <gridCell row="NNP-pK-W8u" column="yzj-33-8pi" headOfMergedCell="IRT-wz-5oo" id="IRT-wz-5oo">
@@ -133,7 +133,7 @@
                                     <gridCell row="e8b-Cg-fNT" column="G77-vm-lLm" headOfMergedCell="0f5-xS-mU0" id="1hW-2e-bhJ"/>
                                     <gridCell row="s2c-Da-31t" column="yzj-33-8pi" id="cdT-ev-Par">
                                         <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="t0c-Ea-Ouf">
-                                            <rect key="frame" x="-2" y="307" width="373" height="17"/>
+                                            <rect key="frame" x="-2" y="307" width="336" height="17"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="/path/to/Bookmarks.plist" id="SfT-Tk-zOt">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -143,11 +143,14 @@
                                     </gridCell>
                                     <gridCell row="s2c-Da-31t" column="G77-vm-lLm" id="Fvn-Zm-hFg">
                                         <button key="contentView" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pLG-gs-ED3">
-                                            <rect key="frame" x="373" y="297" width="135" height="32"/>
+                                            <rect key="frame" x="336" y="297" width="172" height="32"/>
                                             <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="T1k-iA-XbA">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="changeBookmarksPathAction:" target="XfG-lQ-9wD" id="3cF-fS-12u"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="nll-CA-9ep" column="yzj-33-8pi" headOfMergedCell="o2K-S5-6x9" id="o2K-S5-6x9">
@@ -180,7 +183,7 @@
                                     <gridCell row="yze-V1-Fsa" column="G77-vm-lLm" headOfMergedCell="dX2-S7-pB0" id="jl0-wY-zH6"/>
                                     <gridCell row="a3Y-2m-VKH" column="yzj-33-8pi" id="kFB-6q-Cwa">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SCb-yU-5z3">
-                                            <rect key="frame" x="-2" y="187" width="373" height="17"/>
+                                            <rect key="frame" x="-2" y="187" width="336" height="17"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Authorization" id="n2x-vt-4bQ">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -190,16 +193,19 @@
                                     </gridCell>
                                     <gridCell row="a3Y-2m-VKH" column="G77-vm-lLm" id="J4x-BO-EEZ">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-Bn-obf">
-                                            <rect key="frame" x="373" y="177" width="135" height="32"/>
+                                            <rect key="frame" x="336" y="177" width="172" height="32"/>
                                             <buttonCell key="cell" type="push" title="Authorize" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P8U-mj-GRz">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="authorizeCalendarAction:" target="XfG-lQ-9wD" id="cr9-Zf-vzo"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="pFm-sT-hok" column="yzj-33-8pi" id="GZ3-cv-2dX">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j1y-Ds-R03">
-                                            <rect key="frame" x="-2" y="155" width="373" height="17"/>
+                                            <rect key="frame" x="-2" y="155" width="336" height="17"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Selected calendar" id="Yjw-vW-7cO">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -209,18 +215,21 @@
                                     </gridCell>
                                     <gridCell row="pFm-sT-hok" column="G77-vm-lLm" id="fzR-gQ-j1m">
                                         <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zVU-kx-ejC">
-                                            <rect key="frame" x="376" y="150" width="129" height="25"/>
-                                            <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" pullsDown="YES" selectedItem="Brf-yf-5be" id="wwQ-co-m1n">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <rect key="frame" x="340" y="150" width="165" height="25"/>
+                                            <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="Brf-yf-5be" id="wwQ-co-m1n">
+                                                <behavior key="behavior" lightByContents="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="Jem-sC-iOP">
                                                     <items>
-                                                        <menuItem title="Item 1" state="on" hidden="YES" id="Brf-yf-5be"/>
+                                                        <menuItem title="Item 1" state="on" id="Brf-yf-5be"/>
                                                         <menuItem title="Item 2" id="9ba-4Y-2E9"/>
                                                         <menuItem title="Item 3" id="hSt-WG-gg1"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
+                                            <connections>
+                                                <action selector="calendarSelectionAction:" target="XfG-lQ-9wD" id="qT9-pa-kM7"/>
+                                            </connections>
                                         </popUpButton>
                                     </gridCell>
                                     <gridCell row="pow-gu-WhP" column="yzj-33-8pi" headOfMergedCell="P9m-v6-R0V" id="P9m-v6-R0V">
@@ -242,7 +251,7 @@
                                     <gridCell row="miU-d9-GUP" column="G77-vm-lLm" headOfMergedCell="FLF-0o-No8" id="jhV-l9-r60"/>
                                     <gridCell row="E5X-ym-32I" column="yzj-33-8pi" id="gri-kd-zFo">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1As-Ol-284">
-                                            <rect key="frame" x="-2" y="63" width="373" height="17"/>
+                                            <rect key="frame" x="-2" y="63" width="336" height="17"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Last sync: Wed 27 Feb 2019 02.30" id="D99-4n-re9">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -252,7 +261,7 @@
                                     </gridCell>
                                     <gridCell row="E5X-ym-32I" column="G77-vm-lLm" id="nri-cD-gaI">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rAD-tH-pPy">
-                                            <rect key="frame" x="373" y="53" width="135" height="32"/>
+                                            <rect key="frame" x="336" y="53" width="172" height="32"/>
                                             <buttonCell key="cell" type="push" title="Synchronize" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gUo-eC-6lL">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -260,6 +269,9 @@
 DQ
 </string>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="synchronizeAction:" target="XfG-lQ-9wD" id="H4t-W2-UOm"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="iVm-EI-qot" column="yzj-33-8pi" headOfMergedCell="rf2-VR-J8J" id="rf2-VR-J8J">
@@ -278,6 +290,18 @@ DQ
                             <constraint firstItem="FHb-IZ-sQG" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="zRD-vW-Pcw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bookmarksPathButton" destination="pLG-gs-ED3" id="kpb-Rw-9Ql"/>
+                        <outlet property="bookmarksPathField" destination="t0c-Ea-Ouf" id="ed9-8x-3ZC"/>
+                        <outlet property="bookmarksStatusField" destination="eAf-me-hd0" id="ke1-Ip-Qvs"/>
+                        <outlet property="calendarAuthButton" destination="LtZ-Bn-obf" id="0Cn-6l-aGr"/>
+                        <outlet property="calendarAuthField" destination="SCb-yU-5z3" id="NZi-z4-gON"/>
+                        <outlet property="calendarSelectionButton" destination="zVU-kx-ejC" id="crO-dH-FMT"/>
+                        <outlet property="calendarSelectionField" destination="j1y-Ds-R03" id="UcA-k8-nhu"/>
+                        <outlet property="progressIndicator" destination="rCe-dy-RsZ" id="axR-n9-3PH"/>
+                        <outlet property="statusField" destination="1As-Ol-284" id="a9B-0u-acg"/>
+                        <outlet property="synchronizeButton" destination="rAD-tH-pPy" id="BRf-La-4Cv"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
