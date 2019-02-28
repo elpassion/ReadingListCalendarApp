@@ -2,6 +2,8 @@ import AppKit
 
 class MainViewController: NSViewController {
 
+    var fileOpener: FileOpening!
+
     @IBOutlet private weak var bookmarksPathField: NSTextField!
     @IBOutlet private weak var bookmarksPathButton: NSButton!
     @IBOutlet private weak var bookmarksStatusField: NSTextField!
