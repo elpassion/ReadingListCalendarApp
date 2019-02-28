@@ -134,6 +134,10 @@
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="bookmarksPathField"/>
                                         </textField>
                                     </gridCell>
                                     <gridCell row="s2c-Da-31t" column="G77-vm-lLm" id="Fvn-Zm-hFg">
@@ -143,6 +147,10 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="bookmarksPathButton"/>
                                         </button>
                                     </gridCell>
                                     <gridCell row="nll-CA-9ep" column="yzj-33-8pi" headOfMergedCell="o2K-S5-6x9" id="o2K-S5-6x9">
@@ -153,6 +161,10 @@
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="bookmarksStatusField"/>
                                         </textField>
                                     </gridCell>
                                     <gridCell row="nll-CA-9ep" column="G77-vm-lLm" headOfMergedCell="o2K-S5-6x9" id="Zx6-20-WzJ"/>
@@ -181,6 +193,10 @@
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="calendarAuthField"/>
                                         </textField>
                                     </gridCell>
                                     <gridCell row="a3Y-2m-VKH" column="G77-vm-lLm" id="J4x-BO-EEZ">
@@ -190,6 +206,10 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="calendarAuthButton"/>
                                         </button>
                                     </gridCell>
                                     <gridCell row="pFm-sT-hok" column="yzj-33-8pi" id="GZ3-cv-2dX">
@@ -200,6 +220,10 @@
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="calendarSelectionField"/>
                                         </textField>
                                     </gridCell>
                                     <gridCell row="pFm-sT-hok" column="G77-vm-lLm" id="fzR-gQ-j1m">
@@ -216,6 +240,10 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="calendarSelectionButton"/>
                                         </popUpButton>
                                     </gridCell>
                                     <gridCell row="pow-gu-WhP" column="yzj-33-8pi" headOfMergedCell="P9m-v6-R0V" id="P9m-v6-R0V">
@@ -243,6 +271,10 @@
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="statusField"/>
                                         </textField>
                                     </gridCell>
                                     <gridCell row="E5X-ym-32I" column="G77-vm-lLm" id="nri-cD-gaI">
@@ -255,11 +287,19 @@
 DQ
 </string>
                                             </buttonCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="synchronizeButton"/>
                                         </button>
                                     </gridCell>
                                     <gridCell row="iVm-EI-qot" column="yzj-33-8pi" headOfMergedCell="rf2-VR-J8J" id="rf2-VR-J8J">
                                         <progressIndicator key="contentView" wantsLayer="YES" maxValue="100" doubleValue="33" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="rCe-dy-RsZ">
                                             <rect key="frame" x="0.0" y="-1" width="502" height="42"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <accessibility identifier="progressIndicator"/>
                                         </progressIndicator>
                                     </gridCell>
                                     <gridCell row="iVm-EI-qot" column="G77-vm-lLm" headOfMergedCell="rf2-VR-J8J" id="Dym-gf-ClX"/>
