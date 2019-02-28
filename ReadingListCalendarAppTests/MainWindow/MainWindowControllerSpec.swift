@@ -54,7 +54,5 @@ class MainWindowControllerSpec: QuickSpec {
 }
 
 private class FileOpeningDouble: FileOpening {
-    func openFile(title: String, ext: String, url: URL?, completion: @escaping (URL?) -> Void) {
-
-    }
+    func openFile(title: String, ext: String, url: URL?, completion: @escaping (URL?) -> Void) {}
 }
