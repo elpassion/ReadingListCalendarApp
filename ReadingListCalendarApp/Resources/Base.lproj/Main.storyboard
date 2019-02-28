@@ -129,7 +129,7 @@
                                     <gridCell row="s2c-Da-31t" column="yzj-33-8pi" id="cdT-ev-Par">
                                         <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="t0c-Ea-Ouf">
                                             <rect key="frame" x="-2" y="307" width="336" height="17"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="/path/to/Bookmarks.plist" id="SfT-Tk-zOt">
+                                            <textFieldCell key="cell" lineBreakMode="truncatingMiddle" title="/path/to/Bookmarks.plist" id="SfT-Tk-zOt">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
