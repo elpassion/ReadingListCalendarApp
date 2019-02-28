@@ -19,6 +19,9 @@
 		31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E2F2227551A00522D23 /* NSOpenPanel+FileOpening.swift */; };
 		31140E322227552300522D23 /* FileOpening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E312227552300522D23 /* FileOpening.swift */; };
 		31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3722275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift */; };
+		31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3A222760FF00522D23 /* FileBookmarking.swift */; };
+		31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3C222762AC00522D23 /* UserDefaults+FileBookmarking.swift */; };
+		31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */; };
 		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
@@ -64,6 +67,9 @@
 		31140E2F2227551A00522D23 /* NSOpenPanel+FileOpening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+FileOpening.swift"; sourceTree = "<group>"; };
 		31140E312227552300522D23 /* FileOpening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpening.swift; sourceTree = "<group>"; };
 		31140E3722275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOpenPanelFileOpeningSpec.swift; sourceTree = "<group>"; };
+		31140E3A222760FF00522D23 /* FileBookmarking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarking.swift; sourceTree = "<group>"; };
+		31140E3C222762AC00522D23 /* UserDefaults+FileBookmarking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+FileBookmarking.swift"; sourceTree = "<group>"; };
+		31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFileBookmarkingSpec.swift; sourceTree = "<group>"; };
 		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313DBD7422257144003B0242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +179,23 @@
 			path = FileOpener;
 			sourceTree = "<group>";
 		};
+		31140E39222760E800522D23 /* FileBookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				31140E3A222760FF00522D23 /* FileBookmarking.swift */,
+				31140E3C222762AC00522D23 /* UserDefaults+FileBookmarking.swift */,
+			);
+			path = FileBookmarks;
+			sourceTree = "<group>";
+		};
+		31140E3E222762CD00522D23 /* FileBookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */,
+			);
+			path = FileBookmarks;
+			sourceTree = "<group>";
+		};
 		313DBD6822257144003B0242 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +220,7 @@
 			children = (
 				318732EF2226F53B009F5289 /* .swiftlint.yml */,
 				31140E2722274C4900522D23 /* Application */,
+				31140E39222760E800522D23 /* FileBookmarks */,
 				31140E2E2227550B00522D23 /* FileOpener */,
 				31140E2922274D0300522D23 /* MainWindow */,
 				31140E2822274C6B00522D23 /* Resources */,
@@ -209,6 +233,7 @@
 			children = (
 				318732F02226F552009F5289 /* .swiftlint.yml */,
 				31140E2A22274D3E00522D23 /* Application */,
+				31140E3E222762CD00522D23 /* FileBookmarks */,
 				31140E36222759F300522D23 /* FileOpener */,
 				31140E2B22274D5100522D23 /* MainWindow */,
 				31140E2D22274DC100522D23 /* Resources */,
@@ -372,10 +397,12 @@
 				318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */,
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
+				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				31140E112227279400522D23 /* MainWindowController.swift in Sources */,
 				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
 				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
+				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +412,7 @@
 			files = (
 				31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */,
 				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
+				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
