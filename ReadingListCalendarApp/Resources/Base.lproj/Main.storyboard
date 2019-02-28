@@ -287,7 +287,6 @@ DQ
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="epS-BT-Mea" customClass="FileOpener" customModule="ReadingListCalendarApp" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="75" y="731.5"/>
         </scene>
