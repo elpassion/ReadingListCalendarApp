@@ -41,6 +41,7 @@
 		319BCFA02228620400CD4D14 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8B2228602C00CD4D14 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319BCFA12228620400CD4D14 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF882228602C00CD4D14 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */; };
+		319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */; };
 		31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,7 @@
 		319BCF9B222860DF00CD4D14 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/Mac/RxSwift.framework.dSYM; sourceTree = "<group>"; };
 		319BCF9C222860DF00CD4D14 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
 		319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Rx.swift"; sourceTree = "<group>"; };
+		319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
 		31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityElement.swift"; sourceTree = "<group>"; };
 		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		31E106802226FA1E00703714 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		31140E2B22274D5100522D23 /* MainWindow */ = {
 			isa = PBXGroup;
 			children = (
+				319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */,
 				31140E1622272B8300522D23 /* MainWindowControllerSpec.swift */,
 			);
 			path = MainWindow;
@@ -486,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */,
+				319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */,
 				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
 				31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */,
 				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,

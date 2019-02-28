@@ -1,8 +1,12 @@
 import AppKit
+import RxCocoa
+import RxSwift
 
 class MainViewController: NSViewController {
 
     var fileOpener: FileOpening!
+
+    // MARK: View
 
     @IBOutlet private weak var bookmarksPathField: NSTextField!
     @IBOutlet private weak var bookmarksPathButton: NSButton!
@@ -14,5 +18,36 @@ class MainViewController: NSViewController {
     @IBOutlet private weak var statusField: NSTextField!
     @IBOutlet private weak var synchronizeButton: NSButton!
     @IBOutlet private weak var progressIndicator: NSProgressIndicator!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupBindings()
+    }
+
+    // MARK: Priavte
+
+    private let bookmarksUrl = BehaviorRelay<URL?>(value: nil)
+    private let disposeBag = DisposeBag()
+
+    private func setupBindings() {
+        bookmarksUrl.asDriver()
+            .map { $0?.absoluteString }
+            .drive(bookmarksPathField.rx.text)
+            .disposed(by: disposeBag)
+
+        bookmarksPathButton.rx.tap.asDriver()
+            .flatMapFirst { [unowned self] in
+                self.openBookmarksFile().asDriver(onErrorDriveWith: .empty())
+            }
+            .drive(bookmarksUrl)
+            .disposed(by: disposeBag)
+    }
+
+    private func openBookmarksFile() -> Maybe<URL> {
+        let title = "Open Bookmarks.plist file"
+        let ext = "plist"
+        let url = URL(fileURLWithPath: "/Users/\(NSUserName())/Library/Safari/Bookmarks.plist")
+        return fileOpener.rx_openFile(title: title, ext: ext, url: url)
+    }
 
 }
