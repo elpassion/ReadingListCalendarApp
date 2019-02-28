@@ -7,6 +7,7 @@ class MainViewControllerSpec: QuickSpec {
         context("instantiate") {
             var sut: MainViewController?
             var fileOpener: FileOpeningDouble!
+            var fileBookmarks: FileBookmarkingDouble!
 
             beforeEach {
                 let bundle = Bundle(for: MainViewController.self)
@@ -15,7 +16,8 @@ class MainViewControllerSpec: QuickSpec {
                 sut = storyboard.instantiateController(withIdentifier: identifier) as? MainViewController
                 _ = sut?.view
                 fileOpener = FileOpeningDouble()
-                sut?.setUp(fileOpener: fileOpener)
+                fileBookmarks = FileBookmarkingDouble()
+                sut?.setUp(fileOpener: fileOpener, fileBookmarks: fileBookmarks)
             }
 
             it("should not be nil") {
@@ -91,4 +93,11 @@ private class FileOpeningDouble: FileOpening {
         didBeginOpeningFileWithURL = url
         openFileCompletion = completion
     }
+}
+
+private class FileBookmarkingDouble: FileBookmarking {
+    private(set) var urls = [String: URL]()
+
+    func setFileURL(_ url: URL?, forKey key: String) throws { urls[key] = url }
+    func fileURL(forKey key: String) throws -> URL? { return urls[key] }
 }

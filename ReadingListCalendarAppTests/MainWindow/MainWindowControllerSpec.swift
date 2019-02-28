@@ -15,13 +15,20 @@ class MainWindowControllerSpec: QuickSpec {
                 expect(factory.fileOpener).to(beAnInstanceOf(type(of: NSOpenPanel())))
             }
 
+            it("should have correct file bookmarks") {
+                expect(factory.fileBookmarks) === UserDefaults.standard
+            }
+
             context("create") {
                 var sut: MainWindowController?
                 var fileOpener: FileOpeningDouble!
+                var fileBookmarks: FileBookmarkingDouble!
 
                 beforeEach {
                     fileOpener = FileOpeningDouble()
                     factory.fileOpener = fileOpener
+                    fileBookmarks = FileBookmarkingDouble()
+                    factory.fileBookmarks = fileBookmarks
                     sut = factory.create() as? MainWindowController
                 }
 
@@ -47,6 +54,10 @@ class MainWindowControllerSpec: QuickSpec {
                     it("should have correct file opener") {
                         expect(mainViewController?.fileOpener) === fileOpener
                     }
+
+                    it("should have correct file bookmarks") {
+                        expect(factory.fileBookmarks) === fileBookmarks
+                    }
                 }
             }
         }
@@ -55,4 +66,9 @@ class MainWindowControllerSpec: QuickSpec {
 
 private class FileOpeningDouble: FileOpening {
     func openFile(title: String, ext: String, url: URL?, completion: @escaping (URL?) -> Void) {}
+}
+
+private class FileBookmarkingDouble: FileBookmarking {
+    func setFileURL(_ url: URL?, forKey key: String) throws { }
+    func fileURL(forKey key: String) throws -> URL? { return nil }
 }

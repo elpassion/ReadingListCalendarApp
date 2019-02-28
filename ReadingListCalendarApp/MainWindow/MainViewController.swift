@@ -5,9 +5,11 @@ import RxSwift
 class MainViewController: NSViewController {
 
     private(set) var fileOpener: FileOpening!
+    private(set) var fileBookmarks: FileBookmarking!
 
-    func setUp(fileOpener: FileOpening) {
+    func setUp(fileOpener: FileOpening, fileBookmarks: FileBookmarking) {
         self.fileOpener = fileOpener
+        self.fileBookmarks = fileBookmarks
         setUpBindings()
     }
 
