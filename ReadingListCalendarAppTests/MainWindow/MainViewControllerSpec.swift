@@ -13,9 +13,9 @@ class MainViewControllerSpec: QuickSpec {
                 let storyboard = NSStoryboard(name: "Main", bundle: bundle)
                 let identifier = "MainViewController"
                 sut = storyboard.instantiateController(withIdentifier: identifier) as? MainViewController
-
+                _ = sut?.view
                 fileOpener = FileOpeningDouble()
-                sut?.fileOpener = fileOpener
+                sut?.setUp(fileOpener: fileOpener)
             }
 
             it("should not be nil") {

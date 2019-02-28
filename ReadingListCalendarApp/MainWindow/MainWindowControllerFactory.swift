@@ -8,7 +8,7 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
         let identifier = "MainWindowController"
         // swiftlint:disable:next force_cast
         let controller = storyboard.instantiateController(withIdentifier: identifier) as! MainWindowController
-        controller.mainViewController.fileOpener = fileOpener
+        controller.mainViewController.setUp(fileOpener: fileOpener)
         return controller
     }
 }

@@ -4,7 +4,12 @@ import RxSwift
 
 class MainViewController: NSViewController {
 
-    var fileOpener: FileOpening!
+    private(set) var fileOpener: FileOpening!
+
+    func setUp(fileOpener: FileOpening) {
+        self.fileOpener = fileOpener
+        setUpBindings()
+    }
 
     // MARK: View
 
@@ -19,17 +24,12 @@ class MainViewController: NSViewController {
     @IBOutlet private weak var synchronizeButton: NSButton!
     @IBOutlet private weak var progressIndicator: NSProgressIndicator!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupBindings()
-    }
-
     // MARK: Priavte
 
     private let bookmarksUrl = BehaviorRelay<URL?>(value: nil)
     private let disposeBag = DisposeBag()
 
-    private func setupBindings() {
+    private func setUpBindings() {
         bookmarksUrl.asDriver()
             .map { $0?.absoluteString }
             .drive(bookmarksPathField.rx.text)
