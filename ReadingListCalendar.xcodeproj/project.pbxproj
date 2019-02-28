@@ -40,6 +40,7 @@
 		319BCF9F222860F100CD4D14 /* RxSwift.framework.dSYM in Copy Framework dSYMs */ = {isa = PBXBuildFile; fileRef = 319BCF9B222860DF00CD4D14 /* RxSwift.framework.dSYM */; };
 		319BCFA02228620400CD4D14 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8B2228602C00CD4D14 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319BCFA12228620400CD4D14 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF882228602C00CD4D14 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		319BCF9A222860DF00CD4D14 /* RxAtomic.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxAtomic.framework.dSYM; path = Carthage/Build/Mac/RxAtomic.framework.dSYM; sourceTree = "<group>"; };
 		319BCF9B222860DF00CD4D14 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/Mac/RxSwift.framework.dSYM; sourceTree = "<group>"; };
 		319BCF9C222860DF00CD4D14 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
+		319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Rx.swift"; sourceTree = "<group>"; };
 		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		31E106802226FA1E00703714 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		31E106812226FA1F00703714 /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/Mac/SnapshotTesting.framework; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				31140E312227552300522D23 /* FileOpening.swift */,
+				319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */,
 				31140E2F2227551A00522D23 /* NSOpenPanel+FileOpening.swift */,
 			);
 			path = FileOpener;
@@ -456,6 +459,7 @@
 				313DBD7522257144003B0242 /* AppDelegate.swift in Sources */,
 				318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */,
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
+				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
