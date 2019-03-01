@@ -6,10 +6,14 @@ class MainViewController: NSViewController {
 
     private(set) var fileOpener: FileOpening!
     private(set) var fileBookmarks: FileBookmarking!
+    private(set) var fileReadability: FileReadablity!
 
-    func setUp(fileOpener: FileOpening, fileBookmarks: FileBookmarking) {
+    func setUp(fileOpener: FileOpening,
+               fileBookmarks: FileBookmarking,
+               fileReadability: FileReadablity) {
         self.fileOpener = fileOpener
         self.fileBookmarks = fileBookmarks
+        self.fileReadability = fileReadability
         setUpBindings()
     }
 
@@ -50,6 +54,13 @@ class MainViewController: NSViewController {
         bookmarksPathButton.rx.tap.asDriver()
             .flatMapFirst(fileOpener.rx_openBookmarksFile >>> asDriver(onErrorDriveWith: .empty()))
             .drive(bookmarksUrl)
+            .disposed(by: disposeBag)
+
+        bookmarksUrl.asDriver()
+            .unwrap()
+            .map(fileReadability.isReadableFile(atURL:))
+            .map { $0 ? "✓ Bookmarks.plist file is set and readable" : "❌ Bookmarks.plist file is not readable" }
+            .drive(bookmarksStatusField.rx.text)
             .disposed(by: disposeBag)
     }
 

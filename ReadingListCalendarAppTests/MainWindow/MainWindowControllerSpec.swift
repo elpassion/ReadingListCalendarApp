@@ -20,16 +20,23 @@ class MainWindowControllerSpec: QuickSpec {
                 expect(factory.fileBookmarks) === UserDefaults.standard
             }
 
+            it("should have correct file readability") {
+                expect(factory.fileReadability) === FileManager.default
+            }
+
             context("create") {
                 var sut: MainWindowController?
                 var fileOpener: FileOpeningDouble!
                 var fileBookmarks: FileBookmarkingDouble!
+                var fileReadability: FileReadabilityDouble!
 
                 beforeEach {
                     fileOpener = FileOpeningDouble()
                     factory.fileOpener = fileOpener
                     fileBookmarks = FileBookmarkingDouble()
                     factory.fileBookmarks = fileBookmarks
+                    fileReadability = FileReadabilityDouble()
+                    factory.fileReadability = fileReadability
                     sut = factory.create() as? MainWindowController
                 }
 
@@ -57,7 +64,11 @@ class MainWindowControllerSpec: QuickSpec {
                     }
 
                     it("should have correct file bookmarks") {
-                        expect(factory.fileBookmarks) === fileBookmarks
+                        expect(mainViewController?.fileBookmarks) === fileBookmarks
+                    }
+
+                    it("should have correct file readability") {
+                        expect(mainViewController?.fileReadability) === fileReadability
                     }
                 }
             }
@@ -72,4 +83,8 @@ private class FileOpeningDouble: FileOpening {
 private class FileBookmarkingDouble: FileBookmarking {
     func fileURL(forKey key: String) -> Single<URL?> { return .just(nil) }
     func setFileURL(_ url: URL?, forKey key: String) -> Completable { return .empty() }
+}
+
+private class FileReadabilityDouble: FileReadablity {
+    func isReadableFile(atPath path: String) -> Bool { return false }
 }

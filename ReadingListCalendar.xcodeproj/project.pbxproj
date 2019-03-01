@@ -28,6 +28,10 @@
 		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
 		314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; };
 		314A86B32226FD0000B73B69 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106812226FA1F00703714 /* SnapshotTesting.framework */; };
+		31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAB22296C6300B0BCD0 /* FileReadablity.swift */; };
+		31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */; };
+		31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */; };
+		31741EB222296CF500B0BCD0 /* Driver+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB122296CF500B0BCD0 /* Driver+Unwrap.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 		319BCF8C2228605100CD4D14 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8A2228602C00CD4D14 /* RxAtomic.framework */; };
 		319BCF8D2228605100CD4D14 /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8A2228602C00CD4D14 /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -123,6 +127,10 @@
 		313DBD7622257145003B0242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		313DBD7B22257145003B0242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadingListCalendarApp.entitlements; sourceTree = "<group>"; };
+		31741EAB22296C6300B0BCD0 /* FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadablity.swift; sourceTree = "<group>"; };
+		31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+FileReadablity.swift"; sourceTree = "<group>"; };
+		31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadablity+URL.swift"; sourceTree = "<group>"; };
+		31741EB122296CF500B0BCD0 /* Driver+Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Unwrap.swift"; sourceTree = "<group>"; };
 		318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListCalendarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		318732E72226F3D5009F5289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -292,11 +300,22 @@
 				31140E2722274C4900522D23 /* Application */,
 				31140E39222760E800522D23 /* FileBookmarks */,
 				31140E2E2227550B00522D23 /* FileOpener */,
+				31741EAA22296C4600B0BCD0 /* FileReadablity */,
 				31E05AF92228B3B90011A1CA /* Helpers */,
 				31140E2922274D0300522D23 /* MainWindow */,
 				31140E2822274C6B00522D23 /* Resources */,
 			);
 			path = ReadingListCalendarApp;
+			sourceTree = "<group>";
+		};
+		31741EAA22296C4600B0BCD0 /* FileReadablity */ = {
+			isa = PBXGroup;
+			children = (
+				31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */,
+				31741EAB22296C6300B0BCD0 /* FileReadablity.swift */,
+				31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */,
+			);
+			path = FileReadablity;
 			sourceTree = "<group>";
 		};
 		318732E42226F3D5009F5289 /* ReadingListCalendarAppTests */ = {
@@ -325,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */,
+				31741EB122296CF500B0BCD0 /* Driver+Unwrap.swift */,
 				31E05AFA2228B3C90011A1CA /* FuncUtils.swift */,
 				31E05AFF2228BA9D0011A1CA /* MaybeAsDriver.swift */,
 			);
@@ -497,6 +517,7 @@
 				318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */,
 				31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */,
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
+				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
 				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
@@ -506,8 +527,11 @@
 				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
 				31E05AFE2228B9360011A1CA /* FileOpening+Bookmarks.swift in Sources */,
 				31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */,
+				31741EB222296CF500B0BCD0 /* Driver+Unwrap.swift in Sources */,
 				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
 				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
+				31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */,
+				31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */,
 				31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

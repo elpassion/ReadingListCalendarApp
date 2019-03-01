@@ -3,6 +3,7 @@ import AppKit
 struct MainWindowControllerFactory: MainWindowControllerCreating {
     var fileOpener: FileOpening = NSOpenPanel()
     var fileBookmarks: FileBookmarking = UserDefaults.standard
+    var fileReadability: FileReadablity = FileManager.default
 
     func create() -> NSWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -11,7 +12,8 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
         let controller = storyboard.instantiateController(withIdentifier: identifier) as! MainWindowController
         controller.mainViewController.setUp(
             fileOpener: fileOpener,
-            fileBookmarks: fileBookmarks
+            fileBookmarks: fileBookmarks,
+            fileReadability: fileReadability
         )
         return controller
     }

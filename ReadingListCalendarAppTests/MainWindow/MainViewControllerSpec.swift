@@ -28,12 +28,21 @@ class MainViewControllerSpec: QuickSpec {
                     fileOpener = FileOpeningDouble()
                     fileBookmarks = FileBookmarkingDouble()
                     fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "bookmarks_file_url")
-                    sut?.setUp(fileOpener: fileOpener, fileBookmarks: fileBookmarks)
+                    sut?.setUp(
+                        fileOpener: fileOpener,
+                        fileBookmarks: fileBookmarks,
+                        fileReadability: FileManager.default
+                    )
                 }
 
                 it("should have correct bookmarks path") {
                     expect(sut?.bookmarksPathField.stringValue)
                         == fileBookmarks.urls["bookmarks_file_url"]!.absoluteString
+                }
+
+                it("should have correct bookmarks status") {
+                    expect(sut?.bookmarksStatusField.stringValue)
+                        == "❌ Bookmarks.plist file is not readable"
                 }
 
                 context("click bookmarks path button") {
@@ -53,12 +62,17 @@ class MainViewControllerSpec: QuickSpec {
                         var url: URL!
 
                         beforeEach {
-                            url = URL(fileURLWithPath: "/tmp/Bookmarks.plist")
+                            url = URL(fileURLWithPath: "/tmp")
                             fileOpener.openFileCompletion?(url)
                         }
 
                         it("should have correct bookmarks path") {
                             expect(sut?.bookmarksPathField.stringValue) == url.absoluteString
+                        }
+
+                        it("should have correct bookmarks status") {
+                            expect(sut?.bookmarksStatusField.stringValue)
+                                == "✓ Bookmarks.plist file is set and readable"
                         }
 
                         it("should save bookmarks file url") {
@@ -86,7 +100,11 @@ class MainViewControllerSpec: QuickSpec {
 
             context("set up without stored bookmarks path") {
                 beforeEach {
-                    sut?.setUp(fileOpener: FileOpeningDouble(), fileBookmarks: FileBookmarkingDouble())
+                    sut?.setUp(
+                        fileOpener: FileOpeningDouble(),
+                        fileBookmarks: FileBookmarkingDouble(),
+                        fileReadability: FileManager.default
+                    )
                 }
 
                 it("should have correct bookmarks path message") {
@@ -100,6 +118,7 @@ class MainViewControllerSpec: QuickSpec {
 private extension MainViewController {
     var bookmarksPathField: NSTextField! { return view.accessibilityElement(id: #function) }
     var bookmarksPathButton: NSButton! { return view.accessibilityElement(id: #function) }
+    var bookmarksStatusField: NSTextField! { return view.accessibilityElement(id: #function) }
 }
 
 private class FileOpeningDouble: FileOpening {
