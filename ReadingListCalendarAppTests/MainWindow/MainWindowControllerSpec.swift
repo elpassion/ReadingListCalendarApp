@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import RxSwift
 @testable import ReadingListCalendarApp
 
 class MainWindowControllerSpec: QuickSpec {
@@ -69,6 +70,6 @@ private class FileOpeningDouble: FileOpening {
 }
 
 private class FileBookmarkingDouble: FileBookmarking {
-    func setFileURL(_ url: URL?, forKey key: String) throws { }
-    func fileURL(forKey key: String) throws -> URL? { return nil }
+    func fileURL(forKey key: String) -> Single<URL?> { return .just(nil) }
+    func setFileURL(_ url: URL?, forKey key: String) -> Completable { return .empty() }
 }

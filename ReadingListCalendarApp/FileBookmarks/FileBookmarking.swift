@@ -1,6 +1,7 @@
 import Foundation
+import RxSwift
 
 protocol FileBookmarking {
-    func setFileURL(_ url: URL?, forKey key: String) throws
-    func fileURL(forKey key: String) throws -> URL?
+    func fileURL(forKey key: String) -> Single<URL?>
+    func setFileURL(_ url: URL?, forKey key: String) -> Completable
 }
