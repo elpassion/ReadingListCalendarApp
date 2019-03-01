@@ -43,6 +43,7 @@
 		319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */; };
 		319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */; };
 		31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */; };
+		31E05AFE2228B9360011A1CA /* FileOpening+Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFD2228B9360011A1CA /* FileOpening+Bookmarks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Rx.swift"; sourceTree = "<group>"; };
 		319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
 		31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityElement.swift"; sourceTree = "<group>"; };
+		31E05AFD2228B9360011A1CA /* FileOpening+Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Bookmarks.swift"; sourceTree = "<group>"; };
 		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		31E106802226FA1E00703714 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		31E106812226FA1F00703714 /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/Mac/SnapshotTesting.framework; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				31140E312227552300522D23 /* FileOpening.swift */,
+				31E05AFD2228B9360011A1CA /* FileOpening+Bookmarks.swift */,
 				319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */,
 				31140E2F2227551A00522D23 /* NSOpenPanel+FileOpening.swift */,
 			);
@@ -479,6 +482,7 @@
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				31140E112227279400522D23 /* MainWindowController.swift in Sources */,
 				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
+				31E05AFE2228B9360011A1CA /* FileOpening+Bookmarks.swift in Sources */,
 				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
 				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
 			);

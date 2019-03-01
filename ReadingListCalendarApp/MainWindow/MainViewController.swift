@@ -39,17 +39,10 @@ class MainViewController: NSViewController {
 
         bookmarksPathButton.rx.tap.asDriver()
             .flatMapFirst { [unowned self] in
-                self.openBookmarksFile().asDriver(onErrorDriveWith: .empty())
+                self.fileOpener.rx_openBookmarksFile().asDriver(onErrorDriveWith: .empty())
             }
             .drive(bookmarksUrl)
             .disposed(by: disposeBag)
-    }
-
-    private func openBookmarksFile() -> Maybe<URL> {
-        let title = "Open Bookmarks.plist file"
-        let ext = "plist"
-        let url = URL(fileURLWithPath: "/Users/\(NSUserName())/Library/Safari/Bookmarks.plist")
-        return fileOpener.rx_openFile(title: title, ext: ext, url: url)
     }
 
 }
