@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import RxSwift
+import EventKit
 @testable import ReadingListCalendarApp
 
 class MainViewControllerSpec: QuickSpec {
@@ -23,15 +24,18 @@ class MainViewControllerSpec: QuickSpec {
             context("set up with stored bookmarks path") {
                 var fileOpener: FileOpeningDouble!
                 var fileBookmarks: FileBookmarkingDouble!
+                var calendarAuthorizer: CalendarAuthorizingDouble!
 
                 beforeEach {
                     fileOpener = FileOpeningDouble()
                     fileBookmarks = FileBookmarkingDouble()
                     fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "bookmarks_file_url")
+                    calendarAuthorizer = CalendarAuthorizingDouble()
                     sut?.setUp(
                         fileOpener: fileOpener,
                         fileBookmarks: fileBookmarks,
-                        fileReadability: FileManager.default
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: calendarAuthorizer
                     )
                 }
 
@@ -71,8 +75,7 @@ class MainViewControllerSpec: QuickSpec {
                         }
 
                         it("should have correct bookmarks status") {
-                            expect(sut?.bookmarksStatusField.stringValue)
-                                == "✓ Bookmarks.plist file is set and readable"
+                            expect(sut?.bookmarksStatusField.stringValue) == "✓ Bookmarks.plist file is set and readable"
                         }
 
                         it("should save bookmarks file url") {
@@ -103,17 +106,90 @@ class MainViewControllerSpec: QuickSpec {
                     sut?.setUp(
                         fileOpener: FileOpeningDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
-                        fileReadability: FileManager.default
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: CalendarAuthorizingDouble()
                     )
                 }
 
                 it("should have correct bookmarks path message") {
-                    expect(sut?.bookmarksPathField.stringValue)
-                        == "❌ Bookmarks.plist file is not set"
+                    expect(sut?.bookmarksPathField.stringValue) == "❌ Bookmarks.plist file is not set"
                 }
 
                 it("should have empty bookmarks status") {
                     expect(sut?.bookmarksStatusField.stringValue).to(beEmpty())
+                }
+            }
+
+            context("set up with calendar authorization not determined") {
+                var calendarAuthorizer: CalendarAuthorizingDouble!
+
+                beforeEach {
+                    calendarAuthorizer = CalendarAuthorizingDouble()
+                    CalendarAuthorizingDouble.authorizationStatusMock = .notDetermined
+                    sut?.setUp(
+                        fileOpener: FileOpeningDouble(),
+                        fileBookmarks: FileBookmarkingDouble(),
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: calendarAuthorizer
+                    )
+                }
+
+                it("should have correct calendar auth message") {
+                    expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access not determined"
+                }
+
+                context("click authorize button") {
+                    beforeEach {
+                        sut?.calendarAuthButton.performClick(nil)
+                    }
+
+                    it("should request access to calendar events") {
+                        expect(calendarAuthorizer.didRequestAccessToEntityType) == .event
+                    }
+
+                    context("when request is granted") {
+                        beforeEach {
+                            type(of: calendarAuthorizer).authorizationStatusMock = .authorized
+                            calendarAuthorizer.requestAccessCompletion?(true, nil)
+                        }
+
+                        it("should have correct calendar auth message") {
+                            expect(sut?.calendarAuthField.stringValue) == "✓ Callendar access authorized"
+                        }
+                    }
+
+                    context("when request is denied") {
+                        beforeEach {
+                            type(of: calendarAuthorizer).authorizationStatusMock = .denied
+                            calendarAuthorizer.requestAccessCompletion?(false, nil)
+                        }
+
+                        it("should have correct calendar auth message") {
+                            expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access denied"
+                        }
+                    }
+
+                    context("when authorization is restricted") {
+                        beforeEach {
+                            type(of: calendarAuthorizer).authorizationStatusMock = .restricted
+                            calendarAuthorizer.requestAccessCompletion?(false, nil)
+                        }
+
+                        it("should have correct calendar auth message") {
+                            expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access restricted"
+                        }
+                    }
+
+                    context("when request fails with error") {
+                        beforeEach {
+                            type(of: calendarAuthorizer).authorizationStatusMock = .restricted
+                            calendarAuthorizer.requestAccessCompletion?(false, NSError(domain: "", code: 1, userInfo: nil))
+                        }
+
+                        it("should have correct calendar auth message") {
+                            expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access not determined"
+                        }
+                    }
                 }
             }
         }
@@ -124,6 +200,8 @@ private extension MainViewController {
     var bookmarksPathField: NSTextField! { return view.accessibilityElement(id: #function) }
     var bookmarksPathButton: NSButton! { return view.accessibilityElement(id: #function) }
     var bookmarksStatusField: NSTextField! { return view.accessibilityElement(id: #function) }
+    var calendarAuthField: NSTextField! { return view.accessibilityElement(id: #function) }
+    var calendarAuthButton: NSButton! { return view.accessibilityElement(id: #function) }
 }
 
 private class FileOpeningDouble: FileOpening {
@@ -152,5 +230,20 @@ private class FileBookmarkingDouble: FileBookmarking {
     func setFileURL(_ url: URL?, forKey key: String) -> Completable {
         urls[key] = url
         return .empty()
+    }
+}
+
+private class CalendarAuthorizingDouble: CalendarAuthorizing {
+    static var authorizationStatusMock = EKAuthorizationStatus.notDetermined
+    private(set) var didRequestAccessToEntityType: EKEntityType?
+    private(set) var requestAccessCompletion: EKEventStoreRequestAccessCompletionHandler?
+
+    static func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus {
+        return authorizationStatusMock
+    }
+
+    func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
+        didRequestAccessToEntityType = entityType
+        requestAccessCompletion = completion
     }
 }

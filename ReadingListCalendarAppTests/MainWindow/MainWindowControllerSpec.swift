@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import RxSwift
+import EventKit
 @testable import ReadingListCalendarApp
 
 class MainWindowControllerSpec: QuickSpec {
@@ -24,11 +25,16 @@ class MainWindowControllerSpec: QuickSpec {
                 expect(factory.fileReadability) === FileManager.default
             }
 
+            it("should have correct calendar authorizer") {
+                expect(factory.calendarAuthorizer).to(beAKindOf(EKEventStore.self))
+            }
+
             context("create") {
                 var sut: MainWindowController?
                 var fileOpener: FileOpeningDouble!
                 var fileBookmarks: FileBookmarkingDouble!
                 var fileReadability: FileReadabilityDouble!
+                var calendarAuthorizer: CalendarAuthorizingDouble!
 
                 beforeEach {
                     fileOpener = FileOpeningDouble()
@@ -37,6 +43,8 @@ class MainWindowControllerSpec: QuickSpec {
                     factory.fileBookmarks = fileBookmarks
                     fileReadability = FileReadabilityDouble()
                     factory.fileReadability = fileReadability
+                    calendarAuthorizer = CalendarAuthorizingDouble()
+                    factory.calendarAuthorizer = calendarAuthorizer
                     sut = factory.create() as? MainWindowController
                 }
 
@@ -70,6 +78,10 @@ class MainWindowControllerSpec: QuickSpec {
                     it("should have correct file readability") {
                         expect(mainViewController?.fileReadability) === fileReadability
                     }
+
+                    it("should have correct calendar authorizer") {
+                        expect(factory.calendarAuthorizer) === calendarAuthorizer
+                    }
                 }
             }
         }
@@ -87,4 +99,9 @@ private class FileBookmarkingDouble: FileBookmarking {
 
 private class FileReadabilityDouble: FileReadablity {
     func isReadableFile(atPath path: String) -> Bool { return false }
+}
+
+private class CalendarAuthorizingDouble: CalendarAuthorizing {
+    static func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus { return .notDetermined }
+    func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler) {}
 }

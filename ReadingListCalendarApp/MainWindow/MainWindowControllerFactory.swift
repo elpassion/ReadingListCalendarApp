@@ -1,9 +1,11 @@
 import AppKit
+import EventKit
 
 struct MainWindowControllerFactory: MainWindowControllerCreating {
     var fileOpener: FileOpening = NSOpenPanel()
     var fileBookmarks: FileBookmarking = UserDefaults.standard
     var fileReadability: FileReadablity = FileManager.default
+    var calendarAuthorizer: CalendarAuthorizing = EKEventStore()
 
     func create() -> NSWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -13,7 +15,8 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
         controller.mainViewController.setUp(
             fileOpener: fileOpener,
             fileBookmarks: fileBookmarks,
-            fileReadability: fileReadability
+            fileReadability: fileReadability,
+            calendarAuthorizer: calendarAuthorizer
         )
         return controller
     }
