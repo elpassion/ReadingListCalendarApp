@@ -32,6 +32,16 @@ class MainViewController: NSViewController {
     private let disposeBag = DisposeBag()
 
     private func setUpBindings() {
+        fileBookmarks.bookmarksFileURL()
+            .asDriver(onErrorJustReturn: nil)
+            .drive(bookmarksUrl)
+            .disposed(by: disposeBag)
+
+        bookmarksUrl.asDriver().skip(1)
+            .flatMapLatest(fileBookmarks.setBookmarksFileURL >>> asDriverOnErrorComplete())
+            .drive()
+            .disposed(by: disposeBag)
+
         bookmarksUrl.asDriver()
             .map { $0?.absoluteString }
             .drive(bookmarksPathField.rx.text)

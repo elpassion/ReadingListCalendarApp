@@ -18,6 +18,7 @@ class MainViewControllerSpec: QuickSpec {
                 _ = sut?.view
                 fileOpener = FileOpeningDouble()
                 fileBookmarks = FileBookmarkingDouble()
+                fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "bookmarks_file_url")
                 sut?.setUp(fileOpener: fileOpener, fileBookmarks: fileBookmarks)
             }
 
@@ -25,8 +26,8 @@ class MainViewControllerSpec: QuickSpec {
                 expect(sut).notTo(beNil())
             }
 
-            it("should have empty bookmarks path") {
-                expect(sut?.bookmarksPathField.stringValue).to(beEmpty())
+            it("should have correct bookmarks path") {
+                expect(sut?.bookmarksPathField.stringValue) == fileBookmarks.urls["bookmarks_file_url"]!.absoluteString
             }
 
             context("click bookmarks path button") {
@@ -52,6 +53,10 @@ class MainViewControllerSpec: QuickSpec {
 
                     it("should have correct bookmarks path") {
                         expect(sut?.bookmarksPathField.stringValue) == url.absoluteString
+                    }
+
+                    it("should save bookmarks file url") {
+                        expect(fileBookmarks.urls["bookmarks_file_url"]) == url
                     }
 
                     context("click bookmarks path button") {
@@ -97,6 +102,14 @@ private class FileOpeningDouble: FileOpening {
 }
 
 private class FileBookmarkingDouble: FileBookmarking {
-    func fileURL(forKey key: String) -> Single<URL?> { return .just(nil) }
-    func setFileURL(_ url: URL?, forKey key: String) -> Completable { return .empty() }
+    var urls = [String: URL]()
+
+    func fileURL(forKey key: String) -> Single<URL?> {
+        return .just(urls[key])
+    }
+
+    func setFileURL(_ url: URL?, forKey key: String) -> Completable {
+        urls[key] = url
+        return .empty()
+    }
 }
