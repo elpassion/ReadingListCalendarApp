@@ -47,7 +47,7 @@ class MainViewController: NSViewController {
             .disposed(by: disposeBag)
 
         bookmarksUrl.asDriver()
-            .map { $0?.absoluteString ?? "Bookmarks.plist file not set" }
+            .map { $0?.absoluteString ?? "❌ Bookmarks.plist file is not set" }
             .drive(bookmarksPathField.rx.text)
             .disposed(by: disposeBag)
 

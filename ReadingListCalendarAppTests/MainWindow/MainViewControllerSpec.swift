@@ -108,7 +108,8 @@ class MainViewControllerSpec: QuickSpec {
                 }
 
                 it("should have correct bookmarks path message") {
-                    expect(sut?.bookmarksPathField.stringValue) == "Bookmarks.plist file not set"
+                    expect(sut?.bookmarksPathField.stringValue)
+                        == "❌ Bookmarks.plist file is not set"
                 }
             }
         }
