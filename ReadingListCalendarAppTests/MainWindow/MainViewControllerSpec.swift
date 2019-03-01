@@ -111,6 +111,10 @@ class MainViewControllerSpec: QuickSpec {
                     expect(sut?.bookmarksPathField.stringValue)
                         == "❌ Bookmarks.plist file is not set"
                 }
+
+                it("should have empty bookmarks status") {
+                    expect(sut?.bookmarksStatusField.stringValue).to(beEmpty())
+                }
             }
         }
     }

@@ -62,6 +62,12 @@ class MainViewController: NSViewController {
             .map { $0 ? "✓ Bookmarks.plist file is set and readable" : "❌ Bookmarks.plist file is not readable" }
             .drive(bookmarksStatusField.rx.text)
             .disposed(by: disposeBag)
+
+        bookmarksUrl.asDriver()
+            .filter { $0 == nil }
+            .map { _ in "" }
+            .drive(bookmarksStatusField.rx.text)
+            .disposed(by: disposeBag)
     }
 
 }
