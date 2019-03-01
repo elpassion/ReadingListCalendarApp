@@ -38,9 +38,7 @@ class MainViewController: NSViewController {
             .disposed(by: disposeBag)
 
         bookmarksPathButton.rx.tap.asDriver()
-            .flatMapFirst { [unowned self] in
-                self.fileOpener.rx_openBookmarksFile().asDriver(onErrorDriveWith: .empty())
-            }
+            .flatMapFirst(fileOpener.rx_openBookmarksFile >>> asDriver(onErrorDriveWith: .empty()))
             .drive(bookmarksUrl)
             .disposed(by: disposeBag)
     }
