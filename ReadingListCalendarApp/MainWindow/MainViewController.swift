@@ -1,3 +1,4 @@
+// swiftlint:disable file_length
 import AppKit
 import EventKit
 import RxCocoa
@@ -10,17 +11,21 @@ class MainViewController: NSViewController {
     private(set) var fileReadability: FileReadablity!
     private(set) var calendarAuthorizer: CalendarAuthorizing!
     private(set) var alertFactory: ModalAlertCreating!
+    private(set) var calendarsProvider: CalendarsProviding!
 
+    // swiftlint:disable:next function_parameter_count
     func setUp(fileOpenerFactory: FileOpenerCreating,
                fileBookmarks: FileBookmarking,
                fileReadability: FileReadablity,
                calendarAuthorizer: CalendarAuthorizing,
-               alertFactory: ModalAlertCreating) {
+               alertFactory: ModalAlertCreating,
+               calendarsProvider: CalendarsProviding) {
         self.fileOpenerFactory = fileOpenerFactory
         self.fileBookmarks = fileBookmarks
         self.fileReadability = fileReadability
         self.calendarAuthorizer = calendarAuthorizer
         self.alertFactory = alertFactory
+        self.calendarsProvider = calendarsProvider
         setUpBindings()
     }
 
@@ -41,6 +46,8 @@ class MainViewController: NSViewController {
 
     private let bookmarksUrl = BehaviorRelay<URL?>(value: nil)
     private let calendarAuth = BehaviorRelay<EKAuthorizationStatus?>(value: nil)
+    private let calendars = BehaviorRelay<[(id: String, title: String)]>(value: [])
+    private let calendarId = BehaviorRelay<String?>(value: nil)
     private let disposeBag = DisposeBag()
 
     // swiftlint:disable:next function_body_length
@@ -95,6 +102,25 @@ class MainViewController: NSViewController {
             .do(onNext: presentAlertForCalendarAuth)
             .asDriver(onErrorDriveWith: .empty())
             .drive(calendarAuth)
+            .disposed(by: disposeBag)
+
+        calendarAuth.map { _ in () }
+            .flatMapLatest(calendarsProvider.eventCalendars)
+            .map { calendars in calendars.map { (id: $0.calendarIdentifier, title: $0.title) } }
+            .asDriver(onErrorJustReturn: [])
+            .drive(calendars)
+            .disposed(by: disposeBag)
+
+        calendars.asDriver()
+            .withLatestFrom(calendarId.asDriver()) { calendars, calendarId in
+                (titles: calendars.map { $0.title }, selected: calendars.firstIndex(where: { $0.id == calendarId }))
+            }
+            .drive(calendarSelectionButton.rx.updateItems)
+            .disposed(by: disposeBag)
+
+        calendarSelectionButton.rx.selectedItemIndex.asDriver()
+            .withLatestFrom(calendars.asDriver()) { selectedIndex, calendars in calendars[selectedIndex].id }
+            .drive(calendarId)
             .disposed(by: disposeBag)
     }
 

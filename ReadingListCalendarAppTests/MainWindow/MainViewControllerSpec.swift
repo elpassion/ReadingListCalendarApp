@@ -32,7 +32,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
-                        alertFactory: ModalAlertCreatingDouble()
+                        alertFactory: ModalAlertCreatingDouble(),
+                        calendarsProvider: CalendarsProvidingDouble()
                     )
                 }
 
@@ -57,7 +58,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
-                        alertFactory: ModalAlertCreatingDouble()
+                        alertFactory: ModalAlertCreatingDouble(),
+                        calendarsProvider: CalendarsProvidingDouble()
                     )
                 }
 
@@ -78,7 +80,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileBookmarks: FileBookmarkingDouble(),
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
-                        alertFactory: ModalAlertCreatingDouble()
+                        alertFactory: ModalAlertCreatingDouble(),
+                        calendarsProvider: CalendarsProvidingDouble()
                     )
                 }
 
@@ -103,7 +106,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
-                        alertFactory: ModalAlertCreatingDouble()
+                        alertFactory: ModalAlertCreatingDouble(),
+                        calendarsProvider: CalendarsProvidingDouble()
                     )
                 }
 
@@ -175,7 +179,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileBookmarks: FileBookmarkingDouble(),
                         fileReadability: FileManager.default,
                         calendarAuthorizer: calendarAuthorizer,
-                        alertFactory: alertFactory
+                        alertFactory: alertFactory,
+                        calendarsProvider: CalendarsProvidingDouble()
                     )
                 }
 
@@ -255,6 +260,46 @@ class MainViewControllerSpec: QuickSpec {
                     }
                 }
             }
+
+            context("set up without calendar") {
+                var calendarsProvider: CalendarsProvidingDouble!
+
+                beforeEach {
+                    calendarsProvider = CalendarsProvidingDouble()
+                    calendarsProvider.mockedCalendars = [
+                        EKCalendarDouble(id: "calendar-1", title: "First Calendar"),
+                        EKCalendarDouble(id: "calendar-2", title: "Second Calendar"),
+                        EKCalendarDouble(id: "calendar-3", title: "Third Calendar")
+                    ]
+                    sut?.setUp(
+                        fileOpenerFactory: FileOpenerCreatingDouble(),
+                        fileBookmarks: FileBookmarkingDouble(),
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: CalendarAuthorizingDouble(),
+                        alertFactory: ModalAlertCreatingDouble(),
+                        calendarsProvider: calendarsProvider
+                    )
+                }
+
+                it("should have correct calendars list") {
+                    let expected = calendarsProvider.mockedCalendars.map { $0.title }
+                    expect(sut?.calendarSelectionButton.itemTitles) == expected
+                }
+
+                it("should have no selected calendar") {
+                    expect(sut?.calendarSelectionButton.selectedItem).to(beNil())
+                }
+
+                context("select calendar") {
+                    beforeEach {
+                        sut?.calendarSelectionButton.menu?.performActionForItem(at: 1)
+                    }
+
+                    it("should have correct calendar selected") {
+                        expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "Second Calendar"
+                    }
+                }
+            }
         }
     }
 }
@@ -265,6 +310,7 @@ private extension MainViewController {
     var bookmarksStatusField: NSTextField! { return view.accessibilityElement(id: #function) }
     var calendarAuthField: NSTextField! { return view.accessibilityElement(id: #function) }
     var calendarAuthButton: NSButton! { return view.accessibilityElement(id: #function) }
+    var calendarSelectionButton: NSPopUpButton! { return view.accessibilityElement(id: #function) }
 }
 
 private class FileOpenerCreatingDouble: FileOpenerCreating {
@@ -340,4 +386,30 @@ private class ModalAlertDouble: ModalAlert {
         didRunModal = true
         return .OK
     }
+}
+
+private class CalendarsProvidingDouble: CalendarsProviding {
+    var mockedCalendars = [EKCalendarDouble]()
+
+    func calendars(for entityType: EKEntityType) -> [EKCalendar] { return mockedCalendars }
+}
+
+private class EKCalendarDouble: EKCalendar {
+    init(id: String, title: String) {
+        fakeId = id
+        fakeTitle = title
+        super.init()
+    }
+
+    override var calendarIdentifier: String {
+        return fakeId
+    }
+
+    override var title: String {
+        get { return fakeTitle }
+        set { fakeTitle = newValue }
+    }
+
+    private let fakeId: String
+    private var fakeTitle: String
 }

@@ -33,6 +33,10 @@ class MainWindowControllerSpec: QuickSpec {
                 expect(factory.alertFactory).to(beAnInstanceOf(ModalAlertFactory.self))
             }
 
+            it("should have correct calendars provider") {
+                expect(factory.calendarsProvider).to(beAKindOf(EKEventStore.self))
+            }
+
             context("create") {
                 var sut: MainWindowController?
                 var fileOpenerFactory: FileOpenerCreatingDouble!
@@ -40,6 +44,7 @@ class MainWindowControllerSpec: QuickSpec {
                 var fileReadability: FileReadabilityDouble!
                 var calendarAuthorizer: CalendarAuthorizingDouble!
                 var alertFactory: ModalAlertCreatingDouble!
+                var calendarsProvider: CalendarsProvidingDouble!
 
                 beforeEach {
                     fileOpenerFactory = FileOpenerCreatingDouble()
@@ -52,6 +57,8 @@ class MainWindowControllerSpec: QuickSpec {
                     factory.calendarAuthorizer = calendarAuthorizer
                     alertFactory = ModalAlertCreatingDouble()
                     factory.alertFactory = alertFactory
+                    calendarsProvider = CalendarsProvidingDouble()
+                    factory.calendarsProvider = calendarsProvider
                     sut = factory.create() as? MainWindowController
                 }
 
@@ -93,6 +100,10 @@ class MainWindowControllerSpec: QuickSpec {
                     it("should have correct alert factory") {
                         expect(mainViewController?.alertFactory) === alertFactory
                     }
+
+                    it("should have correct calendars provider") {
+                        expect(mainViewController?.calendarsProvider) === calendarsProvider
+                    }
                 }
             }
         }
@@ -119,4 +130,8 @@ private class CalendarAuthorizingDouble: CalendarAuthorizing {
 
 private class ModalAlertCreatingDouble: ModalAlertCreating {
     func create(style: NSAlert.Style, title: String, message: String) -> ModalAlert { return NSAlert() }
+}
+
+private class CalendarsProvidingDouble: CalendarsProviding {
+    func calendars(for entityType: EKEntityType) -> [EKCalendar] { return [] }
 }

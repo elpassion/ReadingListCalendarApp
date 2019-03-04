@@ -7,6 +7,7 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
     var fileReadability: FileReadablity = FileManager.default
     var calendarAuthorizer: CalendarAuthorizing = EKEventStore()
     var alertFactory: ModalAlertCreating = ModalAlertFactory()
+    var calendarsProvider: CalendarsProviding = EKEventStore()
 
     func create() -> NSWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -18,7 +19,8 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
             fileBookmarks: fileBookmarks,
             fileReadability: fileReadability,
             calendarAuthorizer: calendarAuthorizer,
-            alertFactory: alertFactory
+            alertFactory: alertFactory,
+            calendarsProvider: calendarsProvider
         )
         return controller
     }
