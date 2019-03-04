@@ -40,6 +40,7 @@ class MainViewController: NSViewController {
     // MARK: Priavte
 
     private let bookmarksUrl = BehaviorRelay<URL?>(value: nil)
+    private let calendarAuth = BehaviorRelay<EKAuthorizationStatus?>(value: nil)
     private let disposeBag = DisposeBag()
 
     // swiftlint:disable:next function_body_length
@@ -78,8 +79,12 @@ class MainViewController: NSViewController {
             .disposed(by: disposeBag)
 
         calendarAuthorizer.eventsAuthorizationStatus()
-            .map { $0.text }
             .asDriver(onErrorDriveWith: .empty())
+            .drive(calendarAuth)
+            .disposed(by: disposeBag)
+
+        calendarAuth.asDriver()
+            .map { $0?.text }
             .drive(calendarAuthField.rx.text)
             .disposed(by: disposeBag)
 
@@ -88,9 +93,8 @@ class MainViewController: NSViewController {
                 >>> andThen(calendarAuthorizer.eventsAuthorizationStatus()))
             .observeOn(MainScheduler.instance)
             .do(onNext: presentAlertForCalendarAuth)
-            .map { $0.text }
             .asDriver(onErrorDriveWith: .empty())
-            .drive(calendarAuthField.rx.text)
+            .drive(calendarAuth)
             .disposed(by: disposeBag)
     }
 
