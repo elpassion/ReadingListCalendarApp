@@ -12,6 +12,7 @@ class MainViewController: NSViewController {
     private(set) var calendarAuthorizer: CalendarAuthorizing!
     private(set) var alertFactory: ModalAlertCreating!
     private(set) var calendarsProvider: CalendarsProviding!
+    private(set) var calendarIdStore: CalendarIdStoring!
 
     // swiftlint:disable:next function_parameter_count
     func setUp(fileOpenerFactory: FileOpenerCreating,
@@ -19,13 +20,15 @@ class MainViewController: NSViewController {
                fileReadability: FileReadablity,
                calendarAuthorizer: CalendarAuthorizing,
                alertFactory: ModalAlertCreating,
-               calendarsProvider: CalendarsProviding) {
+               calendarsProvider: CalendarsProviding,
+               calendarIdStore: CalendarIdStoring) {
         self.fileOpenerFactory = fileOpenerFactory
         self.fileBookmarks = fileBookmarks
         self.fileReadability = fileReadability
         self.calendarAuthorizer = calendarAuthorizer
         self.alertFactory = alertFactory
         self.calendarsProvider = calendarsProvider
+        self.calendarIdStore = calendarIdStore
         setUpBindings()
     }
 
@@ -109,6 +112,16 @@ class MainViewController: NSViewController {
             .map { calendars in calendars.map { (id: $0.calendarIdentifier, title: $0.title) } }
             .asDriver(onErrorJustReturn: [])
             .drive(calendars)
+            .disposed(by: disposeBag)
+
+        calendarIdStore.calendarId()
+            .asDriver(onErrorJustReturn: nil)
+            .drive(calendarId)
+            .disposed(by: disposeBag)
+
+        calendarId.asDriver().skip(1)
+            .flatMapLatest(calendarIdStore.setCalendarId >>> asDriverOnErrorComplete())
+            .drive()
             .disposed(by: disposeBag)
 
         calendars.asDriver()

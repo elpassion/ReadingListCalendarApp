@@ -33,7 +33,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
-                        calendarsProvider: CalendarsProvidingDouble()
+                        calendarsProvider: CalendarsProvidingDouble(),
+                        calendarIdStore: CalendarIdStoringDouble()
                     )
                 }
 
@@ -59,7 +60,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
-                        calendarsProvider: CalendarsProvidingDouble()
+                        calendarsProvider: CalendarsProvidingDouble(),
+                        calendarIdStore: CalendarIdStoringDouble()
                     )
                 }
 
@@ -81,7 +83,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
-                        calendarsProvider: CalendarsProvidingDouble()
+                        calendarsProvider: CalendarsProvidingDouble(),
+                        calendarIdStore: CalendarIdStoringDouble()
                     )
                 }
 
@@ -107,7 +110,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
-                        calendarsProvider: CalendarsProvidingDouble()
+                        calendarsProvider: CalendarsProvidingDouble(),
+                        calendarIdStore: CalendarIdStoringDouble()
                     )
                 }
 
@@ -180,7 +184,8 @@ class MainViewControllerSpec: QuickSpec {
                         fileReadability: FileManager.default,
                         calendarAuthorizer: calendarAuthorizer,
                         alertFactory: alertFactory,
-                        calendarsProvider: CalendarsProvidingDouble()
+                        calendarsProvider: CalendarsProvidingDouble(),
+                        calendarIdStore: CalendarIdStoringDouble()
                     )
                 }
 
@@ -261,8 +266,9 @@ class MainViewControllerSpec: QuickSpec {
                 }
             }
 
-            context("set up without calendar") {
+            context("set up without calendar id") {
                 var calendarsProvider: CalendarsProvidingDouble!
+                var calendarIdStore: CalendarIdStoringDouble!
 
                 beforeEach {
                     calendarsProvider = CalendarsProvidingDouble()
@@ -271,13 +277,15 @@ class MainViewControllerSpec: QuickSpec {
                         EKCalendarDouble(id: "calendar-2", title: "Second Calendar"),
                         EKCalendarDouble(id: "calendar-3", title: "Third Calendar")
                     ]
+                    calendarIdStore = CalendarIdStoringDouble()
                     sut?.setUp(
                         fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
-                        calendarsProvider: calendarsProvider
+                        calendarsProvider: calendarsProvider,
+                        calendarIdStore: calendarIdStore
                     )
                 }
 
@@ -298,6 +306,44 @@ class MainViewControllerSpec: QuickSpec {
                     it("should have correct calendar selected") {
                         expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "Second Calendar"
                     }
+
+                    it("should store selected calendar id") {
+                        expect(calendarIdStore.mockedCalendarId) == "calendar-2"
+                    }
+                }
+            }
+
+            context("set up with calendar id") {
+                var calendarsProvider: CalendarsProvidingDouble!
+                var calendarIdStore: CalendarIdStoringDouble!
+
+                beforeEach {
+                    calendarsProvider = CalendarsProvidingDouble()
+                    calendarsProvider.mockedCalendars = [
+                        EKCalendarDouble(id: "calendar-1", title: "First Calendar"),
+                        EKCalendarDouble(id: "calendar-2", title: "Second Calendar"),
+                        EKCalendarDouble(id: "calendar-3", title: "Third Calendar")
+                    ]
+                    calendarIdStore = CalendarIdStoringDouble()
+                    calendarIdStore.mockedCalendarId = "calendar-3"
+                    sut?.setUp(
+                        fileOpenerFactory: FileOpenerCreatingDouble(),
+                        fileBookmarks: FileBookmarkingDouble(),
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: CalendarAuthorizingDouble(),
+                        alertFactory: ModalAlertCreatingDouble(),
+                        calendarsProvider: calendarsProvider,
+                        calendarIdStore: calendarIdStore
+                    )
+                }
+
+                it("should have correct calendars list") {
+                    let expected = calendarsProvider.mockedCalendars.map { $0.title }
+                    expect(sut?.calendarSelectionButton.itemTitles) == expected
+                }
+
+                it("should have correct calendar selected") {
+                    expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "Third Calendar"
                 }
             }
         }
@@ -412,4 +458,20 @@ private class EKCalendarDouble: EKCalendar {
 
     private let fakeId: String
     private var fakeTitle: String
+}
+
+private class CalendarIdStoringDouble: CalendarIdStoring {
+    var mockedCalendarId: String?
+
+    func calendarId() -> Single<String?> {
+        return .just(mockedCalendarId)
+    }
+
+    func setCalendarId(_ id: String?) -> Completable {
+        return .create { observer in
+            self.mockedCalendarId = id
+            observer(.completed)
+            return Disposables.create()
+        }
+    }
 }

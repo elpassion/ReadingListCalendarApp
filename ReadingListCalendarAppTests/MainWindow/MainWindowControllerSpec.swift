@@ -13,28 +13,14 @@ class MainWindowControllerSpec: QuickSpec {
                 factory = MainWindowControllerFactory()
             }
 
-            it("should have correct file opener") {
+            it("should have correct dependencies") {
                 expect(factory.fileOpenerFactory).to(beAnInstanceOf(FileOpenerFactory.self))
-            }
-
-            it("should have correct file bookmarks") {
                 expect(factory.fileBookmarks) === UserDefaults.standard
-            }
-
-            it("should have correct file readability") {
                 expect(factory.fileReadability) === FileManager.default
-            }
-
-            it("should have correct calendar authorizer") {
                 expect(factory.calendarAuthorizer).to(beAKindOf(EKEventStore.self))
-            }
-
-            it("should have correct alert factory") {
                 expect(factory.alertFactory).to(beAnInstanceOf(ModalAlertFactory.self))
-            }
-
-            it("should have correct calendars provider") {
                 expect(factory.calendarsProvider).to(beAKindOf(EKEventStore.self))
+                expect(factory.calendarIdStore) === UserDefaults.standard
             }
 
             context("create") {
@@ -45,6 +31,7 @@ class MainWindowControllerSpec: QuickSpec {
                 var calendarAuthorizer: CalendarAuthorizingDouble!
                 var alertFactory: ModalAlertCreatingDouble!
                 var calendarsProvider: CalendarsProvidingDouble!
+                var calendarIdStore: CalendarIdStoringDouble!
 
                 beforeEach {
                     fileOpenerFactory = FileOpenerCreatingDouble()
@@ -59,6 +46,8 @@ class MainWindowControllerSpec: QuickSpec {
                     factory.alertFactory = alertFactory
                     calendarsProvider = CalendarsProvidingDouble()
                     factory.calendarsProvider = calendarsProvider
+                    calendarIdStore = CalendarIdStoringDouble()
+                    factory.calendarIdStore = calendarIdStore
                     sut = factory.create() as? MainWindowController
                 }
 
@@ -81,28 +70,14 @@ class MainWindowControllerSpec: QuickSpec {
                         expect(mainViewController).notTo(beNil())
                     }
 
-                    it("should have correct file opener") {
+                    it("should have correct dependencies") {
                         expect(mainViewController?.fileOpenerFactory) === fileOpenerFactory
-                    }
-
-                    it("should have correct file bookmarks") {
                         expect(mainViewController?.fileBookmarks) === fileBookmarks
-                    }
-
-                    it("should have correct file readability") {
                         expect(mainViewController?.fileReadability) === fileReadability
-                    }
-
-                    it("should have correct calendar authorizer") {
                         expect(mainViewController?.calendarAuthorizer) === calendarAuthorizer
-                    }
-
-                    it("should have correct alert factory") {
                         expect(mainViewController?.alertFactory) === alertFactory
-                    }
-
-                    it("should have correct calendars provider") {
                         expect(mainViewController?.calendarsProvider) === calendarsProvider
+                        expect(mainViewController?.calendarIdStore) === calendarIdStore
                     }
                 }
             }
@@ -134,4 +109,9 @@ private class ModalAlertCreatingDouble: ModalAlertCreating {
 
 private class CalendarsProvidingDouble: CalendarsProviding {
     func calendars(for entityType: EKEntityType) -> [EKCalendar] { return [] }
+}
+
+private class CalendarIdStoringDouble: CalendarIdStoring {
+    func calendarId() -> Single<String?> { return .just(nil) }
+    func setCalendarId(_ id: String?) -> Completable { return .empty() }
 }

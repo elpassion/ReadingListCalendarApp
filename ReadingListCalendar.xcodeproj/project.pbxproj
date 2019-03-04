@@ -30,6 +30,9 @@
 		314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */; };
 		314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */; };
 		314FE6B1222C7C4F00473D54 /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */; };
+		3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */; };
+		3156BBAF222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3156BBAE222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift */; };
+		3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3156BBB1222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift */; };
 		31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAB22296C6300B0BCD0 /* FileReadablity.swift */; };
 		31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */; };
 		31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */; };
@@ -146,6 +149,9 @@
 		314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarsProviding+EventCalendars.swift"; sourceTree = "<group>"; };
 		314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarsProviding.swift"; sourceTree = "<group>"; };
 		314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
+		3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarIdStoring.swift; sourceTree = "<group>"; };
+		3156BBAE222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CalendarIdStoring.swift"; sourceTree = "<group>"; };
+		3156BBB1222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCalendarIdStoringSpec.swift; sourceTree = "<group>"; };
 		31741EAB22296C6300B0BCD0 /* FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadablity.swift; sourceTree = "<group>"; };
 		31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+FileReadablity.swift"; sourceTree = "<group>"; };
 		31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadablity+URL.swift"; sourceTree = "<group>"; };
@@ -344,6 +350,14 @@
 			path = ReadingListCalendarApp;
 			sourceTree = "<group>";
 		};
+		3156BBB0222C9D0E00293301 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				3156BBB1222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		31741EAA22296C4600B0BCD0 /* FileReadablity */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,11 +373,13 @@
 			children = (
 				31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */,
 				31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */,
+				3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */,
 				314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */,
 				314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */,
 				31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */,
 				31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */,
 				314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */,
+				3156BBAE222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -373,6 +389,7 @@
 			children = (
 				318732F02226F552009F5289 /* .swiftlint.yml */,
 				31140E2A22274D3E00522D23 /* Application */,
+				3156BBB0222C9D0E00293301 /* Calendar */,
 				31140E3E222762CD00522D23 /* FileBookmarks */,
 				31140E36222759F300522D23 /* FileOpener */,
 				31E05AF4222899D90011A1CA /* Helpers */,
@@ -610,10 +627,12 @@
 				31EA6580222C498100AC6BD4 /* FileOpenerFactory.swift in Sources */,
 				314FE6B1222C7C4F00473D54 /* NSPopUpButton+Rx.swift in Sources */,
 				31DB9A89222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift in Sources */,
+				3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */,
 				31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */,
 				31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */,
 				31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */,
 				31741EB222296CF500B0BCD0 /* Driver+Unwrap.swift in Sources */,
+				3156BBAF222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift in Sources */,
 				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
 				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
 				31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */,
@@ -635,6 +654,7 @@
 				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
 				31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */,
 				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,
+				3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
