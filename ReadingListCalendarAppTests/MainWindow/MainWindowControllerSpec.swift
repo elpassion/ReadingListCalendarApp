@@ -29,12 +29,17 @@ class MainWindowControllerSpec: QuickSpec {
                 expect(factory.calendarAuthorizer).to(beAKindOf(EKEventStore.self))
             }
 
+            it("should have correct alert factory") {
+                expect(factory.alertFactory).to(beAnInstanceOf(ModalAlertFactory.self))
+            }
+
             context("create") {
                 var sut: MainWindowController?
                 var fileOpener: FileOpeningDouble!
                 var fileBookmarks: FileBookmarkingDouble!
                 var fileReadability: FileReadabilityDouble!
                 var calendarAuthorizer: CalendarAuthorizingDouble!
+                var alertFactory: ModalAlertCreatingDouble!
 
                 beforeEach {
                     fileOpener = FileOpeningDouble()
@@ -45,6 +50,8 @@ class MainWindowControllerSpec: QuickSpec {
                     factory.fileReadability = fileReadability
                     calendarAuthorizer = CalendarAuthorizingDouble()
                     factory.calendarAuthorizer = calendarAuthorizer
+                    alertFactory = ModalAlertCreatingDouble()
+                    factory.alertFactory = alertFactory
                     sut = factory.create() as? MainWindowController
                 }
 
@@ -82,6 +89,10 @@ class MainWindowControllerSpec: QuickSpec {
                     it("should have correct calendar authorizer") {
                         expect(factory.calendarAuthorizer) === calendarAuthorizer
                     }
+
+                    it("should have correct alert factory") {
+                        expect(factory.alertFactory) === alertFactory
+                    }
                 }
             }
         }
@@ -104,4 +115,8 @@ private class FileReadabilityDouble: FileReadablity {
 private class CalendarAuthorizingDouble: CalendarAuthorizing {
     static func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus { return .notDetermined }
     func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler) {}
+}
+
+private class ModalAlertCreatingDouble: ModalAlertCreating {
+    func create(style: NSAlert.Style, title: String, message: String) -> ModalAlert { return NSAlert() }
 }

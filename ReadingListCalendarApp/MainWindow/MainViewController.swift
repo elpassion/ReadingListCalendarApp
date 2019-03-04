@@ -9,15 +9,18 @@ class MainViewController: NSViewController {
     private(set) var fileBookmarks: FileBookmarking!
     private(set) var fileReadability: FileReadablity!
     private(set) var calendarAuthorizer: CalendarAuthorizing!
+    private(set) var alertFactory: ModalAlertCreating!
 
     func setUp(fileOpener: FileOpening,
                fileBookmarks: FileBookmarking,
                fileReadability: FileReadablity,
-               calendarAuthorizer: CalendarAuthorizing) {
+               calendarAuthorizer: CalendarAuthorizing,
+               alertFactory: ModalAlertCreating) {
         self.fileOpener = fileOpener
         self.fileBookmarks = fileBookmarks
         self.fileReadability = fileReadability
         self.calendarAuthorizer = calendarAuthorizer
+        self.alertFactory = alertFactory
         setUpBindings()
     }
 
@@ -39,6 +42,7 @@ class MainViewController: NSViewController {
     private let bookmarksUrl = BehaviorRelay<URL?>(value: nil)
     private let disposeBag = DisposeBag()
 
+    // swiftlint:disable:next function_body_length
     private func setUpBindings() {
         fileBookmarks.bookmarksFileURL()
             .asDriver(onErrorJustReturn: nil)
@@ -51,7 +55,7 @@ class MainViewController: NSViewController {
             .disposed(by: disposeBag)
 
         bookmarksUrl.asDriver()
-            .map { $0?.absoluteString ?? "❌ Bookmarks.plist file is not set" }
+            .map(bookmarksPathFromUrl)
             .drive(bookmarksPathField.rx.text)
             .disposed(by: disposeBag)
 
@@ -63,7 +67,7 @@ class MainViewController: NSViewController {
         bookmarksUrl.asDriver()
             .unwrap()
             .map(fileReadability.isReadableFile(atURL:))
-            .map { $0 ? "✓ Bookmarks.plist file is set and readable" : "❌ Bookmarks.plist file is not readable" }
+            .map(bookmarksStatusForReadability)
             .drive(bookmarksStatusField.rx.text)
             .disposed(by: disposeBag)
 
@@ -82,10 +86,28 @@ class MainViewController: NSViewController {
         calendarAuthButton.rx.tap
             .flatMapFirst(calendarAuthorizer.requestAccessToEvents
                 >>> andThen(calendarAuthorizer.eventsAuthorizationStatus()))
+            .observeOn(MainScheduler.instance)
+            .do(onNext: presentAlertForCalendarAuth)
             .map { $0.text }
             .asDriver(onErrorDriveWith: .empty())
             .drive(calendarAuthField.rx.text)
             .disposed(by: disposeBag)
+    }
+
+    private var bookmarksPathFromUrl: (URL?) -> String {
+        return { $0?.absoluteString ?? "❌ Bookmarks.plist file is not set" }
+    }
+
+    private var bookmarksStatusForReadability: (Bool) -> String {
+        return { $0 ? "✓ Bookmarks.plist file is set and readable" : "❌ Bookmarks.plist file is not readable" }
+    }
+
+    private var presentAlertForCalendarAuth: (EKAuthorizationStatus) -> Void {
+        return { [unowned self] status in
+            guard status != .authorized else { return }
+            let alert = self.alertFactory.createCalendarAccessDenied()
+            alert.runModal()
+        }
     }
 
 }

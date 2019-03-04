@@ -21,21 +21,18 @@ class MainViewControllerSpec: QuickSpec {
                 expect(sut).notTo(beNil())
             }
 
-            context("set up with stored bookmarks path") {
-                var fileOpener: FileOpeningDouble!
+            context("set up with readable bookmarks path") {
                 var fileBookmarks: FileBookmarkingDouble!
-                var calendarAuthorizer: CalendarAuthorizingDouble!
 
                 beforeEach {
-                    fileOpener = FileOpeningDouble()
                     fileBookmarks = FileBookmarkingDouble()
-                    fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "bookmarks_file_url")
-                    calendarAuthorizer = CalendarAuthorizingDouble()
+                    fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "/tmp")
                     sut?.setUp(
-                        fileOpener: fileOpener,
+                        fileOpener: FileOpeningDouble(),
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
-                        calendarAuthorizer: calendarAuthorizer
+                        calendarAuthorizer: CalendarAuthorizingDouble(),
+                        alertFactory: ModalAlertCreatingDouble()
                     )
                 }
 
@@ -45,8 +42,69 @@ class MainViewControllerSpec: QuickSpec {
                 }
 
                 it("should have correct bookmarks status") {
-                    expect(sut?.bookmarksStatusField.stringValue)
-                        == "❌ Bookmarks.plist file is not readable"
+                    expect(sut?.bookmarksStatusField.stringValue) == "✓ Bookmarks.plist file is set and readable"
+                }
+            }
+
+            context("set up with not readable bookmarks path") {
+                var fileBookmarks: FileBookmarkingDouble!
+
+                beforeEach {
+                    fileBookmarks = FileBookmarkingDouble()
+                    fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "bookmarks_file_url")
+                    sut?.setUp(
+                        fileOpener: FileOpeningDouble(),
+                        fileBookmarks: fileBookmarks,
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: CalendarAuthorizingDouble(),
+                        alertFactory: ModalAlertCreatingDouble()
+                    )
+                }
+
+                it("should have correct bookmarks path") {
+                    let expected = fileBookmarks.urls["bookmarks_file_url"]!.absoluteString
+                    expect(sut?.bookmarksPathField.stringValue) == expected
+                }
+
+                it("should have correct bookmarks status") {
+                    expect(sut?.bookmarksStatusField.stringValue) == "❌ Bookmarks.plist file is not readable"
+                }
+            }
+
+            context("set up without bookmarks path") {
+                beforeEach {
+                    sut?.setUp(
+                        fileOpener: FileOpeningDouble(),
+                        fileBookmarks: FileBookmarkingDouble(),
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: CalendarAuthorizingDouble(),
+                        alertFactory: ModalAlertCreatingDouble()
+                    )
+                }
+
+                it("should have correct bookmarks path message") {
+                    expect(sut?.bookmarksPathField.stringValue) == "❌ Bookmarks.plist file is not set"
+                }
+
+                it("should have empty bookmarks status") {
+                    expect(sut?.bookmarksStatusField.stringValue).to(beEmpty())
+                }
+            }
+
+            context("set up for opening bookmarks file") {
+                var fileOpener: FileOpeningDouble!
+                var fileBookmarks: FileBookmarkingDouble!
+
+                beforeEach {
+                    fileOpener = FileOpeningDouble()
+                    fileBookmarks = FileBookmarkingDouble()
+                    sut?.setUp(
+                        fileOpener: fileOpener,
+                        fileBookmarks: fileBookmarks,
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: CalendarAuthorizingDouble(),
+                        alertFactory: ModalAlertCreatingDouble()
+                    )
                 }
 
                 context("click bookmarks path button") {
@@ -101,36 +159,20 @@ class MainViewControllerSpec: QuickSpec {
                 }
             }
 
-            context("set up without stored bookmarks path") {
-                beforeEach {
-                    sut?.setUp(
-                        fileOpener: FileOpeningDouble(),
-                        fileBookmarks: FileBookmarkingDouble(),
-                        fileReadability: FileManager.default,
-                        calendarAuthorizer: CalendarAuthorizingDouble()
-                    )
-                }
-
-                it("should have correct bookmarks path message") {
-                    expect(sut?.bookmarksPathField.stringValue) == "❌ Bookmarks.plist file is not set"
-                }
-
-                it("should have empty bookmarks status") {
-                    expect(sut?.bookmarksStatusField.stringValue).to(beEmpty())
-                }
-            }
-
             context("set up with calendar authorization not determined") {
                 var calendarAuthorizer: CalendarAuthorizingDouble!
+                var alertFactory: ModalAlertCreatingDouble!
 
                 beforeEach {
                     calendarAuthorizer = CalendarAuthorizingDouble()
                     CalendarAuthorizingDouble.authorizationStatusMock = .notDetermined
+                    alertFactory = ModalAlertCreatingDouble()
                     sut?.setUp(
                         fileOpener: FileOpeningDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
                         fileReadability: FileManager.default,
-                        calendarAuthorizer: calendarAuthorizer
+                        calendarAuthorizer: calendarAuthorizer,
+                        alertFactory: alertFactory
                     )
                 }
 
@@ -167,6 +209,13 @@ class MainViewControllerSpec: QuickSpec {
                         it("should have correct calendar auth message") {
                             expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access denied"
                         }
+
+                        it("should present alert") {
+                            expect(alertFactory.didCreateWithStyle) == .warning
+                            expect(alertFactory.didCreateWithTitle) == "Calendar Access Denied"
+                            expect(alertFactory.didCreateWithMessage) == "Open System Preferences, Security & Privacy and allow the app to access Calendar."
+                            expect(alertFactory.alertDouble.didRunModal) == true
+                        }
                     }
 
                     context("when authorization is restricted") {
@@ -178,6 +227,13 @@ class MainViewControllerSpec: QuickSpec {
                         it("should have correct calendar auth message") {
                             expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access restricted"
                         }
+
+                        it("should present alert") {
+                            expect(alertFactory.didCreateWithStyle) == .warning
+                            expect(alertFactory.didCreateWithTitle) == "Calendar Access Denied"
+                            expect(alertFactory.didCreateWithMessage) == "Open System Preferences, Security & Privacy and allow the app to access Calendar."
+                            expect(alertFactory.alertDouble.didRunModal) == true
+                        }
                     }
 
                     context("when request fails with error") {
@@ -188,6 +244,10 @@ class MainViewControllerSpec: QuickSpec {
 
                         it("should have correct calendar auth message") {
                             expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access not determined"
+                        }
+
+                        it("should not present alert") {
+                            expect(alertFactory.didCreateWithStyle).to(beNil())
                         }
                     }
                 }
@@ -245,5 +305,28 @@ private class CalendarAuthorizingDouble: CalendarAuthorizing {
     func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
         didRequestAccessToEntityType = entityType
         requestAccessCompletion = completion
+    }
+}
+
+private class ModalAlertCreatingDouble: ModalAlertCreating {
+    var alertDouble = ModalAlertDouble()
+    private(set) var didCreateWithStyle: NSAlert.Style?
+    private(set) var didCreateWithTitle: String?
+    private(set) var didCreateWithMessage: String?
+
+    func create(style: NSAlert.Style, title: String, message: String) -> ModalAlert {
+        didCreateWithStyle = style
+        didCreateWithTitle = title
+        didCreateWithMessage = message
+        return alertDouble
+    }
+}
+
+private class ModalAlertDouble: ModalAlert {
+    private(set) var didRunModal = false
+
+    func runModal() -> NSApplication.ModalResponse {
+        didRunModal = true
+        return .OK
     }
 }

@@ -51,6 +51,12 @@
 		319BCFA12228620400CD4D14 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF882228602C00CD4D14 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */; };
 		319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */; };
+		31DB9A81222B70F700A34B81 /* ModalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A80222B70F700A34B81 /* ModalAlert.swift */; };
+		31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */; };
+		31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */; };
+		31DB9A87222B711400A34B81 /* ModalAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A86222B711400A34B81 /* ModalAlertFactory.swift */; };
+		31DB9A89222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A88222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift */; };
+		31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A8B222B782000A34B81 /* ModalAlertFactorySpec.swift */; };
 		31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */; };
 		31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFA2228B3C90011A1CA /* FuncUtils.swift */; };
 		31E05AFE2228B9360011A1CA /* FileOpening+Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFD2228B9360011A1CA /* FileOpening+Bookmarks.swift */; };
@@ -156,6 +162,12 @@
 		319BCF9C222860DF00CD4D14 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
 		319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Rx.swift"; sourceTree = "<group>"; };
 		319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
+		31DB9A80222B70F700A34B81 /* ModalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlert.swift; sourceTree = "<group>"; };
+		31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+ModalAlert.swift"; sourceTree = "<group>"; };
+		31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertCreating.swift; sourceTree = "<group>"; };
+		31DB9A86222B711400A34B81 /* ModalAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertFactory.swift; sourceTree = "<group>"; };
+		31DB9A88222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlertCreating+CalendarAuthorizationDenied.swift"; sourceTree = "<group>"; };
+		31DB9A8B222B782000A34B81 /* ModalAlertFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertFactorySpec.swift; sourceTree = "<group>"; };
 		31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityElement.swift"; sourceTree = "<group>"; };
 		31E05AFA2228B3C90011A1CA /* FuncUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncUtils.swift; sourceTree = "<group>"; };
 		31E05AFD2228B9360011A1CA /* FileOpening+Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Bookmarks.swift"; sourceTree = "<group>"; };
@@ -314,6 +326,7 @@
 				31741EAA22296C4600B0BCD0 /* FileReadablity */,
 				31E05AF92228B3B90011A1CA /* Helpers */,
 				31140E2922274D0300522D23 /* MainWindow */,
+				31DB9A7F222B70E900A34B81 /* ModalAlert */,
 				31140E2822274C6B00522D23 /* Resources */,
 			);
 			path = ReadingListCalendarApp;
@@ -349,9 +362,30 @@
 				31140E36222759F300522D23 /* FileOpener */,
 				31E05AF4222899D90011A1CA /* Helpers */,
 				31140E2B22274D5100522D23 /* MainWindow */,
+				31DB9A8A222B780600A34B81 /* ModalAlert */,
 				31140E2D22274DC100522D23 /* Resources */,
 			);
 			path = ReadingListCalendarAppTests;
+			sourceTree = "<group>";
+		};
+		31DB9A7F222B70E900A34B81 /* ModalAlert */ = {
+			isa = PBXGroup;
+			children = (
+				31DB9A80222B70F700A34B81 /* ModalAlert.swift */,
+				31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */,
+				31DB9A88222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift */,
+				31DB9A86222B711400A34B81 /* ModalAlertFactory.swift */,
+				31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */,
+			);
+			path = ModalAlert;
+			sourceTree = "<group>";
+		};
+		31DB9A8A222B780600A34B81 /* ModalAlert */ = {
+			isa = PBXGroup;
+			children = (
+				31DB9A8B222B782000A34B81 /* ModalAlertFactorySpec.swift */,
+			);
+			path = ModalAlert;
 			sourceTree = "<group>";
 		};
 		31E05AF4222899D90011A1CA /* Helpers */ = {
@@ -547,11 +581,15 @@
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
+				31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */,
 				31140E112227279400522D23 /* MainWindowController.swift in Sources */,
 				31E05B002228BA9D0011A1CA /* MaybeAsDriver.swift in Sources */,
 				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
 				31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */,
 				31E05AFE2228B9360011A1CA /* FileOpening+Bookmarks.swift in Sources */,
+				31DB9A87222B711400A34B81 /* ModalAlertFactory.swift in Sources */,
+				31DB9A89222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift in Sources */,
+				31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */,
 				31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */,
 				31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */,
 				31741EB222296CF500B0BCD0 /* Driver+Unwrap.swift in Sources */,
@@ -560,6 +598,7 @@
 				31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */,
 				31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */,
 				31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */,
+				31DB9A81222B70F700A34B81 /* ModalAlert.swift in Sources */,
 				31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */,
+				31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */,
 				319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */,
 				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
 				31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */,
