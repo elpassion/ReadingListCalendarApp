@@ -28,7 +28,7 @@ class MainViewControllerSpec: QuickSpec {
                     fileBookmarks = FileBookmarkingDouble()
                     fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "/tmp")
                     sut?.setUp(
-                        fileOpener: FileOpeningDouble(),
+                        fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
@@ -53,7 +53,7 @@ class MainViewControllerSpec: QuickSpec {
                     fileBookmarks = FileBookmarkingDouble()
                     fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "bookmarks_file_url")
                     sut?.setUp(
-                        fileOpener: FileOpeningDouble(),
+                        fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
@@ -74,7 +74,7 @@ class MainViewControllerSpec: QuickSpec {
             context("set up without bookmarks path") {
                 beforeEach {
                     sut?.setUp(
-                        fileOpener: FileOpeningDouble(),
+                        fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
@@ -92,14 +92,14 @@ class MainViewControllerSpec: QuickSpec {
             }
 
             context("set up for opening bookmarks file") {
-                var fileOpener: FileOpeningDouble!
+                var fileOpenerFactory: FileOpenerCreatingDouble!
                 var fileBookmarks: FileBookmarkingDouble!
 
                 beforeEach {
-                    fileOpener = FileOpeningDouble()
+                    fileOpenerFactory = FileOpenerCreatingDouble()
                     fileBookmarks = FileBookmarkingDouble()
                     sut?.setUp(
-                        fileOpener: fileOpener,
+                        fileOpenerFactory: fileOpenerFactory,
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
                         calendarAuthorizer: CalendarAuthorizingDouble(),
@@ -112,12 +112,15 @@ class MainViewControllerSpec: QuickSpec {
                         sut?.bookmarksPathButton.performClick(nil)
                     }
 
-                    it("should begin opening file") {
-                        expect(fileOpener.didBeginOpeningFile) == true
-                        expect(fileOpener.didBeginOpeningFileWithTitle) == "Open Bookmarks.plist file"
-                        expect(fileOpener.didBeginOpeningFileWithExt) == "plist"
+                    it("should create bookmarks file opener") {
+                        expect(fileOpenerFactory.didCreateWithTitle) == "Open Bookmarks.plist file"
+                        expect(fileOpenerFactory.didCreateWithExt) == "plist"
                         let expectedURL = URL(fileURLWithPath: "/Users/\(NSUserName())/Library/Safari/Bookmarks.plist")
-                        expect(fileOpener.didBeginOpeningFileWithURL) == expectedURL
+                        expect(fileOpenerFactory.didCreateWithUrl) == expectedURL
+                    }
+
+                    it("should begin opening file") {
+                        expect(fileOpenerFactory.openerDouble.didBeginOpeningFile) == true
                     }
 
                     context("when file is opened") {
@@ -125,7 +128,7 @@ class MainViewControllerSpec: QuickSpec {
 
                         beforeEach {
                             url = URL(fileURLWithPath: "/tmp")
-                            fileOpener.openFileCompletion?(url)
+                            fileOpenerFactory.openerDouble.openFileCompletion?(url)
                         }
 
                         it("should have correct bookmarks path") {
@@ -147,7 +150,7 @@ class MainViewControllerSpec: QuickSpec {
 
                             context("when file is not opened") {
                                 beforeEach {
-                                    fileOpener.openFileCompletion?(nil)
+                                    fileOpenerFactory.openerDouble.openFileCompletion?(nil)
                                 }
 
                                 it("should have correct bookmarks path") {
@@ -168,7 +171,7 @@ class MainViewControllerSpec: QuickSpec {
                     CalendarAuthorizingDouble.authorizationStatusMock = .notDetermined
                     alertFactory = ModalAlertCreatingDouble()
                     sut?.setUp(
-                        fileOpener: FileOpeningDouble(),
+                        fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
                         fileReadability: FileManager.default,
                         calendarAuthorizer: calendarAuthorizer,
@@ -264,18 +267,26 @@ private extension MainViewController {
     var calendarAuthButton: NSButton! { return view.accessibilityElement(id: #function) }
 }
 
+private class FileOpenerCreatingDouble: FileOpenerCreating {
+    var openerDouble = FileOpeningDouble()
+    private(set) var didCreateWithTitle: String?
+    private(set) var didCreateWithExt: String?
+    private(set) var didCreateWithUrl: URL?
+
+    func create(title: String, ext: String, url: URL?) -> FileOpening {
+        didCreateWithTitle = title
+        didCreateWithExt = ext
+        didCreateWithUrl = url
+        return openerDouble
+    }
+}
+
 private class FileOpeningDouble: FileOpening {
     private(set) var didBeginOpeningFile = false
-    private(set) var didBeginOpeningFileWithTitle: String?
-    private(set) var didBeginOpeningFileWithExt: String?
-    private(set) var didBeginOpeningFileWithURL: URL?
     private(set) var openFileCompletion: ((URL?) -> Void)?
 
-    func openFile(title: String, ext: String, url: URL?, completion: @escaping (URL?) -> Void) {
+    func openFile(completion: @escaping (URL?) -> Void) {
         didBeginOpeningFile = true
-        didBeginOpeningFileWithTitle = title
-        didBeginOpeningFileWithExt = ext
-        didBeginOpeningFileWithURL = url
         openFileCompletion = completion
     }
 }

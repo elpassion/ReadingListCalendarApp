@@ -5,18 +5,18 @@ import RxSwift
 
 class MainViewController: NSViewController {
 
-    private(set) var fileOpener: FileOpening!
+    private(set) var fileOpenerFactory: FileOpenerCreating!
     private(set) var fileBookmarks: FileBookmarking!
     private(set) var fileReadability: FileReadablity!
     private(set) var calendarAuthorizer: CalendarAuthorizing!
     private(set) var alertFactory: ModalAlertCreating!
 
-    func setUp(fileOpener: FileOpening,
+    func setUp(fileOpenerFactory: FileOpenerCreating,
                fileBookmarks: FileBookmarking,
                fileReadability: FileReadablity,
                calendarAuthorizer: CalendarAuthorizing,
                alertFactory: ModalAlertCreating) {
-        self.fileOpener = fileOpener
+        self.fileOpenerFactory = fileOpenerFactory
         self.fileBookmarks = fileBookmarks
         self.fileReadability = fileReadability
         self.calendarAuthorizer = calendarAuthorizer
@@ -60,7 +60,7 @@ class MainViewController: NSViewController {
             .disposed(by: disposeBag)
 
         bookmarksPathButton.rx.tap.asDriver()
-            .flatMapFirst(fileOpener.rx_openBookmarksFile >>> asDriver(onErrorDriveWith: .empty()))
+            .flatMapFirst(openBookmarksFile >>> asDriver(onErrorDriveWith: .empty()))
             .drive(bookmarksUrl)
             .disposed(by: disposeBag)
 
@@ -92,6 +92,13 @@ class MainViewController: NSViewController {
             .asDriver(onErrorDriveWith: .empty())
             .drive(calendarAuthField.rx.text)
             .disposed(by: disposeBag)
+    }
+
+    private var openBookmarksFile: () -> Maybe<URL> {
+        return { [unowned self] in
+            let opener = self.fileOpenerFactory.createBookmarksFileOpener()
+            return opener.rx_openFile()
+        }
     }
 
     private var bookmarksPathFromUrl: (URL?) -> String {

@@ -2,9 +2,9 @@ import Foundation
 import RxSwift
 
 extension FileOpening {
-    func rx_openFile(title: String, ext: String, url: URL?) -> Maybe<URL> {
-        return Maybe.create { observer in
-            self.openFile(title: title, ext: ext, url: url) { url in
+    func rx_openFile() -> Maybe<URL> {
+        return .create { observer in
+            self.openFile { url in
                 if let url = url {
                     observer(.success(url))
                 } else {

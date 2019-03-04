@@ -14,7 +14,7 @@ class MainWindowControllerSpec: QuickSpec {
             }
 
             it("should have correct file opener") {
-                expect(factory.fileOpener).to(beAnInstanceOf(type(of: NSOpenPanel())))
+                expect(factory.fileOpenerFactory).to(beAnInstanceOf(FileOpenerFactory.self))
             }
 
             it("should have correct file bookmarks") {
@@ -35,15 +35,15 @@ class MainWindowControllerSpec: QuickSpec {
 
             context("create") {
                 var sut: MainWindowController?
-                var fileOpener: FileOpeningDouble!
+                var fileOpenerFactory: FileOpenerCreatingDouble!
                 var fileBookmarks: FileBookmarkingDouble!
                 var fileReadability: FileReadabilityDouble!
                 var calendarAuthorizer: CalendarAuthorizingDouble!
                 var alertFactory: ModalAlertCreatingDouble!
 
                 beforeEach {
-                    fileOpener = FileOpeningDouble()
-                    factory.fileOpener = fileOpener
+                    fileOpenerFactory = FileOpenerCreatingDouble()
+                    factory.fileOpenerFactory = fileOpenerFactory
                     fileBookmarks = FileBookmarkingDouble()
                     factory.fileBookmarks = fileBookmarks
                     fileReadability = FileReadabilityDouble()
@@ -75,7 +75,7 @@ class MainWindowControllerSpec: QuickSpec {
                     }
 
                     it("should have correct file opener") {
-                        expect(mainViewController?.fileOpener) === fileOpener
+                        expect(mainViewController?.fileOpenerFactory) === fileOpenerFactory
                     }
 
                     it("should have correct file bookmarks") {
@@ -87,11 +87,11 @@ class MainWindowControllerSpec: QuickSpec {
                     }
 
                     it("should have correct calendar authorizer") {
-                        expect(factory.calendarAuthorizer) === calendarAuthorizer
+                        expect(mainViewController?.calendarAuthorizer) === calendarAuthorizer
                     }
 
                     it("should have correct alert factory") {
-                        expect(factory.alertFactory) === alertFactory
+                        expect(mainViewController?.alertFactory) === alertFactory
                     }
                 }
             }
@@ -99,8 +99,8 @@ class MainWindowControllerSpec: QuickSpec {
     }
 }
 
-private class FileOpeningDouble: FileOpening {
-    func openFile(title: String, ext: String, url: URL?, completion: @escaping (URL?) -> Void) {}
+private class FileOpenerCreatingDouble: FileOpenerCreating {
+    func create(title: String, ext: String, url: URL?) -> FileOpening { return NSOpenPanel() }
 }
 
 private class FileBookmarkingDouble: FileBookmarking {

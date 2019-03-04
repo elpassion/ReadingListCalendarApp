@@ -2,7 +2,7 @@ import AppKit
 import EventKit
 
 struct MainWindowControllerFactory: MainWindowControllerCreating {
-    var fileOpener: FileOpening = NSOpenPanel()
+    var fileOpenerFactory: FileOpenerCreating = FileOpenerFactory()
     var fileBookmarks: FileBookmarking = UserDefaults.standard
     var fileReadability: FileReadablity = FileManager.default
     var calendarAuthorizer: CalendarAuthorizing = EKEventStore()
@@ -14,7 +14,7 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
         // swiftlint:disable:next force_cast
         let controller = storyboard.instantiateController(withIdentifier: identifier) as! MainWindowController
         controller.mainViewController.setUp(
-            fileOpener: fileOpener,
+            fileOpenerFactory: fileOpenerFactory,
             fileBookmarks: fileBookmarks,
             fileReadability: fileReadability,
             calendarAuthorizer: calendarAuthorizer,

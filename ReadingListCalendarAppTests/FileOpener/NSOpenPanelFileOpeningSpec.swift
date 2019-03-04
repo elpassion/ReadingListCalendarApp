@@ -12,33 +12,14 @@ class NSOpenPanelFileOpeningSpec: QuickSpec {
             }
 
             context("open file") {
-                var title: String!
-                var ext: String!
-                var url: URL!
                 var didOpenUrl: URL?
 
                 beforeEach {
-                    title = "Open File Test"
-                    ext = "test_ext"
-                    url = URL(fileURLWithPath: "default_url")
-                    sut.openFile(title: title, ext: ext, url: url) {
-                        didOpenUrl = $0
-                    }
+                    sut.openFile { didOpenUrl = $0 }
                 }
 
                 afterEach {
                     didOpenUrl = nil
-                }
-
-                it("should be correctly configured") {
-                    expect(sut.title) == title
-                    expect(sut.canCreateDirectories) == false
-                    expect(sut.showsHiddenFiles) == true
-                    expect(sut.directoryURL) == url
-                    expect(sut.allowedFileTypes) == [ext]
-                    expect(sut.canChooseFiles) == true
-                    expect(sut.canChooseDirectories) == false
-                    expect(sut.allowsMultipleSelection) == false
                 }
 
                 it("should begin") {

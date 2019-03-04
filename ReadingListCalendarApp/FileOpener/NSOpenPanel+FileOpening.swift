@@ -1,15 +1,7 @@
 import AppKit
 
 extension NSOpenPanel: FileOpening {
-    func openFile(title: String, ext: String, url: URL?, completion: @escaping (URL?) -> Void) {
-        self.title = title
-        canCreateDirectories = false
-        showsHiddenFiles = true
-        directoryURL = url
-        allowedFileTypes = [ext]
-        canChooseFiles = true
-        canChooseDirectories = false
-        allowsMultipleSelection = false
+    func openFile(completion: @escaping (URL?) -> Void) {
         begin { response in
             if response == .OK {
                 completion(self.url)
