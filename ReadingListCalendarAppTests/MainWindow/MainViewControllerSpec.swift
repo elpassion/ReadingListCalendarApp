@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import RxSwift
+import RxCocoa
 import EventKit
 @testable import ReadingListCalendarApp
 
@@ -35,7 +36,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: CalendarsProvidingDouble(),
-                        calendarIdStore: CalendarIdStoringDouble()
+                        calendarIdStore: CalendarIdStoringDouble(),
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -63,7 +65,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: CalendarsProvidingDouble(),
-                        calendarIdStore: CalendarIdStoringDouble()
+                        calendarIdStore: CalendarIdStoringDouble(),
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -90,7 +93,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: CalendarsProvidingDouble(),
-                        calendarIdStore: CalendarIdStoringDouble()
+                        calendarIdStore: CalendarIdStoringDouble(),
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -122,7 +126,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: CalendarsProvidingDouble(),
-                        calendarIdStore: CalendarIdStoringDouble()
+                        calendarIdStore: CalendarIdStoringDouble(),
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -197,7 +202,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: calendarAuthorizer,
                         alertFactory: alertFactory,
                         calendarsProvider: CalendarsProvidingDouble(),
-                        calendarIdStore: CalendarIdStoringDouble()
+                        calendarIdStore: CalendarIdStoringDouble(),
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -302,7 +308,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: calendarsProvider,
-                        calendarIdStore: calendarIdStore
+                        calendarIdStore: calendarIdStore,
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -356,7 +363,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: CalendarAuthorizingDouble(),
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: calendarsProvider,
-                        calendarIdStore: calendarIdStore
+                        calendarIdStore: calendarIdStore,
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -393,7 +401,8 @@ class MainViewControllerSpec: QuickSpec {
                         calendarAuthorizer: calendarAuthorizer,
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: calendarsProvider,
-                        calendarIdStore: calendarIdStore
+                        calendarIdStore: calendarIdStore,
+                        syncController: SyncControllingDouble()
                     )
                 }
 
@@ -530,4 +539,11 @@ private class CalendarIdStoringDouble: CalendarIdStoring {
             return Disposables.create()
         }
     }
+}
+
+private class SyncControllingDouble: SyncControlling {
+    var isSynchronizing: Driver<Bool> { return .just(false) }
+    var syncProgress: Driver<Double?> { return .just(nil) }
+
+    func sync(bookmarksUrl: URL, calendarId: String) -> Completable { return .empty() }
 }

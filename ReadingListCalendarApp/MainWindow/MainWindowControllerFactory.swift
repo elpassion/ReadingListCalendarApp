@@ -9,6 +9,7 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
     var alertFactory: ModalAlertCreating = ModalAlertFactory()
     var calendarsProvider: CalendarsProviding = EKEventStore()
     var calendarIdStore: CalendarIdStoring = UserDefaults.standard
+    var syncController: SyncControlling = SyncController()
 
     func create() -> NSWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -22,7 +23,8 @@ struct MainWindowControllerFactory: MainWindowControllerCreating {
             calendarAuthorizer: calendarAuthorizer,
             alertFactory: alertFactory,
             calendarsProvider: calendarsProvider,
-            calendarIdStore: calendarIdStore
+            calendarIdStore: calendarIdStore,
+            syncController: syncController
         )
         return controller
     }

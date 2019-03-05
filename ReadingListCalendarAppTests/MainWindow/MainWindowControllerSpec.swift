@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import RxSwift
+import RxCocoa
 import EventKit
 @testable import ReadingListCalendarApp
 
@@ -21,6 +22,7 @@ class MainWindowControllerSpec: QuickSpec {
                 expect(factory.alertFactory).to(beAnInstanceOf(ModalAlertFactory.self))
                 expect(factory.calendarsProvider).to(beAKindOf(EKEventStore.self))
                 expect(factory.calendarIdStore) === UserDefaults.standard
+                expect(factory.syncController).to(beAnInstanceOf(SyncController.self))
             }
 
             context("create") {
@@ -32,6 +34,7 @@ class MainWindowControllerSpec: QuickSpec {
                 var alertFactory: ModalAlertCreatingDouble!
                 var calendarsProvider: CalendarsProvidingDouble!
                 var calendarIdStore: CalendarIdStoringDouble!
+                var syncController: SyncControllingDouble!
 
                 beforeEach {
                     fileOpenerFactory = FileOpenerCreatingDouble()
@@ -48,6 +51,8 @@ class MainWindowControllerSpec: QuickSpec {
                     factory.calendarsProvider = calendarsProvider
                     calendarIdStore = CalendarIdStoringDouble()
                     factory.calendarIdStore = calendarIdStore
+                    syncController = SyncControllingDouble()
+                    factory.syncController = syncController
                     sut = factory.create() as? MainWindowController
                 }
 
@@ -78,6 +83,7 @@ class MainWindowControllerSpec: QuickSpec {
                         expect(mainViewController?.alertFactory) === alertFactory
                         expect(mainViewController?.calendarsProvider) === calendarsProvider
                         expect(mainViewController?.calendarIdStore) === calendarIdStore
+                        expect(mainViewController?.syncController) === syncController
                     }
                 }
             }
@@ -114,4 +120,11 @@ private class CalendarsProvidingDouble: CalendarsProviding {
 private class CalendarIdStoringDouble: CalendarIdStoring {
     func calendarId() -> Single<String?> { return .just(nil) }
     func setCalendarId(_ id: String?) -> Completable { return .empty() }
+}
+
+private class SyncControllingDouble: SyncControlling {
+    var isSynchronizing: Driver<Bool> { return .empty() }
+    var syncProgress: Driver<Double?> { return .empty() }
+
+    func sync(bookmarksUrl: URL, calendarId: String) -> Completable { return .empty() }
 }

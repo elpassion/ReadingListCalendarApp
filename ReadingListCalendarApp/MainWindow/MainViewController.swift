@@ -12,6 +12,7 @@ class MainViewController: NSViewController {
     private(set) var alertFactory: ModalAlertCreating!
     private(set) var calendarsProvider: CalendarsProviding!
     private(set) var calendarIdStore: CalendarIdStoring!
+    private(set) var syncController: SyncControlling!
 
     // swiftlint:disable:next function_parameter_count
     func setUp(fileOpenerFactory: FileOpenerCreating,
@@ -20,7 +21,8 @@ class MainViewController: NSViewController {
                calendarAuthorizer: CalendarAuthorizing,
                alertFactory: ModalAlertCreating,
                calendarsProvider: CalendarsProviding,
-               calendarIdStore: CalendarIdStoring) {
+               calendarIdStore: CalendarIdStoring,
+               syncController: SyncControlling) {
         self.fileOpenerFactory = fileOpenerFactory
         self.fileBookmarks = fileBookmarks
         self.fileReadability = fileReadability
@@ -28,6 +30,7 @@ class MainViewController: NSViewController {
         self.alertFactory = alertFactory
         self.calendarsProvider = calendarsProvider
         self.calendarIdStore = calendarIdStore
+        self.syncController = syncController
         setUpBindings()
     }
 
