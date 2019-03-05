@@ -379,8 +379,12 @@ class MainViewControllerSpec: QuickSpec {
             }
 
             context("set up with readable bookmarks path and calendar set and authorized") {
+                var fileBookmarks: FileBookmarkingDouble!
+                var calendarIdStore: CalendarIdStoringDouble!
+                var syncController: SyncControllingDouble!
+
                 beforeEach {
-                    let fileBookmarks = FileBookmarkingDouble()
+                    fileBookmarks = FileBookmarkingDouble()
                     fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "/tmp")
 
                     let calendarAuthorizer = CalendarAuthorizingDouble()
@@ -391,8 +395,10 @@ class MainViewControllerSpec: QuickSpec {
                         EKCalendarDouble(id: "calendar-1", title: "First Calendar")
                     ]
 
-                    let calendarIdStore = CalendarIdStoringDouble()
+                    calendarIdStore = CalendarIdStoringDouble()
                     calendarIdStore.mockedCalendarId = "calendar-1"
+
+                    syncController = SyncControllingDouble()
 
                     sut?.setUp(
                         fileOpenerFactory: FileOpenerCreatingDouble(),
@@ -402,12 +408,70 @@ class MainViewControllerSpec: QuickSpec {
                         alertFactory: ModalAlertCreatingDouble(),
                         calendarsProvider: calendarsProvider,
                         calendarIdStore: calendarIdStore,
-                        syncController: SyncControllingDouble()
+                        syncController: syncController
                     )
                 }
 
                 it("should sync button be enabled") {
                     expect(sut?.synchronizeButton.isEnabled) == true
+                }
+
+                context("click sync button") {
+                    beforeEach {
+                        sut?.synchronizeButton.performClick(nil)
+                    }
+
+                    it("should synchronize") {
+                        expect(syncController.didSyncBookmarksUrl) == fileBookmarks.urls["bookmarks_file_url"]!
+                        expect(syncController.didSyncCalendarId) == calendarIdStore.mockedCalendarId
+                    }
+
+                    context("when sync starts") {
+                        beforeEach {
+                            syncController.syncProgressMock.accept(0)
+                            syncController.isSynchronizingMock.accept(true)
+                        }
+
+                        it("should disable buttons") {
+                            expect(sut?.bookmarksPathButton.isEnabled) == false
+                            expect(sut?.calendarAuthButton.isEnabled) == false
+                            expect(sut?.calendarSelectionButton.isEnabled) == false
+                            expect(sut?.synchronizeButton.isEnabled) == false
+                        }
+
+                        it("should show empty progress") {
+                            expect(sut?.progressIndicator.doubleValue) == 0
+                        }
+
+                        context("when sync progresses") {
+                            beforeEach {
+                                syncController.syncProgressMock.accept(0.75)
+                            }
+
+                            it("should show correct progress") {
+                                expect(sut?.progressIndicator.doubleValue) == 75
+                            }
+                        }
+
+                        context("when sync finishes") {
+                            beforeEach {
+                                syncController.syncObserver?(.completed)
+                                syncController.syncProgressMock.accept(nil)
+                                syncController.isSynchronizingMock.accept(false)
+                            }
+
+                            it("should enable buttons") {
+                                expect(sut?.bookmarksPathButton.isEnabled) == true
+                                expect(sut?.calendarAuthButton.isEnabled) == true
+                                expect(sut?.calendarSelectionButton.isEnabled) == true
+                                expect(sut?.synchronizeButton.isEnabled) == true
+                            }
+
+                            it("should show empty progress") {
+                                expect(sut?.progressIndicator.doubleValue) == 0
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -422,6 +486,7 @@ private extension MainViewController {
     var calendarAuthButton: NSButton! { return view.accessibilityElement(id: #function) }
     var calendarSelectionButton: NSPopUpButton! { return view.accessibilityElement(id: #function) }
     var synchronizeButton: NSButton! { return view.accessibilityElement(id: #function) }
+    var progressIndicator: NSProgressIndicator! { return view.accessibilityElement(id: #function) }
 }
 
 private class FileOpenerCreatingDouble: FileOpenerCreating {
@@ -542,8 +607,21 @@ private class CalendarIdStoringDouble: CalendarIdStoring {
 }
 
 private class SyncControllingDouble: SyncControlling {
-    var isSynchronizing: Driver<Bool> { return .just(false) }
-    var syncProgress: Driver<Double?> { return .just(nil) }
+    let isSynchronizingMock = BehaviorRelay<Bool>(value: false)
+    let syncProgressMock = BehaviorRelay<Double?>(value: nil)
+    private(set) var didSyncBookmarksUrl: URL?
+    private(set) var didSyncCalendarId: String?
+    private(set) var syncObserver: Completable.CompletableObserver?
 
-    func sync(bookmarksUrl: URL, calendarId: String) -> Completable { return .empty() }
+    var isSynchronizing: Driver<Bool> { return isSynchronizingMock.asDriver() }
+    var syncProgress: Driver<Double?> { return syncProgressMock.asDriver() }
+
+    func sync(bookmarksUrl: URL, calendarId: String) -> Completable {
+        return .create { observer in
+            self.didSyncBookmarksUrl = bookmarksUrl
+            self.didSyncCalendarId = calendarId
+            self.syncObserver = observer
+            return Disposables.create()
+        }
+    }
 }

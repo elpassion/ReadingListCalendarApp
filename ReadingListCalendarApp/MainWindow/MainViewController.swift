@@ -1,3 +1,4 @@
+// swiftlint:disable file_length
 import AppKit
 import EventKit
 import RxCocoa
@@ -134,8 +135,34 @@ class MainViewController: NSViewController {
             bookmarksUrl.asDriver().map(isReadableFile(fileReadability)),
             calendarAuth.asDriver().map { $0 == .authorized },
             calendarId.asDriver().map { $0 != nil },
-            resultSelector: { $0 && $1 && $2 }
+            syncController.isSynchronizing.map { !$0 },
+            resultSelector: { $0 && $1 && $2 && $3 }
         ).drive(synchronizeButton.rx.isEnabled).disposed(by: disposeBag)
+
+        syncController.isSynchronizing.map { !$0 }
+            .drive(bookmarksPathButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        syncController.isSynchronizing.map { !$0 }
+            .drive(calendarAuthButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        syncController.isSynchronizing.map { !$0 }
+            .drive(calendarSelectionButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        syncController.syncProgress
+            .drive(progressIndicator.rx.fractionCompleted)
+            .disposed(by: disposeBag)
+
+        synchronizeButton.rx.tap.asDriver()
+            .withLatestFrom(bookmarksUrl.asDriver())
+            .withLatestFrom(calendarId.asDriver()) { (bookmarksUrl: $0, calendarId: $1) }
+            .filter { $0.bookmarksUrl != nil && $0.calendarId != nil }
+            .map { ($0.bookmarksUrl!, $0.calendarId!) } // swiftlint:disable:this force_unwrapping
+            .flatMapFirst(syncController.sync(bookmarksUrl:calendarId:) >>> asDriverOnErrorComplete())
+            .drive()
+            .disposed(by: disposeBag)
     }
 
 }

@@ -59,6 +59,7 @@
 		319BCFA12228620400CD4D14 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF882228602C00CD4D14 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */; };
 		319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */; };
+		31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */; };
 		31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */; };
 		31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBC222DEB38008EAAC0 /* SyncController.swift */; };
 		31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */; };
@@ -184,6 +185,7 @@
 		319BCF9C222860DF00CD4D14 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
 		319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Rx.swift"; sourceTree = "<group>"; };
 		319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
+		31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
 		31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControlling.swift; sourceTree = "<group>"; };
 		31C56FBC222DEB38008EAAC0 /* SyncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncController.swift; sourceTree = "<group>"; };
 		31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControllerSpec.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */,
 				31E05AFA2228B3C90011A1CA /* FuncUtils.swift */,
 				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */,
+				31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */,
 				3126AC1E222DD4B200B0919B /* URL+Functions.swift */,
 			);
 			path = Helpers;
@@ -644,6 +647,7 @@
 				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
+				31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */,
 				3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */,
