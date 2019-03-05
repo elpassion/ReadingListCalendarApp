@@ -126,6 +126,13 @@ class MainViewController: NSViewController {
             .withLatestFrom(calendars.asDriver()) { selectedIndex, calendars in calendars[selectedIndex].id }
             .drive(calendarId)
             .disposed(by: disposeBag)
+
+        Driver.combineLatest(
+            bookmarksUrl.asDriver().map(isReadableFile(fileReadability)),
+            calendarAuth.asDriver().map { $0 == .authorized },
+            calendarId.asDriver().map { $0 != nil },
+            resultSelector: { $0 && $1 && $2 }
+        ).drive(synchronizeButton.rx.isEnabled).disposed(by: disposeBag)
     }
 
 }

@@ -27,6 +27,7 @@ class MainViewControllerSpec: QuickSpec {
                 beforeEach {
                     fileBookmarks = FileBookmarkingDouble()
                     fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "/tmp")
+
                     sut?.setUp(
                         fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: fileBookmarks,
@@ -54,6 +55,7 @@ class MainViewControllerSpec: QuickSpec {
                 beforeEach {
                     fileBookmarks = FileBookmarkingDouble()
                     fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "bookmarks_file_url")
+
                     sut?.setUp(
                         fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: fileBookmarks,
@@ -72,6 +74,10 @@ class MainViewControllerSpec: QuickSpec {
 
                 it("should have correct bookmarks status") {
                     expect(sut?.bookmarksStatusField.stringValue) == "❌ Bookmarks.plist file is not readable"
+                }
+
+                it("should sync button be disabled") {
+                    expect(sut?.synchronizeButton.isEnabled) == false
                 }
             }
 
@@ -95,6 +101,10 @@ class MainViewControllerSpec: QuickSpec {
                 it("should have empty bookmarks status") {
                     expect(sut?.bookmarksStatusField.stringValue).to(beEmpty())
                 }
+
+                it("should sync button be disabled") {
+                    expect(sut?.synchronizeButton.isEnabled) == false
+                }
             }
 
             context("set up for opening bookmarks file") {
@@ -104,6 +114,7 @@ class MainViewControllerSpec: QuickSpec {
                 beforeEach {
                     fileOpenerFactory = FileOpenerCreatingDouble()
                     fileBookmarks = FileBookmarkingDouble()
+
                     sut?.setUp(
                         fileOpenerFactory: fileOpenerFactory,
                         fileBookmarks: fileBookmarks,
@@ -178,6 +189,7 @@ class MainViewControllerSpec: QuickSpec {
                     calendarAuthorizer = CalendarAuthorizingDouble()
                     CalendarAuthorizingDouble.authorizationStatusMock = .notDetermined
                     alertFactory = ModalAlertCreatingDouble()
+
                     sut?.setUp(
                         fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
@@ -191,6 +203,10 @@ class MainViewControllerSpec: QuickSpec {
 
                 it("should have correct calendar auth message") {
                     expect(sut?.calendarAuthField.stringValue) == "❌ Callendar access not determined"
+                }
+
+                it("should sync button be disabled") {
+                    expect(sut?.synchronizeButton.isEnabled) == false
                 }
 
                 context("click authorize button") {
@@ -278,6 +294,7 @@ class MainViewControllerSpec: QuickSpec {
                         EKCalendarDouble(id: "calendar-3", title: "Third Calendar")
                     ]
                     calendarIdStore = CalendarIdStoringDouble()
+
                     sut?.setUp(
                         fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
@@ -296,6 +313,10 @@ class MainViewControllerSpec: QuickSpec {
 
                 it("should have no selected calendar") {
                     expect(sut?.calendarSelectionButton.selectedItem).to(beNil())
+                }
+
+                it("should sync button be disabled") {
+                    expect(sut?.synchronizeButton.isEnabled) == false
                 }
 
                 context("select calendar") {
@@ -324,8 +345,10 @@ class MainViewControllerSpec: QuickSpec {
                         EKCalendarDouble(id: "calendar-2", title: "Second Calendar"),
                         EKCalendarDouble(id: "calendar-3", title: "Third Calendar")
                     ]
+
                     calendarIdStore = CalendarIdStoringDouble()
                     calendarIdStore.mockedCalendarId = "calendar-3"
+
                     sut?.setUp(
                         fileOpenerFactory: FileOpenerCreatingDouble(),
                         fileBookmarks: FileBookmarkingDouble(),
@@ -346,6 +369,38 @@ class MainViewControllerSpec: QuickSpec {
                     expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "Third Calendar"
                 }
             }
+
+            context("set up with readable bookmarks path and calendar set and authorized") {
+                beforeEach {
+                    let fileBookmarks = FileBookmarkingDouble()
+                    fileBookmarks.urls["bookmarks_file_url"] = URL(fileURLWithPath: "/tmp")
+
+                    let calendarAuthorizer = CalendarAuthorizingDouble()
+                    CalendarAuthorizingDouble.authorizationStatusMock = .authorized
+
+                    let calendarsProvider = CalendarsProvidingDouble()
+                    calendarsProvider.mockedCalendars = [
+                        EKCalendarDouble(id: "calendar-1", title: "First Calendar")
+                    ]
+
+                    let calendarIdStore = CalendarIdStoringDouble()
+                    calendarIdStore.mockedCalendarId = "calendar-1"
+
+                    sut?.setUp(
+                        fileOpenerFactory: FileOpenerCreatingDouble(),
+                        fileBookmarks: fileBookmarks,
+                        fileReadability: FileManager.default,
+                        calendarAuthorizer: calendarAuthorizer,
+                        alertFactory: ModalAlertCreatingDouble(),
+                        calendarsProvider: calendarsProvider,
+                        calendarIdStore: calendarIdStore
+                    )
+                }
+
+                it("should sync button be enabled") {
+                    expect(sut?.synchronizeButton.isEnabled) == true
+                }
+            }
         }
     }
 }
@@ -357,6 +412,7 @@ private extension MainViewController {
     var calendarAuthField: NSTextField! { return view.accessibilityElement(id: #function) }
     var calendarAuthButton: NSButton! { return view.accessibilityElement(id: #function) }
     var calendarSelectionButton: NSPopUpButton! { return view.accessibilityElement(id: #function) }
+    var synchronizeButton: NSButton! { return view.accessibilityElement(id: #function) }
 }
 
 private class FileOpenerCreatingDouble: FileOpenerCreating {
