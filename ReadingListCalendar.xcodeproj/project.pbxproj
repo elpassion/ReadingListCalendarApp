@@ -22,6 +22,10 @@
 		31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3C222762AC00522D23 /* UserDefaults+FileBookmarking.swift */; };
 		31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */; };
 		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
+		3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC18222DD3CC00B0919B /* FileOpener+Functions.swift */; };
+		3126AC1B222DD42200B0919B /* ModalAlert+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */; };
+		3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */; };
+		3126AC1F222DD4B200B0919B /* URL+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1E222DD4B200B0919B /* URL+Functions.swift */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
 		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
@@ -36,7 +40,6 @@
 		31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAB22296C6300B0BCD0 /* FileReadablity.swift */; };
 		31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */; };
 		31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */; };
-		31741EB222296CF500B0BCD0 /* Driver+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB122296CF500B0BCD0 /* Driver+Unwrap.swift */; };
 		31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */; };
 		31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */; };
 		31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */; };
@@ -65,7 +68,6 @@
 		31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */; };
 		31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFA2228B3C90011A1CA /* FuncUtils.swift */; };
 		31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */; };
-		31E05B002228BA9D0011A1CA /* MaybeAsDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFF2228BA9D0011A1CA /* MaybeAsDriver.swift */; };
 		31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */; };
 		31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */; };
 		31EA657E222C492700AC6BD4 /* FileOpenerCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA657D222C492700AC6BD4 /* FileOpenerCreating.swift */; };
@@ -140,6 +142,10 @@
 		31140E3C222762AC00522D23 /* UserDefaults+FileBookmarking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+FileBookmarking.swift"; sourceTree = "<group>"; };
 		31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFileBookmarkingSpec.swift; sourceTree = "<group>"; };
 		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3126AC18222DD3CC00B0919B /* FileOpener+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpener+Functions.swift"; sourceTree = "<group>"; };
+		3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlert+Functions.swift"; sourceTree = "<group>"; };
+		3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadability+Functions.swift"; sourceTree = "<group>"; };
+		3126AC1E222DD4B200B0919B /* URL+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Functions.swift"; sourceTree = "<group>"; };
 		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313DBD7422257144003B0242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		313DBD7622257145003B0242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,7 +161,6 @@
 		31741EAB22296C6300B0BCD0 /* FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadablity.swift; sourceTree = "<group>"; };
 		31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+FileReadablity.swift"; sourceTree = "<group>"; };
 		31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadablity+URL.swift"; sourceTree = "<group>"; };
-		31741EB122296CF500B0BCD0 /* Driver+Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Unwrap.swift"; sourceTree = "<group>"; };
 		31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAuthorizing.swift; sourceTree = "<group>"; };
 		31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarAuthorizing+Rx.swift"; sourceTree = "<group>"; };
 		31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarAuthorizng.swift"; sourceTree = "<group>"; };
@@ -185,7 +190,6 @@
 		31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityElement.swift"; sourceTree = "<group>"; };
 		31E05AFA2228B3C90011A1CA /* FuncUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncUtils.swift; sourceTree = "<group>"; };
 		31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpenerCreating+BookmarksFileOpener.swift"; sourceTree = "<group>"; };
-		31E05AFF2228BA9D0011A1CA /* MaybeAsDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeAsDriver.swift; sourceTree = "<group>"; };
 		31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableAsDriver.swift; sourceTree = "<group>"; };
 		31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileBookmarking+Bookmarks.swift"; sourceTree = "<group>"; };
 		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 		31140E2E2227550B00522D23 /* FileOpener */ = {
 			isa = PBXGroup;
 			children = (
+				3126AC18222DD3CC00B0919B /* FileOpener+Functions.swift */,
 				31EA657D222C492700AC6BD4 /* FileOpenerCreating.swift */,
 				31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */,
 				31EA657F222C498100AC6BD4 /* FileOpenerFactory.swift */,
@@ -362,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */,
+				3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */,
 				31741EAB22296C6300B0BCD0 /* FileReadablity.swift */,
 				31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */,
 			);
@@ -404,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				31DB9A80222B70F700A34B81 /* ModalAlert.swift */,
+				3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */,
 				31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */,
 				31DB9A88222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift */,
 				31DB9A86222B711400A34B81 /* ModalAlertFactory.swift */,
@@ -433,10 +440,9 @@
 			children = (
 				31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */,
 				31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */,
-				31741EB122296CF500B0BCD0 /* Driver+Unwrap.swift */,
 				31E05AFA2228B3C90011A1CA /* FuncUtils.swift */,
-				31E05AFF2228BA9D0011A1CA /* MaybeAsDriver.swift */,
 				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */,
+				3126AC1E222DD4B200B0919B /* URL+Functions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -615,9 +621,9 @@
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */,
+				3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */,
 				31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */,
 				31140E112227279400522D23 /* MainWindowController.swift in Sources */,
-				31E05B002228BA9D0011A1CA /* MaybeAsDriver.swift in Sources */,
 				31EA657E222C492700AC6BD4 /* FileOpenerCreating.swift in Sources */,
 				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
 				31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */,
@@ -630,15 +636,17 @@
 				3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */,
 				31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */,
 				31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */,
+				3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */,
 				31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */,
-				31741EB222296CF500B0BCD0 /* Driver+Unwrap.swift in Sources */,
 				3156BBAF222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift in Sources */,
 				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
 				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
 				31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */,
 				31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */,
 				31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */,
+				3126AC1F222DD4B200B0919B /* URL+Functions.swift in Sources */,
 				31DB9A81222B70F700A34B81 /* ModalAlert.swift in Sources */,
+				3126AC1B222DD42200B0919B /* ModalAlert+Functions.swift in Sources */,
 				31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

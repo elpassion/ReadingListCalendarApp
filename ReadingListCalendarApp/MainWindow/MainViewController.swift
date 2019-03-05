@@ -1,4 +1,3 @@
-// swiftlint:disable file_length
 import AppKit
 import EventKit
 import RxCocoa
@@ -60,31 +59,23 @@ class MainViewController: NSViewController {
             .drive(bookmarksUrl)
             .disposed(by: disposeBag)
 
-        bookmarksUrl.asDriver().skip(1)
-            .flatMapLatest(fileBookmarks.setBookmarksFileURL >>> asDriverOnErrorComplete())
-            .drive()
+        bookmarksUrl.asObservable().skip(1)
+            .flatMapLatest(fileBookmarks.setBookmarksFileURL(_:))
+            .subscribe()
             .disposed(by: disposeBag)
 
         bookmarksUrl.asDriver()
-            .map(bookmarksPathFromUrl)
+            .map(filePath("Bookmarks.plist"))
             .drive(bookmarksPathField.rx.text)
             .disposed(by: disposeBag)
 
         bookmarksPathButton.rx.tap.asDriver()
-            .flatMapFirst(openBookmarksFile >>> asDriver(onErrorDriveWith: .empty()))
+            .flatMapFirst(openBookmarksFile(fileOpenerFactory))
             .drive(bookmarksUrl)
             .disposed(by: disposeBag)
 
         bookmarksUrl.asDriver()
-            .unwrap()
-            .map(fileReadability.isReadableFile(atURL:))
-            .map(bookmarksStatusForReadability)
-            .drive(bookmarksStatusField.rx.text)
-            .disposed(by: disposeBag)
-
-        bookmarksUrl.asDriver()
-            .filter { $0 == nil }
-            .map { _ in "" }
+            .map(fileReadabilityStatus("Bookmarks.plist", fileReadability))
             .drive(bookmarksStatusField.rx.text)
             .disposed(by: disposeBag)
 
@@ -102,7 +93,7 @@ class MainViewController: NSViewController {
             .flatMapFirst(calendarAuthorizer.requestAccessToEvents
                 >>> andThen(calendarAuthorizer.eventsAuthorizationStatus()))
             .observeOn(MainScheduler.instance)
-            .do(onNext: presentAlertForCalendarAuth)
+            .do(onNext: presentAlertForCalendarAuth(alertFactory))
             .asDriver(onErrorDriveWith: .empty())
             .drive(calendarAuth)
             .disposed(by: disposeBag)
@@ -135,29 +126,6 @@ class MainViewController: NSViewController {
             .withLatestFrom(calendars.asDriver()) { selectedIndex, calendars in calendars[selectedIndex].id }
             .drive(calendarId)
             .disposed(by: disposeBag)
-    }
-
-    private var openBookmarksFile: () -> Maybe<URL> {
-        return { [unowned self] in
-            let opener = self.fileOpenerFactory.createBookmarksFileOpener()
-            return opener.rx_openFile()
-        }
-    }
-
-    private var bookmarksPathFromUrl: (URL?) -> String {
-        return { $0?.absoluteString ?? "❌ Bookmarks.plist file is not set" }
-    }
-
-    private var bookmarksStatusForReadability: (Bool) -> String {
-        return { $0 ? "✓ Bookmarks.plist file is set and readable" : "❌ Bookmarks.plist file is not readable" }
-    }
-
-    private var presentAlertForCalendarAuth: (EKAuthorizationStatus) -> Void {
-        return { [unowned self] status in
-            guard status != .authorized else { return }
-            let alert = self.alertFactory.createCalendarAccessDenied()
-            alert.runModal()
-        }
     }
 
 }
