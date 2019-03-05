@@ -2,6 +2,8 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+// TODO: implement sync
+
 class SyncController: SyncControlling {
 
     var isSynchronizing: Driver<Bool> {
