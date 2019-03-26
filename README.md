@@ -9,7 +9,7 @@ WIP
 
 Requirements: 
 
-- Xcode 10.1
+- Xcode 10.2
 - [SwiftLint](https://github.com/realm/SwiftLint)
 - [Carthage](https://github.com/Carthage/Carthage)
 
