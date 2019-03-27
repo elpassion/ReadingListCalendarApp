@@ -8,7 +8,8 @@ extension Reactive where Base: NSPopUpButton {
     var updateItems: Binder<(titles: [String], selected: Int?)> {
         return Binder(base) { base, items in
             base.removeAllItems()
-            base.addItems(withTitles: items.titles)
+            let titles = items.titles.enumerated().map { "\($0.offset + 1). \($0.element)" }
+            base.addItems(withTitles: titles)
             base.selectItem(at: items.selected ?? -1)
         }
     }

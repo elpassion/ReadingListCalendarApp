@@ -314,7 +314,9 @@ class MainViewControllerSpec: QuickSpec {
                 }
 
                 it("should have correct calendars list") {
-                    let expected = calendarsProvider.mockedCalendars.map { $0.title }
+                    let expected = calendarsProvider.mockedCalendars
+                        .enumerated()
+                        .map { "\($0.offset + 1). \($0.element.title)" }
                     expect(sut?.calendarSelectionButton.itemTitles) == expected
                 }
 
@@ -332,7 +334,7 @@ class MainViewControllerSpec: QuickSpec {
                     }
 
                     it("should have correct calendar selected") {
-                        expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "Second Calendar"
+                        expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "2. Second Calendar"
                     }
 
                     it("should store selected calendar id") {
@@ -369,12 +371,14 @@ class MainViewControllerSpec: QuickSpec {
                 }
 
                 it("should have correct calendars list") {
-                    let expected = calendarsProvider.mockedCalendars.map { $0.title }
+                    let expected = calendarsProvider.mockedCalendars
+                        .enumerated()
+                        .map { "\($0.offset + 1). \($0.element.title)" }
                     expect(sut?.calendarSelectionButton.itemTitles) == expected
                 }
 
                 it("should have correct calendar selected") {
-                    expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "Third Calendar"
+                    expect(sut?.calendarSelectionButton.titleOfSelectedItem) == "3. Third Calendar"
                 }
             }
 
