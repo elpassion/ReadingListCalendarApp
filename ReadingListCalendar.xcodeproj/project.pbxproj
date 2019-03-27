@@ -85,6 +85,13 @@
 		31E1F7DA224B6713008D05AA /* BookmarksLoadingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7D9224B6713008D05AA /* BookmarksLoadingError.swift */; };
 		31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7DC224B67B7008D05AA /* BookmarksLoaderSpec.swift */; };
 		31E1F7DF224B6D36008D05AA /* Bookmarks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E1F7DE224B6D36008D05AA /* Bookmarks.plist */; };
+		31E1F7E1224B7441008D05AA /* ReadingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7E0224B7441008D05AA /* ReadingListItem.swift */; };
+		31E1F7E3224B7474008D05AA /* Bookmark+ReadingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7E2224B7474008D05AA /* Bookmark+ReadingList.swift */; };
+		31E1F7E5224B74AA008D05AA /* ReadingListError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7E4224B74AA008D05AA /* ReadingListError.swift */; };
+		31E1F7E7224B7673008D05AA /* Optional+OrThrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7E6224B7673008D05AA /* Optional+OrThrow.swift */; };
+		31E1F7E9224B76A7008D05AA /* BookmarkReadingListSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7E8224B76A7008D05AA /* BookmarkReadingListSpec.swift */; };
+		31E1F7EB224B76D6008D05AA /* Bookmark+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7EA224B76D6008D05AA /* Bookmark+Fake.swift */; };
+		31E1F7ED224B7AE7008D05AA /* OptionalOrThrowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7EC224B7AE7008D05AA /* OptionalOrThrowSpec.swift */; };
 		31EA657E222C492700AC6BD4 /* FileOpenerCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA657D222C492700AC6BD4 /* FileOpenerCreating.swift */; };
 		31EA6580222C498100AC6BD4 /* FileOpenerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA657F222C498100AC6BD4 /* FileOpenerFactory.swift */; };
 		31EA6582222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA6581222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift */; };
@@ -224,6 +231,13 @@
 		31E1F7D9224B6713008D05AA /* BookmarksLoadingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksLoadingError.swift; sourceTree = "<group>"; };
 		31E1F7DC224B67B7008D05AA /* BookmarksLoaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksLoaderSpec.swift; sourceTree = "<group>"; };
 		31E1F7DE224B6D36008D05AA /* Bookmarks.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Bookmarks.plist; sourceTree = "<group>"; };
+		31E1F7E0224B7441008D05AA /* ReadingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListItem.swift; sourceTree = "<group>"; };
+		31E1F7E2224B7474008D05AA /* Bookmark+ReadingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bookmark+ReadingList.swift"; sourceTree = "<group>"; };
+		31E1F7E4224B74AA008D05AA /* ReadingListError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListError.swift; sourceTree = "<group>"; };
+		31E1F7E6224B7673008D05AA /* Optional+OrThrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+OrThrow.swift"; sourceTree = "<group>"; };
+		31E1F7E8224B76A7008D05AA /* BookmarkReadingListSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkReadingListSpec.swift; sourceTree = "<group>"; };
+		31E1F7EA224B76D6008D05AA /* Bookmark+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bookmark+Fake.swift"; sourceTree = "<group>"; };
+		31E1F7EC224B7AE7008D05AA /* OptionalOrThrowSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalOrThrowSpec.swift; sourceTree = "<group>"; };
 		31EA657D222C492700AC6BD4 /* FileOpenerCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerCreating.swift; sourceTree = "<group>"; };
 		31EA657F222C498100AC6BD4 /* FileOpenerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerFactory.swift; sourceTree = "<group>"; };
 		31EA6581222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerFactorySpec.swift; sourceTree = "<group>"; };
@@ -484,6 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */,
+				31E1F7EC224B7AE7008D05AA /* OptionalOrThrowSpec.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -496,6 +511,7 @@
 				31E05AFA2228B3C90011A1CA /* FuncUtils.swift */,
 				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */,
 				31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */,
+				31E1F7E6224B7673008D05AA /* Optional+OrThrow.swift */,
 				3126AC1E222DD4B200B0919B /* URL+Functions.swift */,
 			);
 			path = Helpers;
@@ -532,10 +548,13 @@
 			isa = PBXGroup;
 			children = (
 				31E1F7CF224B5EF3008D05AA /* Bookmark.swift */,
+				31E1F7E2224B7474008D05AA /* Bookmark+ReadingList.swift */,
 				31E1F7D7224B6665008D05AA /* BookmarksLoader.swift */,
 				31E1F7D5224B663D008D05AA /* BookmarksLoading.swift */,
 				31E1F7D9224B6713008D05AA /* BookmarksLoadingError.swift */,
+				31E1F7E4224B74AA008D05AA /* ReadingListError.swift */,
 				31E1F7D3224B5F41008D05AA /* ReadingListInfo.swift */,
+				31E1F7E0224B7441008D05AA /* ReadingListItem.swift */,
 				31E1F7D1224B5F2E008D05AA /* URIDict.swift */,
 			);
 			path = Bookmarks;
@@ -544,6 +563,8 @@
 		31E1F7DB224B6799008D05AA /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
+				31E1F7EA224B76D6008D05AA /* Bookmark+Fake.swift */,
+				31E1F7E8224B76A7008D05AA /* BookmarkReadingListSpec.swift */,
 				31E1F7DC224B67B7008D05AA /* BookmarksLoaderSpec.swift */,
 			);
 			path = Bookmarks;
@@ -698,6 +719,7 @@
 			files = (
 				313DBD7522257144003B0242 /* AppDelegate.swift in Sources */,
 				318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */,
+				31E1F7E1224B7441008D05AA /* ReadingListItem.swift in Sources */,
 				31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */,
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
 				314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */,
@@ -705,10 +727,12 @@
 				31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */,
 				31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */,
 				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
+				31E1F7E3224B7474008D05AA /* Bookmark+ReadingList.swift in Sources */,
 				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				31E1F7D2224B5F2E008D05AA /* URIDict.swift in Sources */,
+				31E1F7E7224B7673008D05AA /* Optional+OrThrow.swift in Sources */,
 				31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */,
@@ -741,6 +765,7 @@
 				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
 				31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */,
 				31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */,
+				31E1F7E5224B74AA008D05AA /* ReadingListError.swift in Sources */,
 				31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */,
 				3126AC1F222DD4B200B0919B /* URL+Functions.swift in Sources */,
 				31E1F7D6224B663D008D05AA /* BookmarksLoading.swift in Sources */,
@@ -756,13 +781,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */,
+				31E1F7EB224B76D6008D05AA /* Bookmark+Fake.swift in Sources */,
 				31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */,
 				31EA6582222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift in Sources */,
 				319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */,
 				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
 				31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */,
 				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,
+				31E1F7E9224B76A7008D05AA /* BookmarkReadingListSpec.swift in Sources */,
 				3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */,
+				31E1F7ED224B7AE7008D05AA /* OptionalOrThrowSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
 				31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */,
 				31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */,
