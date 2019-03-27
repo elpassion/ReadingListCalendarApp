@@ -74,6 +74,17 @@
 		31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */; };
 		31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */; };
 		31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */; };
+		31E1F7C9224B5D86008D05AA /* FileReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7C8224B5D86008D05AA /* FileReading.swift */; };
+		31E1F7CB224B5DB7008D05AA /* FileManager+FileReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7CA224B5DB7008D05AA /* FileManager+FileReading.swift */; };
+		31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7CC224B5DD1008D05AA /* FileReading+URL.swift */; };
+		31E1F7D0224B5EF3008D05AA /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7CF224B5EF3008D05AA /* Bookmark.swift */; };
+		31E1F7D2224B5F2E008D05AA /* URIDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7D1224B5F2E008D05AA /* URIDict.swift */; };
+		31E1F7D4224B5F41008D05AA /* ReadingListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7D3224B5F41008D05AA /* ReadingListInfo.swift */; };
+		31E1F7D6224B663D008D05AA /* BookmarksLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7D5224B663D008D05AA /* BookmarksLoading.swift */; };
+		31E1F7D8224B6665008D05AA /* BookmarksLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7D7224B6665008D05AA /* BookmarksLoader.swift */; };
+		31E1F7DA224B6713008D05AA /* BookmarksLoadingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7D9224B6713008D05AA /* BookmarksLoadingError.swift */; };
+		31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7DC224B67B7008D05AA /* BookmarksLoaderSpec.swift */; };
+		31E1F7DF224B6D36008D05AA /* Bookmarks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E1F7DE224B6D36008D05AA /* Bookmarks.plist */; };
 		31EA657E222C492700AC6BD4 /* FileOpenerCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA657D222C492700AC6BD4 /* FileOpenerCreating.swift */; };
 		31EA6580222C498100AC6BD4 /* FileOpenerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA657F222C498100AC6BD4 /* FileOpenerFactory.swift */; };
 		31EA6582222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA6581222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift */; };
@@ -202,6 +213,17 @@
 		31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileBookmarking+Bookmarks.swift"; sourceTree = "<group>"; };
 		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		31E106802226FA1E00703714 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		31E1F7C8224B5D86008D05AA /* FileReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReading.swift; sourceTree = "<group>"; };
+		31E1F7CA224B5DB7008D05AA /* FileManager+FileReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+FileReading.swift"; sourceTree = "<group>"; };
+		31E1F7CC224B5DD1008D05AA /* FileReading+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReading+URL.swift"; sourceTree = "<group>"; };
+		31E1F7CF224B5EF3008D05AA /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		31E1F7D1224B5F2E008D05AA /* URIDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URIDict.swift; sourceTree = "<group>"; };
+		31E1F7D3224B5F41008D05AA /* ReadingListInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListInfo.swift; sourceTree = "<group>"; };
+		31E1F7D5224B663D008D05AA /* BookmarksLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksLoading.swift; sourceTree = "<group>"; };
+		31E1F7D7224B6665008D05AA /* BookmarksLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksLoader.swift; sourceTree = "<group>"; };
+		31E1F7D9224B6713008D05AA /* BookmarksLoadingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksLoadingError.swift; sourceTree = "<group>"; };
+		31E1F7DC224B67B7008D05AA /* BookmarksLoaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksLoaderSpec.swift; sourceTree = "<group>"; };
+		31E1F7DE224B6D36008D05AA /* Bookmarks.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Bookmarks.plist; sourceTree = "<group>"; };
 		31EA657D222C492700AC6BD4 /* FileOpenerCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerCreating.swift; sourceTree = "<group>"; };
 		31EA657F222C498100AC6BD4 /* FileOpenerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerFactory.swift; sourceTree = "<group>"; };
 		31EA6581222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerFactorySpec.swift; sourceTree = "<group>"; };
@@ -281,6 +303,7 @@
 		31140E2D22274DC100522D23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31E1F7DE224B6D36008D05AA /* Bookmarks.plist */,
 				318732E72226F3D5009F5289 /* Info.plist */,
 			);
 			path = Resources;
@@ -351,10 +374,12 @@
 			children = (
 				318732EF2226F53B009F5289 /* .swiftlint.yml */,
 				31140E2722274C4900522D23 /* Application */,
+				31E1F7CE224B5EE4008D05AA /* Bookmarks */,
 				31741EB32229738000B0BCD0 /* Calendar */,
 				31140E39222760E800522D23 /* FileBookmarks */,
 				31140E2E2227550B00522D23 /* FileOpener */,
 				31741EAA22296C4600B0BCD0 /* FileReadablity */,
+				31E1F7C7224B5D71008D05AA /* FileReader */,
 				31E05AF92228B3B90011A1CA /* Helpers */,
 				31140E2922274D0300522D23 /* MainWindow */,
 				31DB9A7F222B70E900A34B81 /* ModalAlert */,
@@ -404,6 +429,7 @@
 			children = (
 				318732F02226F552009F5289 /* .swiftlint.yml */,
 				31140E2A22274D3E00522D23 /* Application */,
+				31E1F7DB224B6799008D05AA /* Bookmarks */,
 				3156BBB0222C9D0E00293301 /* Calendar */,
 				31140E3E222762CD00522D23 /* FileBookmarks */,
 				31140E36222759F300522D23 /* FileOpener */,
@@ -490,6 +516,37 @@
 				319BCF882228602C00CD4D14 /* RxTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31E1F7C7224B5D71008D05AA /* FileReader */ = {
+			isa = PBXGroup;
+			children = (
+				31E1F7CA224B5DB7008D05AA /* FileManager+FileReading.swift */,
+				31E1F7C8224B5D86008D05AA /* FileReading.swift */,
+				31E1F7CC224B5DD1008D05AA /* FileReading+URL.swift */,
+			);
+			path = FileReader;
+			sourceTree = "<group>";
+		};
+		31E1F7CE224B5EE4008D05AA /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				31E1F7CF224B5EF3008D05AA /* Bookmark.swift */,
+				31E1F7D7224B6665008D05AA /* BookmarksLoader.swift */,
+				31E1F7D5224B663D008D05AA /* BookmarksLoading.swift */,
+				31E1F7D9224B6713008D05AA /* BookmarksLoadingError.swift */,
+				31E1F7D3224B5F41008D05AA /* ReadingListInfo.swift */,
+				31E1F7D1224B5F2E008D05AA /* URIDict.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		31E1F7DB224B6799008D05AA /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				31E1F7DC224B67B7008D05AA /* BookmarksLoaderSpec.swift */,
+			);
+			path = Bookmarks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,6 +646,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E1F7DF224B6D36008D05AA /* Bookmarks.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,23 +702,30 @@
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
 				314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */,
 				31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift in Sources */,
+				31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */,
 				31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */,
 				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
 				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
+				31E1F7D2224B5F2E008D05AA /* URIDict.swift in Sources */,
 				31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */,
+				31E1F7D4224B5F41008D05AA /* ReadingListInfo.swift in Sources */,
+				31E1F7C9224B5D86008D05AA /* FileReading.swift in Sources */,
 				3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */,
 				31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */,
+				31E1F7D0224B5EF3008D05AA /* Bookmark.swift in Sources */,
 				31140E112227279400522D23 /* MainWindowController.swift in Sources */,
+				31E1F7D8224B6665008D05AA /* BookmarksLoader.swift in Sources */,
 				31EA657E222C492700AC6BD4 /* FileOpenerCreating.swift in Sources */,
 				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
 				31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */,
 				31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */,
 				314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */,
 				31DB9A87222B711400A34B81 /* ModalAlertFactory.swift in Sources */,
+				31E1F7CB224B5DB7008D05AA /* FileManager+FileReading.swift in Sources */,
 				31EA6580222C498100AC6BD4 /* FileOpenerFactory.swift in Sources */,
 				31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */,
 				314FE6B1222C7C4F00473D54 /* NSPopUpButton+Rx.swift in Sources */,
@@ -678,9 +743,11 @@
 				31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */,
 				31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */,
 				3126AC1F222DD4B200B0919B /* URL+Functions.swift in Sources */,
+				31E1F7D6224B663D008D05AA /* BookmarksLoading.swift in Sources */,
 				31DB9A81222B70F700A34B81 /* ModalAlert.swift in Sources */,
 				3126AC1B222DD42200B0919B /* ModalAlert+Functions.swift in Sources */,
 				31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */,
+				31E1F7DA224B6713008D05AA /* BookmarksLoadingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +764,7 @@
 				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,
 				3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
+				31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */,
 				31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
