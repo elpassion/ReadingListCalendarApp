@@ -160,7 +160,10 @@ class MainViewController: NSViewController {
             .withLatestFrom(calendarId.asDriver()) { (bookmarksUrl: $0, calendarId: $1) }
             .filter { $0.bookmarksUrl != nil && $0.calendarId != nil }
             .map { ($0.bookmarksUrl!, $0.calendarId!) } // swiftlint:disable:this force_unwrapping
-            .flatMapFirst(syncController.sync(bookmarksUrl:calendarId:) >>> asDriverOnErrorComplete())
+            .flatMapFirst(syncController.sync(bookmarksUrl:calendarId:)
+                >>> asDriverOnErrorComplete(onError: { [alertFactory] in
+                    alertFactory?.createError($0).runModal()
+                }))
             .drive()
             .disposed(by: disposeBag)
     }

@@ -384,6 +384,7 @@ class MainViewControllerSpec: QuickSpec {
 
             context("set up with readable bookmarks path and calendar set and authorized") {
                 var fileBookmarks: FileBookmarkingDouble!
+                var alertFactory: ModalAlertCreatingDouble!
                 var calendarIdStore: CalendarIdStoringDouble!
                 var syncController: SyncControllingDouble!
 
@@ -393,6 +394,8 @@ class MainViewControllerSpec: QuickSpec {
 
                     let calendarAuthorizer = CalendarAuthorizingDouble()
                     CalendarAuthorizingDouble.authorizationStatusMock = .authorized
+
+                    alertFactory = ModalAlertCreatingDouble()
 
                     let calendarsProvider = CalendarsProvidingDouble()
                     calendarsProvider.mockedCalendars = [
@@ -409,7 +412,7 @@ class MainViewControllerSpec: QuickSpec {
                         fileBookmarks: fileBookmarks,
                         fileReadability: FileManager.default,
                         calendarAuthorizer: calendarAuthorizer,
-                        alertFactory: ModalAlertCreatingDouble(),
+                        alertFactory: alertFactory,
                         calendarsProvider: calendarsProvider,
                         calendarIdStore: calendarIdStore,
                         syncController: syncController
@@ -473,6 +476,22 @@ class MainViewControllerSpec: QuickSpec {
 
                             it("should show empty progress") {
                                 expect(sut?.progressIndicator.doubleValue) == 0
+                            }
+                        }
+
+                        context("when sync fails with error") {
+                            var error: NSError!
+
+                            beforeEach {
+                                error = NSError(domain: "test", code: 123, userInfo: nil)
+                                syncController.syncObserver?(.error(error))
+                            }
+
+                            it("should present error alert") {
+                                expect(alertFactory.didCreateWithStyle) == .critical
+                                expect(alertFactory.didCreateWithTitle) == "Error occured"
+                                expect(alertFactory.didCreateWithMessage) == error.localizedDescription
+                                expect(alertFactory.alertDouble.didRunModal) == true
                             }
                         }
                     }

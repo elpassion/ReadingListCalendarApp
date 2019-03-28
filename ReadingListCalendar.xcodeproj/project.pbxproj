@@ -33,6 +33,7 @@
 		31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3C222762AC00522D23 /* UserDefaults+FileBookmarking.swift */; };
 		31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */; };
 		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
+		3114C3B5224D15A2004F658C /* ModalAlertCreating+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114C3B4224D15A2004F658C /* ModalAlertCreating+Error.swift */; };
 		3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC18222DD3CC00B0919B /* FileOpener+Functions.swift */; };
 		3126AC1B222DD42200B0919B /* ModalAlert+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */; };
 		3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */; };
@@ -186,6 +187,7 @@
 		31140E3C222762AC00522D23 /* UserDefaults+FileBookmarking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+FileBookmarking.swift"; sourceTree = "<group>"; };
 		31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFileBookmarkingSpec.swift; sourceTree = "<group>"; };
 		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3114C3B4224D15A2004F658C /* ModalAlertCreating+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlertCreating+Error.swift"; sourceTree = "<group>"; };
 		3126AC18222DD3CC00B0919B /* FileOpener+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpener+Functions.swift"; sourceTree = "<group>"; };
 		3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlert+Functions.swift"; sourceTree = "<group>"; };
 		3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadability+Functions.swift"; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */,
 				31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */,
 				31DB9A88222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift */,
+				3114C3B4224D15A2004F658C /* ModalAlertCreating+Error.swift */,
 				31DB9A86222B711400A34B81 /* ModalAlertFactory.swift */,
 				31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */,
 			);
@@ -788,6 +791,7 @@
 				31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */,
 				31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */,
 				314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */,
+				3114C3B5224D15A2004F658C /* ModalAlertCreating+Error.swift in Sources */,
 				31DB9A87222B711400A34B81 /* ModalAlertFactory.swift in Sources */,
 				31E1F7CB224B5DB7008D05AA /* FileManager+FileReading.swift in Sources */,
 				31EA6580222C498100AC6BD4 /* FileOpenerFactory.swift in Sources */,
