@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3105D1C8224BB5EB00B46979 /* SyncError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1C7224BB5EB00B46979 /* SyncError.swift */; };
+		3105D1CA224BB60D00B46979 /* ReadingListItemEventProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1C9224BB60D00B46979 /* ReadingListItemEventProviding.swift */; };
+		3105D1CC224BB62D00B46979 /* EKEventStore+ReadingListItemEventProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1CB224BB62D00B46979 /* EKEventStore+ReadingListItemEventProviding.swift */; };
+		3105D1CE224BB64C00B46979 /* ReadingListItemEventCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1CD224BB64C00B46979 /* ReadingListItemEventCreating.swift */; };
+		3105D1D0224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1CF224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift */; };
+		3105D1D2224BB68800B46979 /* CalendarProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1D1224BB68800B46979 /* CalendarProviding.swift */; };
+		3105D1D5224BB6A200B46979 /* EKEventStore+CalendarProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1D4224BB6A200B46979 /* EKEventStore+CalendarProviding.swift */; };
+		3105D1D7224BB6B500B46979 /* EventSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1D6224BB6B500B46979 /* EventSaving.swift */; };
+		3105D1D9224BB6CB00B46979 /* EKEventStore+EventSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1D8224BB6CB00B46979 /* EKEventStore+EventSaving.swift */; };
+		3105D1DB224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1DA224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift */; };
+		3105D1DD224BB83C00B46979 /* EKEventStoreReadingListItemEventProvidingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105D1DC224BB83C00B46979 /* EKEventStoreReadingListItemEventProvidingSpec.swift */; };
 		31140E0D2227025B00522D23 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31140E0E2227025B00522D23 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31140E112227279400522D23 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E102227279400522D23 /* MainWindowController.swift */; };
@@ -151,6 +162,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3105D1C7224BB5EB00B46979 /* SyncError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncError.swift; sourceTree = "<group>"; };
+		3105D1C9224BB60D00B46979 /* ReadingListItemEventProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListItemEventProviding.swift; sourceTree = "<group>"; };
+		3105D1CB224BB62D00B46979 /* EKEventStore+ReadingListItemEventProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+ReadingListItemEventProviding.swift"; sourceTree = "<group>"; };
+		3105D1CD224BB64C00B46979 /* ReadingListItemEventCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListItemEventCreating.swift; sourceTree = "<group>"; };
+		3105D1CF224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+ReadingListItemEventCreating.swift"; sourceTree = "<group>"; };
+		3105D1D1224BB68800B46979 /* CalendarProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProviding.swift; sourceTree = "<group>"; };
+		3105D1D4224BB6A200B46979 /* EKEventStore+CalendarProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarProviding.swift"; sourceTree = "<group>"; };
+		3105D1D6224BB6B500B46979 /* EventSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSaving.swift; sourceTree = "<group>"; };
+		3105D1D8224BB6CB00B46979 /* EKEventStore+EventSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+EventSaving.swift"; sourceTree = "<group>"; };
+		3105D1DA224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKEventStoreReadingListItemEventCreatingSpec.swift; sourceTree = "<group>"; };
+		3105D1DC224BB83C00B46979 /* EKEventStoreReadingListItemEventProvidingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKEventStoreReadingListItemEventProvidingSpec.swift; sourceTree = "<group>"; };
 		31140E102227279400522D23 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		31140E1222272A4400522D23 /* MainWindowControllerCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerCreating.swift; sourceTree = "<group>"; };
 		31140E1422272A6600522D23 /* MainWindowControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerFactory.swift; sourceTree = "<group>"; };
@@ -428,11 +450,15 @@
 				31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */,
 				31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */,
 				3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */,
+				3105D1D1224BB68800B46979 /* CalendarProviding.swift */,
 				314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */,
 				314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */,
 				31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */,
 				31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */,
+				3105D1D4224BB6A200B46979 /* EKEventStore+CalendarProviding.swift */,
 				314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */,
+				3105D1D8224BB6CB00B46979 /* EKEventStore+EventSaving.swift */,
+				3105D1D6224BB6B500B46979 /* EventSaving.swift */,
 				3156BBAE222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift */,
 			);
 			path = Calendar;
@@ -459,8 +485,13 @@
 		31C56FB9222DEB00008EAAC0 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
-				31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */,
+				3105D1CF224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift */,
+				3105D1CB224BB62D00B46979 /* EKEventStore+ReadingListItemEventProviding.swift */,
+				3105D1CD224BB64C00B46979 /* ReadingListItemEventCreating.swift */,
+				3105D1C9224BB60D00B46979 /* ReadingListItemEventProviding.swift */,
 				31C56FBC222DEB38008EAAC0 /* SyncController.swift */,
+				31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */,
+				3105D1C7224BB5EB00B46979 /* SyncError.swift */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -468,6 +499,8 @@
 		31C56FBE222DEC15008EAAC0 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
+				3105D1DA224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift */,
+				3105D1DC224BB83C00B46979 /* EKEventStoreReadingListItemEventProvidingSpec.swift */,
 				31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */,
 			);
 			path = Sync;
@@ -717,12 +750,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3105D1D5224BB6A200B46979 /* EKEventStore+CalendarProviding.swift in Sources */,
 				313DBD7522257144003B0242 /* AppDelegate.swift in Sources */,
+				3105D1C8224BB5EB00B46979 /* SyncError.swift in Sources */,
 				318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */,
 				31E1F7E1224B7441008D05AA /* ReadingListItem.swift in Sources */,
+				3105D1CC224BB62D00B46979 /* EKEventStore+ReadingListItemEventProviding.swift in Sources */,
+				3105D1CE224BB64C00B46979 /* ReadingListItemEventCreating.swift in Sources */,
 				31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */,
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
 				314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */,
+				3105D1D0224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift in Sources */,
 				31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift in Sources */,
 				31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */,
 				31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */,
@@ -731,8 +769,10 @@
 				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
+				3105D1CA224BB60D00B46979 /* ReadingListItemEventProviding.swift in Sources */,
 				31E1F7D2224B5F2E008D05AA /* URIDict.swift in Sources */,
 				31E1F7E7224B7673008D05AA /* Optional+OrThrow.swift in Sources */,
+				3105D1D7224BB6B500B46979 /* EventSaving.swift in Sources */,
 				31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */,
@@ -754,6 +794,7 @@
 				31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */,
 				314FE6B1222C7C4F00473D54 /* NSPopUpButton+Rx.swift in Sources */,
 				31DB9A89222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift in Sources */,
+				3105D1D9224BB6CB00B46979 /* EKEventStore+EventSaving.swift in Sources */,
 				3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */,
 				31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */,
 				31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */,
@@ -764,6 +805,7 @@
 				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
 				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
 				31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */,
+				3105D1D2224BB68800B46979 /* CalendarProviding.swift in Sources */,
 				31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */,
 				31E1F7E5224B74AA008D05AA /* ReadingListError.swift in Sources */,
 				31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */,
@@ -781,6 +823,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */,
+				3105D1DD224BB83C00B46979 /* EKEventStoreReadingListItemEventProvidingSpec.swift in Sources */,
 				31E1F7EB224B76D6008D05AA /* Bookmark+Fake.swift in Sources */,
 				31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */,
 				31EA6582222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift in Sources */,
@@ -792,6 +835,7 @@
 				3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */,
 				31E1F7ED224B7AE7008D05AA /* OptionalOrThrowSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
+				3105D1DB224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift in Sources */,
 				31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */,
 				31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */,
 			);
