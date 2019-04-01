@@ -2,6 +2,7 @@
 
 ![Swift v5.0](https://img.shields.io/badge/swift-v5.0-orange.svg)
 ![platform macOS](https://img.shields.io/badge/platform-macOS-blue.svg)
+![code coverage 100%](https://img.shields.io/badge/covergage-100%25-success.svg)
 
 **macOS** application that sync **Safari Reading List** items to your **Calendar**.
 
