@@ -10,7 +10,6 @@ extension EKAuthorizationStatus {
         case .restricted:
             return "❌ Callendar access restricted"
         case .denied:
-            // swiftlint:disable:next no_fallthrough_only
             fallthrough
         @unknown default:
             return "❌ Callendar access denied"
