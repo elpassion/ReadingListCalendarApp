@@ -75,6 +75,8 @@
 		31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */; };
 		31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBC222DEB38008EAAC0 /* SyncController.swift */; };
 		31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */; };
+		31D3072322E2865700FFBE52 /* ErrorTitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072222E2865700FFBE52 /* ErrorTitleSpec.swift */; };
+		31D3072522E2876700FFBE52 /* Error+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072422E2876700FFBE52 /* Error+Title.swift */; };
 		31DB9A81222B70F700A34B81 /* ModalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A80222B70F700A34B81 /* ModalAlert.swift */; };
 		31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */; };
 		31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */; };
@@ -231,6 +233,8 @@
 		31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControlling.swift; sourceTree = "<group>"; };
 		31C56FBC222DEB38008EAAC0 /* SyncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncController.swift; sourceTree = "<group>"; };
 		31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControllerSpec.swift; sourceTree = "<group>"; };
+		31D3072222E2865700FFBE52 /* ErrorTitleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTitleSpec.swift; sourceTree = "<group>"; };
+		31D3072422E2876700FFBE52 /* Error+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Title.swift"; sourceTree = "<group>"; };
 		31DB9A80222B70F700A34B81 /* ModalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlert.swift; sourceTree = "<group>"; };
 		31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+ModalAlert.swift"; sourceTree = "<group>"; };
 		31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertCreating.swift; sourceTree = "<group>"; };
@@ -533,6 +537,7 @@
 		31E05AF4222899D90011A1CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				31D3072222E2865700FFBE52 /* ErrorTitleSpec.swift */,
 				31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */,
 				31E1F7EC224B7AE7008D05AA /* OptionalOrThrowSpec.swift */,
 			);
@@ -544,6 +549,7 @@
 			children = (
 				31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */,
 				31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */,
+				31D3072422E2876700FFBE52 /* Error+Title.swift */,
 				31E05AFA2228B3C90011A1CA /* FuncUtils.swift */,
 				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */,
 				31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */,
@@ -791,6 +797,7 @@
 				31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */,
 				31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */,
 				314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */,
+				31D3072522E2876700FFBE52 /* Error+Title.swift in Sources */,
 				3114C3B5224D15A2004F658C /* ModalAlertCreating+Error.swift in Sources */,
 				31DB9A87222B711400A34B81 /* ModalAlertFactory.swift in Sources */,
 				31E1F7CB224B5DB7008D05AA /* FileManager+FileReading.swift in Sources */,
@@ -837,6 +844,7 @@
 				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,
 				31E1F7E9224B76A7008D05AA /* BookmarkReadingListSpec.swift in Sources */,
 				3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */,
+				31D3072322E2865700FFBE52 /* ErrorTitleSpec.swift in Sources */,
 				31E1F7ED224B7AE7008D05AA /* OptionalOrThrowSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
 				3105D1DB224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift in Sources */,
