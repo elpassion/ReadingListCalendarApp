@@ -79,6 +79,9 @@
 		31D3072322E2865700FFBE52 /* ErrorTitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072222E2865700FFBE52 /* ErrorTitleSpec.swift */; };
 		31D3072522E2876700FFBE52 /* Error+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072422E2876700FFBE52 /* Error+Title.swift */; };
 		31D3072722E2879000FFBE52 /* ErrorMessageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072622E2879000FFBE52 /* ErrorMessageSpec.swift */; };
+		31D3072922E28BB100FFBE52 /* BookmarksLoadingErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072822E28BB100FFBE52 /* BookmarksLoadingErrorSpec.swift */; };
+		31D3072B22E28CD900FFBE52 /* ReadingListErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072A22E28CD900FFBE52 /* ReadingListErrorSpec.swift */; };
+		31D3072D22E28DB600FFBE52 /* SyncErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3072C22E28DB600FFBE52 /* SyncErrorSpec.swift */; };
 		31DB9A81222B70F700A34B81 /* ModalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A80222B70F700A34B81 /* ModalAlert.swift */; };
 		31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */; };
 		31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */; };
@@ -239,6 +242,9 @@
 		31D3072222E2865700FFBE52 /* ErrorTitleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTitleSpec.swift; sourceTree = "<group>"; };
 		31D3072422E2876700FFBE52 /* Error+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Title.swift"; sourceTree = "<group>"; };
 		31D3072622E2879000FFBE52 /* ErrorMessageSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageSpec.swift; sourceTree = "<group>"; };
+		31D3072822E28BB100FFBE52 /* BookmarksLoadingErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksLoadingErrorSpec.swift; sourceTree = "<group>"; };
+		31D3072A22E28CD900FFBE52 /* ReadingListErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListErrorSpec.swift; sourceTree = "<group>"; };
+		31D3072C22E28DB600FFBE52 /* SyncErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorSpec.swift; sourceTree = "<group>"; };
 		31DB9A80222B70F700A34B81 /* ModalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlert.swift; sourceTree = "<group>"; };
 		31DB9A82222B710300A34B81 /* NSAlert+ModalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+ModalAlert.swift"; sourceTree = "<group>"; };
 		31DB9A84222B710C00A34B81 /* ModalAlertCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertCreating.swift; sourceTree = "<group>"; };
@@ -512,6 +518,7 @@
 				3105D1DA224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift */,
 				3105D1DC224BB83C00B46979 /* EKEventStoreReadingListItemEventProvidingSpec.swift */,
 				31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */,
+				31D3072C22E28DB600FFBE52 /* SyncErrorSpec.swift */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -614,6 +621,8 @@
 				31E1F7EA224B76D6008D05AA /* Bookmark+Fake.swift */,
 				31E1F7E8224B76A7008D05AA /* BookmarkReadingListSpec.swift */,
 				31E1F7DC224B67B7008D05AA /* BookmarksLoaderSpec.swift */,
+				31D3072822E28BB100FFBE52 /* BookmarksLoadingErrorSpec.swift */,
+				31D3072A22E28CD900FFBE52 /* ReadingListErrorSpec.swift */,
 			);
 			path = Bookmarks;
 			sourceTree = "<group>";
@@ -845,8 +854,10 @@
 				31E1F7EB224B76D6008D05AA /* Bookmark+Fake.swift in Sources */,
 				31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */,
 				31EA6582222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift in Sources */,
+				31D3072922E28BB100FFBE52 /* BookmarksLoadingErrorSpec.swift in Sources */,
 				319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */,
 				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
+				31D3072B22E28CD900FFBE52 /* ReadingListErrorSpec.swift in Sources */,
 				31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */,
 				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,
 				31D3072722E2879000FFBE52 /* ErrorMessageSpec.swift in Sources */,
@@ -854,6 +865,7 @@
 				3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */,
 				31D3072322E2865700FFBE52 /* ErrorTitleSpec.swift in Sources */,
 				31E1F7ED224B7AE7008D05AA /* OptionalOrThrowSpec.swift in Sources */,
+				31D3072D22E28DB600FFBE52 /* SyncErrorSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
 				3105D1DB224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift in Sources */,
 				31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */,
