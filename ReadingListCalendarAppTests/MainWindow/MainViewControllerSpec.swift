@@ -489,8 +489,8 @@ class MainViewControllerSpec: QuickSpec {
 
                             it("should present error alert") {
                                 expect(alertFactory.didCreateWithStyle) == .critical
-                                expect(alertFactory.didCreateWithTitle) == "Error occured"
-                                expect(alertFactory.didCreateWithMessage) == error.localizedDescription
+                                expect(alertFactory.didCreateWithTitle) == error.title
+                                expect(alertFactory.didCreateWithMessage) == error.message
                                 expect(alertFactory.alertDouble.didRunModal) == true
                             }
                         }
