@@ -10,16 +10,30 @@ Inspired by [Tweet by Marcin Krzyżanowski](https://twitter.com/krzyzanowskim/st
 
 ![Reading List Calendar App](Misc/screenshot-1.png)
 
+Application accepts following launch arguments:
+
+|Argument|Description|
+|:--|:--|
+|`-sync`|Start synchronization on app launch|
+|`-headless`|Do not present UI and terminate when synchronization completes (to use with `-sync` argument)|
+
+You can start the app with above arguments using `open` command:
+
+```sh
+open -a "Reading List Calendar" --args -sync -headless
+```
+
 ## Roadmap
 
 - [x] MVP - adding reading list items to choosen calendar
-- [ ] Automatic synchronization in background
+- [x] Automatic synchronization in background (using launch arguments)
+- [ ] UI for configuring automatic synchronization in background
 
 ## Setup
 
 Requirements: 
 
-- Xcode 10.2
+- Xcode 11.1
 - [SwiftLint](https://github.com/realm/SwiftLint)
 - [Carthage](https://github.com/Carthage/Carthage)
 
