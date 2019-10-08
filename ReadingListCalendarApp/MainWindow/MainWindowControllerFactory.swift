@@ -2,16 +2,17 @@ import AppKit
 import EventKit
 
 struct MainWindowControllerFactory: MainWindowControllerCreating {
-    var fileOpenerFactory: FileOpenerCreating = FileOpenerFactory()
-    var fileBookmarks: FileBookmarking = UserDefaults.standard
-    var fileReadability: FileReadablity = FileManager.default
-    var calendarAuthorizer: CalendarAuthorizing = EKEventStore()
-    var alertFactory: ModalAlertCreating = ModalAlertFactory()
-    var calendarsProvider: CalendarsProviding = EKEventStore()
-    var calendarIdStore: CalendarIdStoring = UserDefaults.standard
-    var syncController: SyncControlling = SyncController()
-
-    func create() -> NSWindowController {
+    // swiftlint:disable:next function_parameter_count
+    func create(
+        fileOpenerFactory: FileOpenerCreating,
+        fileBookmarks: FileBookmarking,
+        fileReadability: FileReadablity,
+        calendarAuthorizer: CalendarAuthorizing,
+        alertFactory: ModalAlertCreating,
+        calendarsProvider: CalendarsProviding,
+        calendarIdStore: CalendarIdStoring,
+        syncController: SyncControlling
+    ) -> NSWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let identifier = "MainWindowController"
         // swiftlint:disable:next force_cast

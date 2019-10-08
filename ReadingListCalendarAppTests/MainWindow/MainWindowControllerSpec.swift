@@ -14,17 +14,6 @@ class MainWindowControllerSpec: QuickSpec {
                 factory = MainWindowControllerFactory()
             }
 
-            it("should have correct dependencies") {
-                expect(factory.fileOpenerFactory).to(beAnInstanceOf(FileOpenerFactory.self))
-                expect(factory.fileBookmarks) === UserDefaults.standard
-                expect(factory.fileReadability) === FileManager.default
-                expect(factory.calendarAuthorizer).to(beAKindOf(EKEventStore.self))
-                expect(factory.alertFactory).to(beAnInstanceOf(ModalAlertFactory.self))
-                expect(factory.calendarsProvider).to(beAKindOf(EKEventStore.self))
-                expect(factory.calendarIdStore) === UserDefaults.standard
-                expect(factory.syncController).to(beAnInstanceOf(SyncController.self))
-            }
-
             context("create") {
                 var sut: MainWindowController?
                 var fileOpenerFactory: FileOpenerCreatingDouble!
@@ -38,22 +27,23 @@ class MainWindowControllerSpec: QuickSpec {
 
                 beforeEach {
                     fileOpenerFactory = FileOpenerCreatingDouble()
-                    factory.fileOpenerFactory = fileOpenerFactory
                     fileBookmarks = FileBookmarkingDouble()
-                    factory.fileBookmarks = fileBookmarks
                     fileReadability = FileReadabilityDouble()
-                    factory.fileReadability = fileReadability
                     calendarAuthorizer = CalendarAuthorizingDouble()
-                    factory.calendarAuthorizer = calendarAuthorizer
                     alertFactory = ModalAlertCreatingDouble()
-                    factory.alertFactory = alertFactory
                     calendarsProvider = CalendarsProvidingDouble()
-                    factory.calendarsProvider = calendarsProvider
                     calendarIdStore = CalendarIdStoringDouble()
-                    factory.calendarIdStore = calendarIdStore
                     syncController = SyncControllingDouble()
-                    factory.syncController = syncController
-                    sut = factory.create() as? MainWindowController
+                    sut = factory.create(
+                        fileOpenerFactory: fileOpenerFactory,
+                        fileBookmarks: fileBookmarks,
+                        fileReadability: fileReadability,
+                        calendarAuthorizer: calendarAuthorizer,
+                        alertFactory: alertFactory,
+                        calendarsProvider: calendarsProvider,
+                        calendarIdStore: calendarIdStore,
+                        syncController: syncController
+                    ) as? MainWindowController
                 }
 
                 afterEach {
