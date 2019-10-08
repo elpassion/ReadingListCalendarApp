@@ -44,12 +44,3 @@ class FileOpenerFactorySpec: QuickSpec {
         }
     }
 }
-
-private class NSOpenPanelDouble: NSOpenPanel {
-    var directoryUrlDouble: URL?
-
-    override var directoryURL: URL? {
-        get { return directoryUrlDouble }
-        set { directoryUrlDouble = newValue }
-    }
-}

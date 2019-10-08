@@ -57,6 +57,27 @@
 		31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */; };
 		31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */; };
 		31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */; };
+		31819A7B234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */; };
+		31819A7D234D380700C69934 /* NSWindowControllerDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */; };
+		31819A7F234D382800C69934 /* FileOpenerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */; };
+		31819A81234D384400C69934 /* FileBookmarkingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A80234D384400C69934 /* FileBookmarkingDouble.swift */; };
+		31819A83234D384C00C69934 /* FileReadabilityDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A82234D384C00C69934 /* FileReadabilityDouble.swift */; };
+		31819A85234D385600C69934 /* CalendarAuthorizingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A84234D385600C69934 /* CalendarAuthorizingDouble.swift */; };
+		31819A87234D386200C69934 /* ModalAlertCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A86234D386200C69934 /* ModalAlertCreatingDouble.swift */; };
+		31819A89234D386A00C69934 /* CalendarsProvidingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A88234D386A00C69934 /* CalendarsProvidingDouble.swift */; };
+		31819A8B234D387300C69934 /* CalendarIdStoringDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A8A234D387300C69934 /* CalendarIdStoringDouble.swift */; };
+		31819A8D234D387C00C69934 /* SyncControllingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A8C234D387C00C69934 /* SyncControllingDouble.swift */; };
+		31819A8F234D39B600C69934 /* FileOpeningDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A8E234D39B600C69934 /* FileOpeningDouble.swift */; };
+		31819A91234D3A3600C69934 /* ModalAlertDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A90234D3A3600C69934 /* ModalAlertDouble.swift */; };
+		31819A93234D3AA600C69934 /* EKCalendarDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A92234D3AA600C69934 /* EKCalendarDouble.swift */; };
+		31819A95234D3AEB00C69934 /* FileReadingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A94234D3AEB00C69934 /* FileReadingDouble.swift */; };
+		31819A97234D3B1D00C69934 /* NSOpenPanelDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A96234D3B1D00C69934 /* NSOpenPanelDouble.swift */; };
+		31819A99234D3B8700C69934 /* EKEventStoreDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A98234D3B8700C69934 /* EKEventStoreDouble.swift */; };
+		31819A9B234D3BBC00C69934 /* BookmarskLoadingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A9A234D3BBC00C69934 /* BookmarskLoadingDouble.swift */; };
+		31819A9D234D3BE600C69934 /* CalendarProvidingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A9C234D3BE600C69934 /* CalendarProvidingDouble.swift */; };
+		31819A9F234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A9E234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift */; };
+		31819AA1234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA0234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift */; };
+		31819AA3234D3C1E00C69934 /* EventSavingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA2234D3C1E00C69934 /* EventSavingDouble.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 		319BCF8C2228605100CD4D14 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8A2228602C00CD4D14 /* RxAtomic.framework */; };
 		319BCF8D2228605100CD4D14 /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8A2228602C00CD4D14 /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -219,6 +240,27 @@
 		31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarAuthorizng.swift"; sourceTree = "<group>"; };
 		31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAuthorizationStatus+Text.swift"; sourceTree = "<group>"; };
 		31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableAndThen.swift; sourceTree = "<group>"; };
+		31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerCreatingDouble.swift; sourceTree = "<group>"; };
+		31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowControllerDouble.swift; sourceTree = "<group>"; };
+		31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerCreatingDouble.swift; sourceTree = "<group>"; };
+		31819A80234D384400C69934 /* FileBookmarkingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkingDouble.swift; sourceTree = "<group>"; };
+		31819A82234D384C00C69934 /* FileReadabilityDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadabilityDouble.swift; sourceTree = "<group>"; };
+		31819A84234D385600C69934 /* CalendarAuthorizingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAuthorizingDouble.swift; sourceTree = "<group>"; };
+		31819A86234D386200C69934 /* ModalAlertCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertCreatingDouble.swift; sourceTree = "<group>"; };
+		31819A88234D386A00C69934 /* CalendarsProvidingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsProvidingDouble.swift; sourceTree = "<group>"; };
+		31819A8A234D387300C69934 /* CalendarIdStoringDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarIdStoringDouble.swift; sourceTree = "<group>"; };
+		31819A8C234D387C00C69934 /* SyncControllingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControllingDouble.swift; sourceTree = "<group>"; };
+		31819A8E234D39B600C69934 /* FileOpeningDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpeningDouble.swift; sourceTree = "<group>"; };
+		31819A90234D3A3600C69934 /* ModalAlertDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertDouble.swift; sourceTree = "<group>"; };
+		31819A92234D3AA600C69934 /* EKCalendarDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKCalendarDouble.swift; sourceTree = "<group>"; };
+		31819A94234D3AEB00C69934 /* FileReadingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadingDouble.swift; sourceTree = "<group>"; };
+		31819A96234D3B1D00C69934 /* NSOpenPanelDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOpenPanelDouble.swift; sourceTree = "<group>"; };
+		31819A98234D3B8700C69934 /* EKEventStoreDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKEventStoreDouble.swift; sourceTree = "<group>"; };
+		31819A9A234D3BBC00C69934 /* BookmarskLoadingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarskLoadingDouble.swift; sourceTree = "<group>"; };
+		31819A9C234D3BE600C69934 /* CalendarProvidingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProvidingDouble.swift; sourceTree = "<group>"; };
+		31819A9E234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListItemEventProvidingDouble.swift; sourceTree = "<group>"; };
+		31819AA0234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListItemEventCreatingDouble.swift; sourceTree = "<group>"; };
+		31819AA2234D3C1E00C69934 /* EventSavingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSavingDouble.swift; sourceTree = "<group>"; };
 		318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListCalendarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		318732E72226F3D5009F5289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -480,6 +522,34 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		31819A79234D37B000C69934 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				31819A9A234D3BBC00C69934 /* BookmarskLoadingDouble.swift */,
+				31819A84234D385600C69934 /* CalendarAuthorizingDouble.swift */,
+				31819A8A234D387300C69934 /* CalendarIdStoringDouble.swift */,
+				31819A9C234D3BE600C69934 /* CalendarProvidingDouble.swift */,
+				31819A88234D386A00C69934 /* CalendarsProvidingDouble.swift */,
+				31819A92234D3AA600C69934 /* EKCalendarDouble.swift */,
+				31819A98234D3B8700C69934 /* EKEventStoreDouble.swift */,
+				31819AA2234D3C1E00C69934 /* EventSavingDouble.swift */,
+				31819A80234D384400C69934 /* FileBookmarkingDouble.swift */,
+				31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */,
+				31819A8E234D39B600C69934 /* FileOpeningDouble.swift */,
+				31819A82234D384C00C69934 /* FileReadabilityDouble.swift */,
+				31819A94234D3AEB00C69934 /* FileReadingDouble.swift */,
+				31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */,
+				31819A86234D386200C69934 /* ModalAlertCreatingDouble.swift */,
+				31819A90234D3A3600C69934 /* ModalAlertDouble.swift */,
+				31819A96234D3B1D00C69934 /* NSOpenPanelDouble.swift */,
+				31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */,
+				31819AA0234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift */,
+				31819A9E234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift */,
+				31819A8C234D387C00C69934 /* SyncControllingDouble.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
 		318732E42226F3D5009F5289 /* ReadingListCalendarAppTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +557,7 @@
 				31140E2A22274D3E00522D23 /* Application */,
 				31E1F7DB224B6799008D05AA /* Bookmarks */,
 				3156BBB0222C9D0E00293301 /* Calendar */,
+				31819A79234D37B000C69934 /* Doubles */,
 				31140E3E222762CD00522D23 /* FileBookmarks */,
 				31140E36222759F300522D23 /* FileOpener */,
 				31E05AF4222899D90011A1CA /* Helpers */,
@@ -849,25 +920,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31819A85234D385600C69934 /* CalendarAuthorizingDouble.swift in Sources */,
+				31819AA3234D3C1E00C69934 /* EventSavingDouble.swift in Sources */,
+				31819AA1234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift in Sources */,
 				31140E1922272C6B00522D23 /* AppDelegateSpec.swift in Sources */,
+				31819A93234D3AA600C69934 /* EKCalendarDouble.swift in Sources */,
 				3105D1DD224BB83C00B46979 /* EKEventStoreReadingListItemEventProvidingSpec.swift in Sources */,
 				31E1F7EB224B76D6008D05AA /* Bookmark+Fake.swift in Sources */,
 				31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */,
 				31EA6582222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift in Sources */,
 				31D3072922E28BB100FFBE52 /* BookmarksLoadingErrorSpec.swift in Sources */,
 				319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */,
+				31819A81234D384400C69934 /* FileBookmarkingDouble.swift in Sources */,
 				31140E1722272B8300522D23 /* MainWindowControllerSpec.swift in Sources */,
 				31D3072B22E28CD900FFBE52 /* ReadingListErrorSpec.swift in Sources */,
+				31819A97234D3B1D00C69934 /* NSOpenPanelDouble.swift in Sources */,
 				31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */,
+				31819A91234D3A3600C69934 /* ModalAlertDouble.swift in Sources */,
+				31819A89234D386A00C69934 /* CalendarsProvidingDouble.swift in Sources */,
+				31819A9F234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift in Sources */,
+				31819A7F234D382800C69934 /* FileOpenerCreatingDouble.swift in Sources */,
 				31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */,
+				31819A9D234D3BE600C69934 /* CalendarProvidingDouble.swift in Sources */,
+				31819A87234D386200C69934 /* ModalAlertCreatingDouble.swift in Sources */,
 				31D3072722E2879000FFBE52 /* ErrorMessageSpec.swift in Sources */,
 				31E1F7E9224B76A7008D05AA /* BookmarkReadingListSpec.swift in Sources */,
 				3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */,
+				31819A7B234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift in Sources */,
+				31819A8B234D387300C69934 /* CalendarIdStoringDouble.swift in Sources */,
 				31D3072322E2865700FFBE52 /* ErrorTitleSpec.swift in Sources */,
+				31819A95234D3AEB00C69934 /* FileReadingDouble.swift in Sources */,
 				31E1F7ED224B7AE7008D05AA /* OptionalOrThrowSpec.swift in Sources */,
+				31819A9B234D3BBC00C69934 /* BookmarskLoadingDouble.swift in Sources */,
 				31D3072D22E28DB600FFBE52 /* SyncErrorSpec.swift in Sources */,
 				31140E3822275A0C00522D23 /* NSOpenPanelFileOpeningSpec.swift in Sources */,
+				31819A83234D384C00C69934 /* FileReadabilityDouble.swift in Sources */,
+				31819A99234D3B8700C69934 /* EKEventStoreDouble.swift in Sources */,
+				31819A8D234D387C00C69934 /* SyncControllingDouble.swift in Sources */,
+				31819A7D234D380700C69934 /* NSWindowControllerDouble.swift in Sources */,
 				3105D1DB224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift in Sources */,
+				31819A8F234D39B600C69934 /* FileOpeningDouble.swift in Sources */,
 				31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */,
 				31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */,
 			);

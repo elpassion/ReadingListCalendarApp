@@ -83,13 +83,3 @@ class BookmarksLoaderSpec: QuickSpec {
         }
     }
 }
-
-private class FileReadingDouble: FileReading {
-    var mockedData: Data?
-    private(set) var didReadContentsAtPath: String?
-
-    func contents(atPath path: String) -> Data? {
-        didReadContentsAtPath = path
-        return mockedData
-    }
-}
