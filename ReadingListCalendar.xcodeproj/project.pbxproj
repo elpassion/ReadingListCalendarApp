@@ -78,6 +78,8 @@
 		31819A9F234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A9E234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift */; };
 		31819AA1234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA0234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift */; };
 		31819AA3234D3C1E00C69934 /* EventSavingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA2234D3C1E00C69934 /* EventSavingDouble.swift */; };
+		31819AA5234D447800C69934 /* AppTerminating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA4234D447800C69934 /* AppTerminating.swift */; };
+		31819AA7234D455300C69934 /* AppTerminatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA6234D455300C69934 /* AppTerminatingDouble.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 		319BCF8C2228605100CD4D14 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8A2228602C00CD4D14 /* RxAtomic.framework */; };
 		319BCF8D2228605100CD4D14 /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8A2228602C00CD4D14 /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -261,6 +263,8 @@
 		31819A9E234D3BFB00C69934 /* ReadingListItemEventProvidingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListItemEventProvidingDouble.swift; sourceTree = "<group>"; };
 		31819AA0234D3C0C00C69934 /* ReadingListItemEventCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListItemEventCreatingDouble.swift; sourceTree = "<group>"; };
 		31819AA2234D3C1E00C69934 /* EventSavingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSavingDouble.swift; sourceTree = "<group>"; };
+		31819AA4234D447800C69934 /* AppTerminating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTerminating.swift; sourceTree = "<group>"; };
+		31819AA6234D455300C69934 /* AppTerminatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTerminatingDouble.swift; sourceTree = "<group>"; };
 		318732E32226F3D4009F5289 /* ReadingListCalendarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListCalendarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		318732E72226F3D5009F5289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				313DBD7422257144003B0242 /* AppDelegate.swift */,
+				31819AA4234D447800C69934 /* AppTerminating.swift */,
 				31140E2322273E3500522D23 /* main.swift */,
 			);
 			path = Application;
@@ -525,6 +530,7 @@
 		31819A79234D37B000C69934 /* Doubles */ = {
 			isa = PBXGroup;
 			children = (
+				31819AA6234D455300C69934 /* AppTerminatingDouble.swift */,
 				31819A9A234D3BBC00C69934 /* BookmarskLoadingDouble.swift */,
 				31819A84234D385600C69934 /* CalendarAuthorizingDouble.swift */,
 				31819A8A234D387300C69934 /* CalendarIdStoringDouble.swift */,
@@ -899,6 +905,7 @@
 				3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */,
 				31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */,
 				31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */,
+				31819AA5234D447800C69934 /* AppTerminating.swift in Sources */,
 				3156BBAF222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift in Sources */,
 				31140E1522272A6600522D23 /* MainWindowControllerFactory.swift in Sources */,
 				31140E3D222762AC00522D23 /* UserDefaults+FileBookmarking.swift in Sources */,
@@ -929,6 +936,7 @@
 				31E1F7EB224B76D6008D05AA /* Bookmark+Fake.swift in Sources */,
 				31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */,
 				31EA6582222C4F2700AC6BD4 /* FileOpenerFactorySpec.swift in Sources */,
+				31819AA7234D455300C69934 /* AppTerminatingDouble.swift in Sources */,
 				31D3072922E28BB100FFBE52 /* BookmarksLoadingErrorSpec.swift in Sources */,
 				319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */,
 				31819A81234D384400C69934 /* FileBookmarkingDouble.swift in Sources */,
