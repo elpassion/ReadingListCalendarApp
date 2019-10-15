@@ -52,14 +52,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func runSync() {
         let bookmarksURL = fileBookmarks.bookmarksFileURL()
-            .filter { $0 != nil }
-            .map { $0! } // swiftlint:disable:this force_unwrapping
             .asObservable()
+            .compactMap { $0 }
 
         let calendarId = calendarIdStore.calendarId()
-            .filter { $0 != nil }
-            .map { $0! } // swiftlint:disable:this force_unwrapping
             .asObservable()
+            .compactMap { $0 }
 
         Observable.combineLatest(bookmarksURL, calendarId)
             .flatMap(syncController.sync(bookmarksUrl:calendarId:))
