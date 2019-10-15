@@ -155,16 +155,15 @@ class MainViewController: NSViewController {
             .drive(progressIndicator.rx.fractionCompleted)
             .disposed(by: disposeBag)
 
-        synchronizeButton.rx.tap.asDriver()
+        synchronizeButton.rx.tap
             .withLatestFrom(bookmarksUrl.asDriver())
             .withLatestFrom(calendarId.asDriver()) { (bookmarksUrl: $0, calendarId: $1) }
-            .filter { $0.bookmarksUrl != nil && $0.calendarId != nil }
-            .map { ($0.bookmarksUrl!, $0.calendarId!) } // swiftlint:disable:this force_unwrapping
+            .compactMap { $0 as? (bookmarksUrl: URL, calendarId: String) }
             .flatMapFirst(syncController.sync(bookmarksUrl:calendarId:)
                 >>> asDriverOnErrorComplete(onError: { [alertFactory] in
                     alertFactory?.createError($0).runModal()
                 }))
-            .drive()
+            .subscribe()
             .disposed(by: disposeBag)
     }
 
