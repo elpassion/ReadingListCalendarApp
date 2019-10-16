@@ -42,6 +42,7 @@
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
 		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
 		314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; };
+		314F008723577460002A2659 /* Publisher+Materialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F008623577460002A2659 /* Publisher+Materialize.swift */; };
 		314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */; };
 		314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */; };
 		314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */; };
@@ -226,6 +227,7 @@
 		313DBD7622257145003B0242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		313DBD7B22257145003B0242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadingListCalendarApp.entitlements; sourceTree = "<group>"; };
+		314F008623577460002A2659 /* Publisher+Materialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Materialize.swift"; sourceTree = "<group>"; };
 		314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsProviding.swift; sourceTree = "<group>"; };
 		314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarsProviding+EventCalendars.swift"; sourceTree = "<group>"; };
 		314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarsProviding.swift"; sourceTree = "<group>"; };
@@ -490,6 +492,14 @@
 			path = ReadingListCalendarApp;
 			sourceTree = "<group>";
 		};
+		314F00852357744B002A2659 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				314F008623577460002A2659 /* Publisher+Materialize.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
 		3156BBB0222C9D0E00293301 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +583,7 @@
 				31DB9A8A222B780600A34B81 /* ModalAlert */,
 				31140E2D22274DC100522D23 /* Resources */,
 				31C56FBE222DEC15008EAAC0 /* Sync */,
+				314F00852357744B002A2659 /* TestHelpers */,
 			);
 			path = ReadingListCalendarAppTests;
 			sourceTree = "<group>";
@@ -975,6 +986,7 @@
 				3105D1DB224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift in Sources */,
 				31819A8F234D39B600C69934 /* FileOpeningDouble.swift in Sources */,
 				31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */,
+				314F008723577460002A2659 /* Publisher+Materialize.swift in Sources */,
 				31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
