@@ -1,7 +1,6 @@
 import Quick
 import Nimble
-import Foundation
-import RxSwift
+import Combine
 @testable import ReadingListCalendarApp
 
 class UserDefaultsFileBookmarkingSpec: QuickSpec {
@@ -17,26 +16,29 @@ class UserDefaultsFileBookmarkingSpec: QuickSpec {
             }
 
             it("should have no file url") {
-                var actualURL: URL??
-                _ = sut.fileURL(forKey: key).subscribe(onSuccess: { actualURL = $0 })
-                expect(actualURL) == .some(nil)
+                let result = sut.fileURL(forKey: key).materialize()
+                expect(try? result.get()) == [nil]
             }
 
             context("set file url") {
                 var url: URL!
+                var result: Result<[Void], Error>?
 
                 beforeEach {
                     url = try! NSURL(
                         resolvingAliasFileAt: URL(fileURLWithPath: "/tmp"),
                         options: [.withoutUI]
                     ) as URL
-                    _ = sut.setFileURL(url, forKey: key).subscribe()
+                    result = sut.setFileURL(url, forKey: key).materialize()
+                }
+
+                it("should complete") {
+                    expect(try? result!.get()).to(haveCount(1))
                 }
 
                 it("should have correct file url") {
-                    var actualURL: URL??
-                    _ = sut.fileURL(forKey: key).subscribe(onSuccess: { actualURL = $0 })
-                    expect(actualURL) == url
+                    let result = sut.fileURL(forKey: key).materialize()
+                    expect(try? result.get()) == [url]
                 }
             }
 
@@ -47,18 +49,16 @@ class UserDefaultsFileBookmarkingSpec: QuickSpec {
                 }
 
                 it("should return error") {
-                    var error: Error?
-                    _ = sut.fileURL(forKey: key).subscribe(onError: { error = $0 })
-                    expect(error).notTo(beNil())
+                    let result = sut.fileURL(forKey: key).materialize()
+                    expect { try result.get() }.to(throwError())
                 }
             }
 
             context("set invalid file url") {
                 it("should return error") {
                     let url = URL(string: "http://www.elpassion.com/")!
-                    var error: Error?
-                    _ = sut.setFileURL(url, forKey: key).subscribe(onError: { error = $0 })
-                    expect(error).notTo(beNil())
+                    let result = sut.setFileURL(url, forKey: key).materialize()
+                    expect { try result.get() }.to(throwError())
                 }
             }
         }
