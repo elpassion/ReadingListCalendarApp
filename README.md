@@ -29,17 +29,12 @@ open -a "Reading List Calendar" --args -sync -headless
 - [x] Automatic synchronization in background (using launch arguments)
 - [ ] UI for configuring automatic synchronization in background
 
-## Setup
+## Develop
 
 Requirements: 
 
 - Xcode 11.1
 - [SwiftLint](https://github.com/realm/SwiftLint)
-- [Carthage](https://github.com/Carthage/Carthage)
-
-To set up the project, run `setup.sh` in Terminal.
-
-## Develop
 
 Open `ReadingListCalendar.xcodeproj` in Xcode.
 
