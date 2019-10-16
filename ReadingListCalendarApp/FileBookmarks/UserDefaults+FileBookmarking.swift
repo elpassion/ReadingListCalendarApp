@@ -4,7 +4,6 @@ import RxSwift
 
 extension UserDefaults: FileBookmarking {
 
-    // TODO: Remove
     func fileURL(forKey key: String) -> Single<URL?> {
         return Single<URL?>.create { observer in
             guard let data = self.object(forKey: key) as? Data else {
@@ -46,7 +45,6 @@ extension UserDefaults: FileBookmarking {
         }.eraseToAnyPublisher()
     }
 
-    // TODO: Remove
     func setFileURL(_ url: URL?, forKey key: String) -> Completable {
         return Completable.create { observer in
             do {

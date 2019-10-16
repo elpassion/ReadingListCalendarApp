@@ -7,7 +7,6 @@ import RxCocoa
 class FileBookmarkingDouble: FileBookmarking {
     var urls = [String: URL]()
 
-    // TODO: Remove
     func fileURL(forKey key: String) -> Single<URL?> {
         return .just(urls[key])
     }
@@ -16,7 +15,6 @@ class FileBookmarkingDouble: FileBookmarking {
         Future { $0(.success(self.urls[key])) }.eraseToAnyPublisher()
     }
 
-    // TODO: Remove
     func setFileURL(_ url: URL?, forKey key: String) -> Completable {
         urls[key] = url
         return .empty()
