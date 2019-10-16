@@ -42,11 +42,11 @@ class SyncControllerSpec: QuickSpec {
                     calendarId = "CALENDAR-1234"
 
                     isSynchronizingEvents = []
-                    _ = sut.isSynchronizing.asObservable()
+                    _ = sut.isSynchronizing().asObservable()
                         .subscribe(onNext: { isSynchronizingEvents.append($0) })
 
                     syncProgressEvents = []
-                    _ = sut.syncProgress.asObservable()
+                    _ = sut.syncProgress().asObservable()
                         .subscribe(onNext: { syncProgressEvents.append($0) })
 
                     didComplete = false

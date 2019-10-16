@@ -10,8 +10,13 @@ class SyncControllingDouble: SyncControlling {
     private(set) var didSyncCalendarId: String?
     private(set) var syncObserver: Completable.CompletableObserver?
 
-    var isSynchronizing: Driver<Bool> { return isSynchronizingMock.asDriver() }
-    var syncProgress: Driver<Double?> { return syncProgressMock.asDriver() }
+    func isSynchronizing() -> Driver<Bool> {
+        return isSynchronizingMock.asDriver()
+    }
+
+    func syncProgress() -> Driver<Double?> {
+        return syncProgressMock.asDriver()
+    }
 
     func sync(bookmarksUrl: URL, calendarId: String) -> Completable {
         return .create { observer in

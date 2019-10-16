@@ -23,11 +23,11 @@ class SyncController: SyncControlling {
 
     // MARK: - SyncControlling
 
-    var isSynchronizing: Driver<Bool> {
+    func isSynchronizing() -> Driver<Bool> {
         return progressRelay.asDriver().map { $0 != nil }.distinctUntilChanged()
     }
 
-    var syncProgress: Driver<Double?> {
+    func syncProgress() -> Driver<Double?> {
         return progressRelay.asDriver()
     }
 
