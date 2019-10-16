@@ -55,6 +55,7 @@ class MainViewController: NSViewController {
     private let calendarId = CurrentValueSubject<String?, Never>(nil)
     private var subscriptions = Set<AnyCancellable>()
     private var openBookmarksFileSubscription: AnyCancellable?
+    private var calendarAuthSubscription: AnyCancellable?
     private var calendarSelectionSubscription: AnyCancellable?
     private var synchronizeSubscription: AnyCancellable?
 
@@ -66,15 +67,16 @@ class MainViewController: NSViewController {
     }
 
     @IBAction func calendarAuthButtonAction(_ sender: Any) {
-        // TODO: Migrate to Combine API
-//        calendarAuthButton.rx.tap
-//            .flatMapFirst(calendarAuthorizer.requestAccessToEvents
-//                >>> andThen(calendarAuthorizer.eventsAuthorizationStatus()))
-//            .observeOn(MainScheduler.instance)
-//            .do(onNext: presentAlertForCalendarAuth(alertFactory))
-//            .asDriver(onErrorDriveWith: .empty())
-//            .drive(calendarAuth)
-//            .disposed(by: disposeBag)
+        calendarAuthSubscription?.cancel()
+        calendarAuthSubscription = calendarAuthorizer.requestAccessToEvents().first()
+            .flatMap { [unowned self] _ in
+                self.calendarAuthorizer.eventsAuthorizationStatus().first()
+                    .mapError { $0 as Error }
+            }
+            .handleEvents(receiveOutput: presentAlertForCalendarAuth(alertFactory))
+            .catch { _ in Empty() }
+            .map { $0 as EKAuthorizationStatus? }
+            .assign(to: \.value, on: calendarAuth)
     }
 
     @IBAction func calendarSelectionButtonAction(_ sender: Any) {
