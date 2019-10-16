@@ -1,7 +1,6 @@
 import Cocoa
+import Combine
 import EventKit
-import RxCocoa
-import RxSwift
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -34,7 +33,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Private
 
-    private let disposeBag = DisposeBag()
+    // TODO: Migrate from RxSwift to Combine
+//    private let disposeBag = DisposeBag()
 
     private func runApp() {
         let controller = mainWindowControllerFactory.create(
@@ -51,27 +51,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func runSync() {
-        let bookmarksURL = fileBookmarks.bookmarksFileURL()
-            .asObservable()
-            .compactMap { $0 }
-
-        let calendarId = calendarIdStore.calendarId()
-            .asObservable()
-            .compactMap { $0 }
-
-        Observable.combineLatest(bookmarksURL, calendarId)
-            .flatMap(syncController.sync(bookmarksUrl:calendarId:))
-            .observeOn(MainScheduler.instance)
-            .subscribe(onError: { [weak self] error in
-                if self?.launchArguments.contains("-headless") == false {
-                    self?.alertFactory.createError(error).runModal()
-                }
-            }, onDisposed: { [weak self] in
-                if self?.launchArguments.contains("-headless") == true {
-                    self?.appTerminator.terminate(nil)
-                }
-            })
-            .disposed(by: disposeBag)
+        // TODO: Migrate from RxSwift to Combine
+//        let bookmarksURL = fileBookmarks.bookmarksFileURL()
+//            .asObservable()
+//            .compactMap { $0 }
+//
+//        let calendarId = calendarIdStore.calendarId()
+//            .asObservable()
+//            .compactMap { $0 }
+//
+//        Observable.combineLatest(bookmarksURL, calendarId)
+//            .flatMap(syncController.sync(bookmarksUrl:calendarId:))
+//            .observeOn(MainScheduler.instance)
+//            .subscribe(onError: { [weak self] error in
+//                if self?.launchArguments.contains("-headless") == false {
+//                    self?.alertFactory.createError(error).runModal()
+//                }
+//            }, onDisposed: { [weak self] in
+//                if self?.launchArguments.contains("-headless") == true {
+//                    self?.appTerminator.terminate(nil)
+//                }
+//            })
+//            .disposed(by: disposeBag)
     }
 
 }

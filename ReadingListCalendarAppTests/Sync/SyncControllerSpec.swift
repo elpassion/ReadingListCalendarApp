@@ -1,8 +1,8 @@
 import Quick
 import Nimble
-import RxSwift
-import RxCocoa
+import Combine
 import EventKit
+import Foundation
 @testable import ReadingListCalendarApp
 
 class SyncControllerSpec: QuickSpec {
@@ -27,7 +27,6 @@ class SyncControllerSpec: QuickSpec {
                 sut.eventCreator = eventCreator
                 eventSaver = EventSavingDouble()
                 sut.eventSaver = eventSaver
-                sut.syncScheduler = MainScheduler.instance
             }
 
             context("sync") {
@@ -35,29 +34,33 @@ class SyncControllerSpec: QuickSpec {
                 var calendarId: String!
                 var isSynchronizingEvents: [Bool]!
                 var syncProgressEvents: [Double?]!
-                var didComplete: Bool!
+                var result: Result<[Void], Error>!
+                var subscriptions: Set<AnyCancellable>!
 
                 beforeEach {
                     bookmarksUrl = URL(fileURLWithPath: "")
                     calendarId = "CALENDAR-1234"
+                    subscriptions = Set()
 
                     isSynchronizingEvents = []
-                    _ = sut.isSynchronizing().asObservable()
-                        .subscribe(onNext: { isSynchronizingEvents.append($0) })
+                    sut.isSynchronizing()
+                        .sink(receiveValue: { isSynchronizingEvents.append($0) })
+                        .store(in: &subscriptions)
 
                     syncProgressEvents = []
-                    _ = sut.syncProgress().asObservable()
-                        .subscribe(onNext: { syncProgressEvents.append($0) })
+                    sut.syncProgress()
+                        .sink(receiveValue: { syncProgressEvents.append($0) })
+                        .store(in: &subscriptions)
 
-                    didComplete = false
-                    _ = sut.sync(bookmarksUrl: bookmarksUrl, calendarId: calendarId)
-                        .subscribe(onCompleted: { didComplete = true })
+                    result = sut.sync(bookmarksUrl: bookmarksUrl, calendarId: calendarId)
+                        .materialize()
                 }
 
                 afterEach {
                     isSynchronizingEvents = nil
                     syncProgressEvents = nil
-                    didComplete = nil
+                    result = nil
+                    subscriptions = nil
                 }
 
                 it("should load bookmarks from url") {
@@ -93,29 +96,30 @@ class SyncControllerSpec: QuickSpec {
                 }
 
                 it("should complete") {
-                    expect(didComplete) == true
+                    expect(try? result.get()).to(haveCount(1))
                 }
             }
 
             context("sync to invalid calendar") {
-                var error: Error?
+                var result: Result<[Void], Error>!
 
                 beforeEach {
                     calendarProvider.mockedCalendar = nil
-                    _ = sut.sync(bookmarksUrl: URL(fileURLWithPath: ""), calendarId: "")
-                        .subscribe(onError: { error = $0 })
+                    result = sut.sync(bookmarksUrl: URL(fileURLWithPath: ""), calendarId: "")
+                        .materialize()
                 }
 
                 afterEach {
-                    error = nil
+                    result = nil
                 }
 
                 it("should emit error") {
-                    expect(error).notTo(beNil())
-                    if let error = error as? SyncError,
-                    case SyncError.calendarNotFound = error {} else {
-                        fail("invalid error emitted \(String(describing: error))")
-                    }
+                    expect { try result.get() }.to(throwError(closure: { error in
+                        if let error = error as? SyncError,
+                        case SyncError.calendarNotFound = error {} else {
+                            fail("invalid error emitted \(String(describing: error))")
+                        }
+                    }))
                 }
             }
         }
