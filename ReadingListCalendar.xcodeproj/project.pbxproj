@@ -54,7 +54,7 @@
 		31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */; };
 		31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */; };
 		31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */; };
-		31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */; };
+		31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */; };
 		31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */; };
 		31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */; };
 		31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */; };
@@ -213,7 +213,7 @@
 		31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+FileReadablity.swift"; sourceTree = "<group>"; };
 		31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadablity+URL.swift"; sourceTree = "<group>"; };
 		31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAuthorizing.swift; sourceTree = "<group>"; };
-		31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarAuthorizing+Rx.swift"; sourceTree = "<group>"; };
+		31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarAuthorizing+Combine.swift"; sourceTree = "<group>"; };
 		31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarAuthorizng.swift"; sourceTree = "<group>"; };
 		31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAuthorizationStatus+Text.swift"; sourceTree = "<group>"; };
 		31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableAndThen.swift; sourceTree = "<group>"; };
@@ -476,7 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */,
-				31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */,
+				31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */,
 				3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */,
 				3105D1D1224BB68800B46979 /* CalendarProviding.swift */,
 				314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */,
@@ -821,7 +821,7 @@
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
 				314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */,
 				3105D1D0224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift in Sources */,
-				31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift in Sources */,
+				31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift in Sources */,
 				31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */,
 				31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */,
 				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
