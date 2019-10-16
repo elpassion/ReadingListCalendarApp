@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import Cocoa
 import RxSwift
 import RxCocoa
 import EventKit

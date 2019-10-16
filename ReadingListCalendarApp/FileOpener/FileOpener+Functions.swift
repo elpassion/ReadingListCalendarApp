@@ -1,3 +1,4 @@
+import Foundation
 import RxCocoa
 
 func openBookmarksFile(_ openerFactory: FileOpenerCreating) -> () -> Driver<URL> {

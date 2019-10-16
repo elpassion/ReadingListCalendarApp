@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import Cocoa
 @testable import ReadingListCalendarApp
 
 class ModalAlertFactorySpec: QuickSpec {
