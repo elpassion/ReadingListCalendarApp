@@ -32,6 +32,7 @@ class MainViewController: NSViewController {
         self.calendarIdStore = calendarIdStore
         self.syncController = syncController
         setUpBindings()
+        setUpActions()
     }
 
     // MARK: View
@@ -54,42 +55,49 @@ class MainViewController: NSViewController {
     private let calendars = CurrentValueSubject<[(id: String, title: String)], Never>([])
     private let calendarId = CurrentValueSubject<String?, Never>(nil)
     private var subscriptions = Set<AnyCancellable>()
+    private var openBookmarksFileSubscription: AnyCancellable?
+
+    private func setUpActions() {
+        bookmarksPathButton.target = self
+        bookmarksPathButton.action = #selector(bookmarksPathButtonAction)
+    }
+
+    @objc
+    private func bookmarksPathButtonAction() {
+        openBookmarksFileSubscription?.cancel()
+        openBookmarksFileSubscription = openBookmarksFile(fileOpenerFactory)()
+            .map { $0 as URL? }
+            .assign(to: \.value, on: bookmarksUrl)
+    }
 
     // swiftlint:disable:next function_body_length
     private func setUpBindings() {
         fileBookmarks.bookmarksFileURL()
             .replaceError(with: nil)
-            .sink(receiveValue: { [unowned self] in self.bookmarksUrl.send($0) })
+            .assign(to: \.value, on: bookmarksUrl)
             .store(in: &subscriptions)
 
         bookmarksUrl.dropFirst()
             .flatMap { [unowned self] in
                 self.fileBookmarks.setBookmarksFileURL($0).replaceError(with: ())
-            }
-            .sink(receiveValue: { _ in })
+            }.sink { _ in }
             .store(in: &subscriptions)
 
         bookmarksUrl.map(filePath("Bookmarks.plist"))
-            .sink(receiveValue: { [unowned self] in self.bookmarksPathField.stringValue = $0 })
+            .assign(to: \.stringValue, on: bookmarksPathField)
             .store(in: &subscriptions)
 
-        // TODO: Migrate to Combine API
-//        bookmarksPathButton.rx.tap.asDriver()
-//            .flatMapFirst(openBookmarksFile(fileOpenerFactory))
-//            .drive(bookmarksUrl)
-//            .disposed(by: disposeBag)
-
-        bookmarksUrl
-            .map(fileReadabilityStatus("Bookmarks.plist", fileReadability))
-            .sink(receiveValue: { [unowned self] in self.bookmarksStatusField.stringValue = $0 })
+        bookmarksUrl.map(fileReadabilityStatus("Bookmarks.plist", fileReadability))
+            .assign(to: \.stringValue, on: bookmarksStatusField)
             .store(in: &subscriptions)
 
         calendarAuthorizer.eventsAuthorizationStatus()
-            .sink(receiveValue: { [unowned self] in self.calendarAuth.send($0) })
+            .map { $0 as EKAuthorizationStatus? }
+            .assign(to: \.value, on: calendarAuth)
             .store(in: &subscriptions)
 
-        calendarAuth.map { $0?.text ?? "" }
-            .sink(receiveValue: { [unowned self] in self.calendarAuthField.stringValue = $0 })
+        calendarAuth.compactMap { $0?.text }
+            .assign(to: \.stringValue, on: calendarAuthField)
             .store(in: &subscriptions)
 
         // TODO: Migrate to Combine API
@@ -105,12 +113,12 @@ class MainViewController: NSViewController {
         calendarAuth.map { _ in () }
             .flatMap(calendarsProvider.eventCalendars)
             .map { calendars in calendars.map { (id: $0.calendarIdentifier, title: $0.title) } }
-            .sink(receiveValue: { [unowned self] in self.calendars.send($0) })
+            .assign(to: \.value, on: calendars)
             .store(in: &subscriptions)
 
         calendarIdStore.calendarId()
             .replaceError(with: nil)
-            .sink(receiveValue: { [unowned self] in self.calendarId.send($0) })
+            .assign(to: \.value, on: calendarId)
             .store(in: &subscriptions)
 
         // TODO: Migrate to Combine API
@@ -119,13 +127,12 @@ class MainViewController: NSViewController {
 //            .drive()
 //            .disposed(by: disposeBag)
 
-        // TODO: Migrate to Combine API
-//        calendars.asDriver()
-//            .withLatestFrom(calendarId.asDriver()) { calendars, calendarId in
-//                (titles: calendars.map { $0.title }, selected: calendars.firstIndex(where: { $0.id == calendarId }))
-//            }
-//            .drive(calendarSelectionButton.rx.updateItems)
-//            .disposed(by: disposeBag)
+        calendars.flatMap { [unowned self] calendars in
+            self.calendarId.map { calendarId in
+                (titles: calendars.map { $0.title }, selected: calendars.firstIndex(where: { $0.id == calendarId }))
+            }.eraseToAnyPublisher()
+        }.sink { [unowned self] in self.calendarSelectionButton.updateItems($0) }
+            .store(in: &subscriptions)
 
         // TODO: Migrate to Combine API
 //        calendarSelectionButton.rx.selectedItemIndex.asDriver()
@@ -133,25 +140,25 @@ class MainViewController: NSViewController {
 //            .drive(calendarId)
 //            .disposed(by: disposeBag)
 
-        // TODO: Migrate to Combine API
-//        Driver.combineLatest(
-//            bookmarksUrl.asDriver().map(isReadableFile(fileReadability)),
-//            calendarAuth.asDriver().map { $0 == .authorized },
-//            calendarId.asDriver().map { $0 != nil },
-//            syncController.isSynchronizing().map { !$0 },
-//            resultSelector: { $0 && $1 && $2 && $3 }
-//        ).drive(synchronizeButton.rx.isEnabled).disposed(by: disposeBag)
+        Publishers.CombineLatest4(
+            bookmarksUrl.map(isReadableFile(fileReadability)).eraseToAnyPublisher(),
+            calendarAuth.map { $0 == .authorized }.eraseToAnyPublisher(),
+            calendarId.map { $0 != nil }.eraseToAnyPublisher(),
+            syncController.isSynchronizing().map { !$0 }.eraseToAnyPublisher()
+        ).map { $0 && $1 && $2 && $3 }
+            .assign(to: \.isEnabled, on: synchronizeButton)
+            .store(in: &subscriptions)
 
         syncController.isSynchronizing().map { !$0 }
-            .sink(receiveValue: { [unowned self] in
+            .sink { [unowned self] in
                 self.bookmarksPathButton.isEnabled = $0
                 self.calendarAuthButton.isEnabled = $0
                 self.calendarSelectionButton.isEnabled = $0
-            })
+            }
             .store(in: &subscriptions)
 
         syncController.syncProgress()
-            .sink(receiveValue: { [unowned self] in self.progressIndicator.update(fractionCompleted: $0) })
+            .sink { [unowned self] in self.progressIndicator.update(fractionCompleted: $0) }
             .store(in: &subscriptions)
 
         // TODO: Migrate to Combine API
