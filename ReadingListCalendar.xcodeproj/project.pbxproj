@@ -82,7 +82,7 @@
 		31819AA5234D447800C69934 /* AppTerminating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA4234D447800C69934 /* AppTerminating.swift */; };
 		31819AA7234D455300C69934 /* AppTerminatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA6234D455300C69934 /* AppTerminatingDouble.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
-		319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */; };
+		319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */; };
 		319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */; };
 		31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */; };
 		31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */; };
@@ -245,7 +245,7 @@
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318732F02226F552009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318AAA0F2226A61C0033CAA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Rx.swift"; sourceTree = "<group>"; };
+		319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Combine.swift"; sourceTree = "<group>"; };
 		319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
 		31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
 		31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControlling.swift; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 				31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */,
 				31EA657F222C498100AC6BD4 /* FileOpenerFactory.swift */,
 				31140E312227552300522D23 /* FileOpening.swift */,
-				319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */,
+				319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */,
 				31140E2F2227551A00522D23 /* NSOpenPanel+FileOpening.swift */,
 			);
 			path = FileOpener;
@@ -826,7 +826,7 @@
 				31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */,
 				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
 				31E1F7E3224B7474008D05AA /* Bookmark+ReadingList.swift in Sources */,
-				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
+				319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				3105D1CA224BB60D00B46979 /* ReadingListItemEventProviding.swift in Sources */,
