@@ -57,7 +57,6 @@
 		31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */; };
 		31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */; };
 		31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */; };
-		31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */; };
 		31819A7B234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */; };
 		31819A7D234D380700C69934 /* NSWindowControllerDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */; };
 		31819A7F234D382800C69934 /* FileOpenerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */; };
@@ -104,7 +103,6 @@
 		31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */; };
 		31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFA2228B3C90011A1CA /* FuncUtils.swift */; };
 		31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */; };
-		31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */; };
 		31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */; };
 		31E1F7C9224B5D86008D05AA /* FileReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7C8224B5D86008D05AA /* FileReading.swift */; };
 		31E1F7CB224B5DB7008D05AA /* FileManager+FileReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7CA224B5DB7008D05AA /* FileManager+FileReading.swift */; };
@@ -216,7 +214,6 @@
 		31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarAuthorizing+Combine.swift"; sourceTree = "<group>"; };
 		31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarAuthorizng.swift"; sourceTree = "<group>"; };
 		31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAuthorizationStatus+Text.swift"; sourceTree = "<group>"; };
-		31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableAndThen.swift; sourceTree = "<group>"; };
 		31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerCreatingDouble.swift; sourceTree = "<group>"; };
 		31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowControllerDouble.swift; sourceTree = "<group>"; };
 		31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerCreatingDouble.swift; sourceTree = "<group>"; };
@@ -267,7 +264,6 @@
 		31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityElement.swift"; sourceTree = "<group>"; };
 		31E05AFA2228B3C90011A1CA /* FuncUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncUtils.swift; sourceTree = "<group>"; };
 		31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpenerCreating+BookmarksFileOpener.swift"; sourceTree = "<group>"; };
-		31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableAsDriver.swift; sourceTree = "<group>"; };
 		31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileBookmarking+Bookmarks.swift"; sourceTree = "<group>"; };
 		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		31E106802226FA1E00703714 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
@@ -602,8 +598,6 @@
 		31E05AF92228B3B90011A1CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */,
-				31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */,
 				31D3072022E2830500FFBE52 /* Error+Message.swift */,
 				31D3072422E2876700FFBE52 /* Error+Title.swift */,
 				31E05AFA2228B3C90011A1CA /* FuncUtils.swift */,
@@ -823,7 +817,6 @@
 				3105D1D0224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift in Sources */,
 				31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift in Sources */,
 				31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */,
-				31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */,
 				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
 				31E1F7E3224B7474008D05AA /* Bookmark+ReadingList.swift in Sources */,
 				319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */,
@@ -859,7 +852,6 @@
 				3105D1D9224BB6CB00B46979 /* EKEventStore+EventSaving.swift in Sources */,
 				3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */,
 				31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */,
-				31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */,
 				3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */,
 				31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */,
 				31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */,
