@@ -33,8 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Private
 
-    // TODO: Migrate from RxSwift to Combine
-//    private let disposeBag = DisposeBag()
+    private var syncSubscription: AnyCancellable?
 
     private func runApp() {
         let controller = mainWindowControllerFactory.create(
@@ -51,28 +50,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func runSync() {
-        // TODO: Migrate from RxSwift to Combine
-//        let bookmarksURL = fileBookmarks.bookmarksFileURL()
-//            .asObservable()
-//            .compactMap { $0 }
-//
-//        let calendarId = calendarIdStore.calendarId()
-//            .asObservable()
-//            .compactMap { $0 }
-//
-//        Observable.combineLatest(bookmarksURL, calendarId)
-//            .flatMap(syncController.sync(bookmarksUrl:calendarId:))
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onError: { [weak self] error in
-//                if self?.launchArguments.contains("-headless") == false {
-//                    self?.alertFactory.createError(error).runModal()
-//                }
-//            }, onDisposed: { [weak self] in
-//                if self?.launchArguments.contains("-headless") == true {
-//                    self?.appTerminator.terminate(nil)
-//                }
-//            })
-//            .disposed(by: disposeBag)
+        syncSubscription?.cancel()
+        syncSubscription = nil
+
+        let bookmarksURL = fileBookmarks.bookmarksFileURL()
+            .compactMap { $0 }
+            .eraseToAnyPublisher()
+
+        let calendarId = calendarIdStore.calendarId()
+            .compactMap { $0 }
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+
+        syncSubscription = Publishers
+            .CombineLatest(bookmarksURL, calendarId)
+            .flatMap(syncController.sync(bookmarksUrl:calendarId:))
+            .sink(receiveCompletion: { [weak self] completion in
+                if self?.launchArguments.contains("-headless") == true {
+                    self?.appTerminator.terminate(nil)
+                } else if case .failure(let error) = completion {
+                    self?.alertFactory.createError(error).runModal()
+                }
+            }, receiveValue: { _ in })
     }
 
 }

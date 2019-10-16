@@ -159,7 +159,8 @@ class AppDelegateSpec: QuickSpec {
 
                 context("when sync completes") {
                     beforeEach {
-                        syncController.syncCompletion?(.success(()))
+                        syncController.syncSubject?.send(())
+                        syncController.syncSubject?.send(completion: .finished)
                     }
 
                     it("should not terminate app") {
@@ -172,7 +173,7 @@ class AppDelegateSpec: QuickSpec {
 
                     beforeEach {
                         error = NSError(domain: "test", code: 123, userInfo: nil)
-                        syncController.syncCompletion?(.failure(error))
+                        syncController.syncSubject?.send(completion: .failure(error))
                     }
 
                     it("should present error alert") {
@@ -248,7 +249,8 @@ class AppDelegateSpec: QuickSpec {
 
                 context("when sync completes") {
                     beforeEach {
-                        syncController.syncCompletion?(.success(()))
+                        syncController.syncSubject?.send(())
+                        syncController.syncSubject?.send(completion: .finished)
                     }
 
                     it("should terminate app") {
@@ -262,7 +264,7 @@ class AppDelegateSpec: QuickSpec {
 
                     beforeEach {
                         error = NSError(domain: "test", code: 123, userInfo: nil)
-                        syncController.syncCompletion?(.failure(error))
+                        syncController.syncSubject?.send(completion: .failure(error))
                     }
 
                     it("should not present error alert") {

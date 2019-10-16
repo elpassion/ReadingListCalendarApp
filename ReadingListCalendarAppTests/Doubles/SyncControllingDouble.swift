@@ -7,7 +7,7 @@ class SyncControllingDouble: SyncControlling {
     let syncProgressMock = CurrentValueSubject<Double?, Never>(nil)
     private(set) var didSyncBookmarksUrl: URL?
     private(set) var didSyncCalendarId: String?
-    private(set) var syncCompletion: ((Result<Void, Error>) -> Void)?
+    private(set) var syncSubject: PassthroughSubject<Void, Error>?
 
     func isSynchronizing() -> AnyPublisher<Bool, Never> {
         isSynchronizingMock.eraseToAnyPublisher()
@@ -18,10 +18,9 @@ class SyncControllingDouble: SyncControlling {
     }
 
     func sync(bookmarksUrl: URL, calendarId: String) -> AnyPublisher<Void, Error> {
-        Future { complete in
-            self.didSyncBookmarksUrl = bookmarksUrl
-            self.didSyncCalendarId = calendarId
-            self.syncCompletion = complete
-        }.eraseToAnyPublisher()
+        didSyncBookmarksUrl = bookmarksUrl
+        didSyncCalendarId = calendarId
+        syncSubject = PassthroughSubject()
+        return syncSubject!.eraseToAnyPublisher()
     }
 }

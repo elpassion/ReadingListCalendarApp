@@ -461,7 +461,8 @@ class MainViewControllerSpec: QuickSpec {
 
                         context("when sync finishes") {
                             beforeEach {
-                                syncController.syncCompletion?(.success(()))
+                                syncController.syncSubject?.send(())
+                                syncController.syncSubject?.send(completion: .finished)
                                 syncController.syncProgressMock.send(nil)
                                 syncController.isSynchronizingMock.send(false)
                             }
@@ -483,7 +484,7 @@ class MainViewControllerSpec: QuickSpec {
 
                             beforeEach {
                                 error = NSError(domain: "test", code: 123, userInfo: nil)
-                                syncController.syncCompletion?(.failure(error))
+                                syncController.syncSubject?.send(completion: .failure(error))
                             }
 
                             it("should present error alert") {
