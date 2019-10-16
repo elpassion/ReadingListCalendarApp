@@ -8,8 +8,4 @@ extension NSPopUpButton {
         addItems(withTitles: titles)
         selectItem(at: items.selected ?? -1)
     }
-
-    var selectedItemIndex: AnyPublisher<Int, Never> {
-        publisher(for: \.indexOfSelectedItem).eraseToAnyPublisher()
-    }
 }
