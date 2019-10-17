@@ -14,6 +14,7 @@ class MainViewControllerSpec: QuickSpec {
                 let storyboard = NSStoryboard(name: "Main", bundle: bundle)
                 let identifier = "MainViewController"
                 sut = storyboard.instantiateController(withIdentifier: identifier) as? MainViewController
+                sut?.uiScheduler = nil
                 _ = sut?.view
             }
 

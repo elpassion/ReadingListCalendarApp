@@ -14,6 +14,8 @@ class MainViewController: NSViewController {
     private(set) var calendarIdStore: CalendarIdStoring!
     private(set) var syncController: SyncControlling!
 
+    var uiScheduler: DispatchQueue? = .main
+
     // swiftlint:disable:next function_parameter_count
     func setUp(fileOpenerFactory: FileOpenerCreating,
                fileBookmarks: FileBookmarking,
@@ -73,6 +75,7 @@ class MainViewController: NSViewController {
                 self.calendarAuthorizer.eventsAuthorizationStatus().first()
                     .mapError { $0 as Error }
             }
+            .receive(optionallyOn: uiScheduler)
             .handleEvents(receiveOutput: presentAlertForCalendarAuth(alertFactory))
             .catch { _ in Empty() }
             .map { $0 as EKAuthorizationStatus? }
@@ -102,9 +105,10 @@ class MainViewController: NSViewController {
                     calendarId: $0.calendarId
                 )
             }
-            .sink(receiveCompletion: { [unowned self] completion in
+            .receive(optionallyOn: uiScheduler)
+            .sink(receiveCompletion: { [weak self] completion in
                 if case .failure(let error) = completion {
-                    self.alertFactory.createError(error).runModal()
+                    self?.alertFactory.createError(error).runModal()
                 }
             }, receiveValue: { _ in })
     }
@@ -123,10 +127,12 @@ class MainViewController: NSViewController {
             .store(in: &subscriptions)
 
         bookmarksUrl.map(filePath("Bookmarks.plist"))
+            .receive(optionallyOn: uiScheduler)
             .assign(to: \.stringValue, on: bookmarksPathField)
             .store(in: &subscriptions)
 
         bookmarksUrl.map(fileReadabilityStatus("Bookmarks.plist", fileReadability))
+            .receive(optionallyOn: uiScheduler)
             .assign(to: \.stringValue, on: bookmarksStatusField)
             .store(in: &subscriptions)
 
@@ -136,6 +142,7 @@ class MainViewController: NSViewController {
             .store(in: &subscriptions)
 
         calendarAuth.compactMap { $0?.text }
+            .receive(optionallyOn: uiScheduler)
             .assign(to: \.stringValue, on: calendarAuthField)
             .store(in: &subscriptions)
 
@@ -159,7 +166,8 @@ class MainViewController: NSViewController {
             self.calendarId.map { calendarId in
                 (titles: calendars.map { $0.title }, selected: calendars.firstIndex(where: { $0.id == calendarId }))
             }.eraseToAnyPublisher()
-        }.sink { [unowned self] in self.calendarSelectionButton.updateItems($0) }
+        }.receive(optionallyOn: uiScheduler)
+            .sink { [weak self] in self?.calendarSelectionButton.updateItems($0) }
             .store(in: &subscriptions)
 
         Publishers.CombineLatest4(
@@ -168,19 +176,22 @@ class MainViewController: NSViewController {
             calendarId.map { $0 != nil }.eraseToAnyPublisher(),
             syncController.isSynchronizing().map { !$0 }.eraseToAnyPublisher()
         ).map { $0 && $1 && $2 && $3 }
+            .receive(optionallyOn: uiScheduler)
             .assign(to: \.isEnabled, on: synchronizeButton)
             .store(in: &subscriptions)
 
         syncController.isSynchronizing().map { !$0 }
-            .sink { [unowned self] in
-                self.bookmarksPathButton.isEnabled = $0
-                self.calendarAuthButton.isEnabled = $0
-                self.calendarSelectionButton.isEnabled = $0
+            .receive(optionallyOn: uiScheduler)
+            .sink { [weak self] in
+                self?.bookmarksPathButton.isEnabled = $0
+                self?.calendarAuthButton.isEnabled = $0
+                self?.calendarSelectionButton.isEnabled = $0
             }
             .store(in: &subscriptions)
 
         syncController.syncProgress()
-            .sink { [unowned self] in self.progressIndicator.update(fractionCompleted: $0) }
+            .receive(optionallyOn: uiScheduler)
+            .sink { [weak self] in self?.progressIndicator.update(fractionCompleted: $0) }
             .store(in: &subscriptions)
     }
 
