@@ -57,6 +57,7 @@
 		31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */; };
 		31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */; };
 		31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */; };
+		317D54D92358B419005CC8C5 /* Publisher+ReceiveOptionally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D54D82358B419005CC8C5 /* Publisher+ReceiveOptionally.swift */; };
 		31819A7B234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */; };
 		31819A7D234D380700C69934 /* NSWindowControllerDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */; };
 		31819A7F234D382800C69934 /* FileOpenerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */; };
@@ -213,6 +214,7 @@
 		31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarAuthorizing+Combine.swift"; sourceTree = "<group>"; };
 		31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarAuthorizng.swift"; sourceTree = "<group>"; };
 		31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAuthorizationStatus+Text.swift"; sourceTree = "<group>"; };
+		317D54D82358B419005CC8C5 /* Publisher+ReceiveOptionally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+ReceiveOptionally.swift"; sourceTree = "<group>"; };
 		31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerCreatingDouble.swift; sourceTree = "<group>"; };
 		31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowControllerDouble.swift; sourceTree = "<group>"; };
 		31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerCreatingDouble.swift; sourceTree = "<group>"; };
@@ -601,6 +603,7 @@
 				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Combine.swift */,
 				31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift */,
 				31E1F7E6224B7673008D05AA /* Optional+OrThrow.swift */,
+				317D54D82358B419005CC8C5 /* Publisher+ReceiveOptionally.swift */,
 				3126AC1E222DD4B200B0919B /* URL+Functions.swift */,
 			);
 			path = Helpers;
@@ -828,6 +831,7 @@
 				314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */,
 				31E1F7D4224B5F41008D05AA /* ReadingListInfo.swift in Sources */,
 				31E1F7C9224B5D86008D05AA /* FileReading.swift in Sources */,
+				317D54D92358B419005CC8C5 /* Publisher+ReceiveOptionally.swift in Sources */,
 				3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */,
 				31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */,
 				31E1F7D0224B5EF3008D05AA /* Bookmark.swift in Sources */,
