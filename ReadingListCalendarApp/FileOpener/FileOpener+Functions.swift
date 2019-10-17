@@ -1,10 +1,8 @@
+import Combine
 import Foundation
-import RxCocoa
 
-func openBookmarksFile(_ openerFactory: FileOpenerCreating) -> () -> Driver<URL> {
+func openBookmarksFile(_ openerFactory: FileOpenerCreating) -> () -> AnyPublisher<URL, Never> {
     return {
-        openerFactory.createBookmarksFileOpener()
-            .rx_openFile()
-            .asDriver(onErrorDriveWith: .empty())
+        openerFactory.createBookmarksFileOpener().openFile()
     }
 }

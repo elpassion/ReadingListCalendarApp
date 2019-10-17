@@ -1,8 +1,7 @@
 // swiftlint:disable file_length
 import AppKit
+import Combine
 import EventKit
-import RxCocoa
-import RxSwift
 
 class MainViewController: NSViewController {
 
@@ -14,6 +13,8 @@ class MainViewController: NSViewController {
     private(set) var calendarsProvider: CalendarsProviding!
     private(set) var calendarIdStore: CalendarIdStoring!
     private(set) var syncController: SyncControlling!
+
+    var uiScheduler: DispatchQueue? = .main
 
     // swiftlint:disable:next function_parameter_count
     func setUp(fileOpenerFactory: FileOpenerCreating,
@@ -50,121 +51,148 @@ class MainViewController: NSViewController {
 
     // MARK: Priavte
 
-    private let bookmarksUrl = BehaviorRelay<URL?>(value: nil)
-    private let calendarAuth = BehaviorRelay<EKAuthorizationStatus?>(value: nil)
-    private let calendars = BehaviorRelay<[(id: String, title: String)]>(value: [])
-    private let calendarId = BehaviorRelay<String?>(value: nil)
-    private let disposeBag = DisposeBag()
+    private let bookmarksUrl = CurrentValueSubject<URL?, Never>(nil)
+    private let calendarAuth = CurrentValueSubject<EKAuthorizationStatus?, Never>(nil)
+    private let calendars = CurrentValueSubject<[(id: String, title: String)], Never>([])
+    private let calendarId = CurrentValueSubject<String?, Never>(nil)
+    private var subscriptions = Set<AnyCancellable>()
+    private var openBookmarksFileSubscription: AnyCancellable?
+    private var calendarAuthSubscription: AnyCancellable?
+    private var calendarSelectionSubscription: AnyCancellable?
+    private var synchronizeSubscription: AnyCancellable?
+
+    @IBAction private func bookmarksPathButtonAction(_ sender: Any) {
+        openBookmarksFileSubscription?.cancel()
+        openBookmarksFileSubscription = openBookmarksFile(fileOpenerFactory)()
+            .map { $0 as URL? }
+            .assign(to: \.value, on: bookmarksUrl)
+    }
+
+    @IBAction func calendarAuthButtonAction(_ sender: Any) {
+        calendarAuthSubscription?.cancel()
+        calendarAuthSubscription = calendarAuthorizer.requestAccessToEvents().first()
+            .flatMap { [unowned self] _ in
+                self.calendarAuthorizer.eventsAuthorizationStatus().first()
+                    .mapError { $0 as Error }
+            }
+            .receive(optionallyOn: uiScheduler)
+            .handleEvents(receiveOutput: presentAlertForCalendarAuth(alertFactory))
+            .catch { _ in Empty() }
+            .map { $0 as EKAuthorizationStatus? }
+            .assign(to: \.value, on: calendarAuth)
+    }
+
+    @IBAction func calendarSelectionButtonAction(_ sender: Any) {
+        calendarSelectionSubscription?.cancel()
+        let selectedIndex = calendarSelectionButton.indexOfSelectedItem
+        calendarSelectionSubscription = calendars.first()
+            .map { $0[selectedIndex].id }
+            .assign(to: \.value, on: calendarId)
+    }
+
+    @IBAction private func synchronizeButtonAction(_ sender: Any) {
+        synchronizeSubscription?.cancel()
+        synchronizeSubscription = Publishers
+            .CombineLatest(
+                bookmarksUrl.first().eraseToAnyPublisher(),
+                calendarId.first().eraseToAnyPublisher()
+            ).map { (bookmarksUrl: $0, calendarId: $1) }
+            .compactMap { $0 as? (bookmarksUrl: URL, calendarId: String) }
+            .mapError { $0 as Error }
+            .flatMap { [unowned self] in
+                self.syncController.sync(
+                    bookmarksUrl: $0.bookmarksUrl,
+                    calendarId: $0.calendarId
+                )
+            }
+            .receive(optionallyOn: uiScheduler)
+            .sink(receiveCompletion: { [weak self] completion in
+                if case .failure(let error) = completion {
+                    self?.alertFactory.createError(error).runModal()
+                }
+            }, receiveValue: { _ in })
+    }
 
     // swiftlint:disable:next function_body_length
     private func setUpBindings() {
         fileBookmarks.bookmarksFileURL()
-            .asDriver(onErrorJustReturn: nil)
-            .drive(bookmarksUrl)
-            .disposed(by: disposeBag)
+            .replaceError(with: nil)
+            .assign(to: \.value, on: bookmarksUrl)
+            .store(in: &subscriptions)
 
-        bookmarksUrl.asObservable().skip(1)
-            .flatMapLatest(fileBookmarks.setBookmarksFileURL(_:))
-            .subscribe()
-            .disposed(by: disposeBag)
+        bookmarksUrl.dropFirst()
+            .flatMap { [unowned self] in
+                self.fileBookmarks.setBookmarksFileURL($0).replaceError(with: ())
+            }.sink { _ in }
+            .store(in: &subscriptions)
 
-        bookmarksUrl.asDriver()
-            .map(filePath("Bookmarks.plist"))
-            .drive(bookmarksPathField.rx.text)
-            .disposed(by: disposeBag)
+        bookmarksUrl.map(filePath("Bookmarks.plist"))
+            .receive(optionallyOn: uiScheduler)
+            .assign(to: \.stringValue, on: bookmarksPathField)
+            .store(in: &subscriptions)
 
-        bookmarksPathButton.rx.tap.asDriver()
-            .flatMapFirst(openBookmarksFile(fileOpenerFactory))
-            .drive(bookmarksUrl)
-            .disposed(by: disposeBag)
-
-        bookmarksUrl.asDriver()
-            .map(fileReadabilityStatus("Bookmarks.plist", fileReadability))
-            .drive(bookmarksStatusField.rx.text)
-            .disposed(by: disposeBag)
+        bookmarksUrl.map(fileReadabilityStatus("Bookmarks.plist", fileReadability))
+            .receive(optionallyOn: uiScheduler)
+            .assign(to: \.stringValue, on: bookmarksStatusField)
+            .store(in: &subscriptions)
 
         calendarAuthorizer.eventsAuthorizationStatus()
-            .asDriver(onErrorDriveWith: .empty())
-            .drive(calendarAuth)
-            .disposed(by: disposeBag)
+            .map { $0 as EKAuthorizationStatus? }
+            .assign(to: \.value, on: calendarAuth)
+            .store(in: &subscriptions)
 
-        calendarAuth.asDriver()
-            .map { $0?.text }
-            .drive(calendarAuthField.rx.text)
-            .disposed(by: disposeBag)
-
-        calendarAuthButton.rx.tap
-            .flatMapFirst(calendarAuthorizer.requestAccessToEvents
-                >>> andThen(calendarAuthorizer.eventsAuthorizationStatus()))
-            .observeOn(MainScheduler.instance)
-            .do(onNext: presentAlertForCalendarAuth(alertFactory))
-            .asDriver(onErrorDriveWith: .empty())
-            .drive(calendarAuth)
-            .disposed(by: disposeBag)
+        calendarAuth.compactMap { $0?.text }
+            .receive(optionallyOn: uiScheduler)
+            .assign(to: \.stringValue, on: calendarAuthField)
+            .store(in: &subscriptions)
 
         calendarAuth.map { _ in () }
-            .flatMapLatest(calendarsProvider.eventCalendars)
+            .flatMap(calendarsProvider.eventCalendars)
             .map { calendars in calendars.map { (id: $0.calendarIdentifier, title: $0.title) } }
-            .asDriver(onErrorJustReturn: [])
-            .drive(calendars)
-            .disposed(by: disposeBag)
+            .assign(to: \.value, on: calendars)
+            .store(in: &subscriptions)
 
         calendarIdStore.calendarId()
-            .asDriver(onErrorJustReturn: nil)
-            .drive(calendarId)
-            .disposed(by: disposeBag)
+            .replaceError(with: nil)
+            .assign(to: \.value, on: calendarId)
+            .store(in: &subscriptions)
 
-        calendarId.asDriver().skip(1)
-            .flatMapLatest(calendarIdStore.setCalendarId >>> asDriverOnErrorComplete())
-            .drive()
-            .disposed(by: disposeBag)
+        calendarId.dropFirst()
+            .flatMap(calendarIdStore.setCalendarId(_:))
+            .sink { _ in }
+            .store(in: &subscriptions)
 
-        calendars.asDriver()
-            .withLatestFrom(calendarId.asDriver()) { calendars, calendarId in
+        calendars.flatMap { [unowned self] calendars in
+            self.calendarId.map { calendarId in
                 (titles: calendars.map { $0.title }, selected: calendars.firstIndex(where: { $0.id == calendarId }))
+            }.eraseToAnyPublisher()
+        }.receive(optionallyOn: uiScheduler)
+            .sink { [weak self] in self?.calendarSelectionButton.updateItems($0) }
+            .store(in: &subscriptions)
+
+        Publishers.CombineLatest4(
+            bookmarksUrl.map(isReadableFile(fileReadability)).eraseToAnyPublisher(),
+            calendarAuth.map { $0 == .authorized }.eraseToAnyPublisher(),
+            calendarId.map { $0 != nil }.eraseToAnyPublisher(),
+            syncController.isSynchronizing().map { !$0 }.eraseToAnyPublisher()
+        ).map { $0 && $1 && $2 && $3 }
+            .receive(optionallyOn: uiScheduler)
+            .assign(to: \.isEnabled, on: synchronizeButton)
+            .store(in: &subscriptions)
+
+        syncController.isSynchronizing().map { !$0 }
+            .receive(optionallyOn: uiScheduler)
+            .sink { [weak self] in
+                self?.bookmarksPathButton.isEnabled = $0
+                self?.calendarAuthButton.isEnabled = $0
+                self?.calendarSelectionButton.isEnabled = $0
             }
-            .drive(calendarSelectionButton.rx.updateItems)
-            .disposed(by: disposeBag)
+            .store(in: &subscriptions)
 
-        calendarSelectionButton.rx.selectedItemIndex.asDriver()
-            .withLatestFrom(calendars.asDriver()) { selectedIndex, calendars in calendars[selectedIndex].id }
-            .drive(calendarId)
-            .disposed(by: disposeBag)
-
-        Driver.combineLatest(
-            bookmarksUrl.asDriver().map(isReadableFile(fileReadability)),
-            calendarAuth.asDriver().map { $0 == .authorized },
-            calendarId.asDriver().map { $0 != nil },
-            syncController.isSynchronizing.map { !$0 },
-            resultSelector: { $0 && $1 && $2 && $3 }
-        ).drive(synchronizeButton.rx.isEnabled).disposed(by: disposeBag)
-
-        syncController.isSynchronizing.map { !$0 }
-            .drive(bookmarksPathButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-
-        syncController.isSynchronizing.map { !$0 }
-            .drive(calendarAuthButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-
-        syncController.isSynchronizing.map { !$0 }
-            .drive(calendarSelectionButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-
-        syncController.syncProgress
-            .drive(progressIndicator.rx.fractionCompleted)
-            .disposed(by: disposeBag)
-
-        synchronizeButton.rx.tap
-            .withLatestFrom(bookmarksUrl.asDriver())
-            .withLatestFrom(calendarId.asDriver()) { (bookmarksUrl: $0, calendarId: $1) }
-            .compactMap { $0 as? (bookmarksUrl: URL, calendarId: String) }
-            .flatMapFirst(syncController.sync(bookmarksUrl:calendarId:)
-                >>> asDriverOnErrorComplete(onError: { [alertFactory] in
-                    alertFactory?.createError($0).runModal()
-                }))
-            .subscribe()
-            .disposed(by: disposeBag)
+        syncController.syncProgress()
+            .receive(optionallyOn: uiScheduler)
+            .sink { [weak self] in self?.progressIndicator.update(fractionCompleted: $0) }
+            .store(in: &subscriptions)
     }
 
 }

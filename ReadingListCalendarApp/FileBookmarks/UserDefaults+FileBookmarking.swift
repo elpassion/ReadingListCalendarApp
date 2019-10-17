@@ -1,13 +1,12 @@
+import Combine
 import Foundation
-import RxSwift
 
 extension UserDefaults: FileBookmarking {
-
-    func fileURL(forKey key: String) -> Single<URL?> {
-        return Single<URL?>.create { observer in
+    func fileURL(forKey key: String) -> AnyPublisher<URL?, Error> {
+        Future { complete in
             guard let data = self.object(forKey: key) as? Data else {
-                observer(.success(nil))
-                return Disposables.create()
+                complete(.success(nil))
+                return
             }
             do {
                 let url = try NSURL(
@@ -16,16 +15,15 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil,
                     bookmarkDataIsStale: nil
                 )
-                observer(.success(url as URL))
+                complete(.success(url as URL))
             } catch {
-                observer(.error(error))
+                complete(.failure(error))
             }
-            return Disposables.create()
-        }
+        }.eraseToAnyPublisher()
     }
 
-    func setFileURL(_ url: URL?, forKey key: String) -> Completable {
-        return Completable.create { observer in
+    func setFileURL(_ url: URL?, forKey key: String) -> AnyPublisher<Void, Error> {
+        Future { complete in
             do {
                 let data = try url?.bookmarkData(
                     options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess],
@@ -33,12 +31,10 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil
                 )
                 self.set(data, forKey: key)
-                observer(.completed)
+                complete(.success(()))
             } catch {
-                observer(.error(error))
+                complete(.failure(error))
             }
-            return Disposables.create()
-        }
+        }.eraseToAnyPublisher()
     }
-
 }

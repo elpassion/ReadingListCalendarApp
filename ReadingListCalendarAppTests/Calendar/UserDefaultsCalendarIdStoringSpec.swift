@@ -1,7 +1,7 @@
 import Quick
 import Nimble
+import Combine
 import Foundation
-import RxSwift
 @testable import ReadingListCalendarApp
 
 class UserDefaultsCalendarIdStoringSpec: QuickSpec {
@@ -17,23 +17,26 @@ class UserDefaultsCalendarIdStoringSpec: QuickSpec {
             }
 
             it("should have no calendar id") {
-                var actualId: String??
-                _ = sut?.calendarId().subscribe(onSuccess: { actualId = $0 })
-                expect(actualId) == .some(nil)
+                let result = sut.calendarId().materialize()
+                expect(try? result.get()) == [nil]
             }
 
             context("set calendar id") {
                 var id: String!
+                var result: Result<[Void], Never>!
 
                 beforeEach {
                     id = "calendar-id-1"
-                    _ = sut.setCalendarId(id).subscribe()
+                    result = sut.setCalendarId(id).materialize()
+                }
+
+                it("should complete") {
+                    expect(try? result.get()).to(haveCount(1))
                 }
 
                 it("should have correct calendar id") {
-                    var actualId: String??
-                    _ = sut?.calendarId().subscribe(onSuccess: { actualId = $0 })
-                    expect(actualId) == id
+                    let result = sut.calendarId().materialize()
+                    expect(try? result.get()) == [id]
                 }
             }
         }

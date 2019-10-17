@@ -1,8 +1,6 @@
 import Quick
 import Nimble
 import Cocoa
-import RxSwift
-import RxCocoa
 import EventKit
 @testable import ReadingListCalendarApp
 
@@ -16,6 +14,7 @@ class MainViewControllerSpec: QuickSpec {
                 let storyboard = NSStoryboard(name: "Main", bundle: bundle)
                 let identifier = "MainViewController"
                 sut = storyboard.instantiateController(withIdentifier: identifier) as? MainViewController
+                sut?.uiScheduler = nil
                 _ = sut?.view
             }
 
@@ -436,8 +435,8 @@ class MainViewControllerSpec: QuickSpec {
 
                     context("when sync starts") {
                         beforeEach {
-                            syncController.syncProgressMock.accept(0)
-                            syncController.isSynchronizingMock.accept(true)
+                            syncController.syncProgressMock.send(0)
+                            syncController.isSynchronizingMock.send(true)
                         }
 
                         it("should disable buttons") {
@@ -453,7 +452,7 @@ class MainViewControllerSpec: QuickSpec {
 
                         context("when sync progresses") {
                             beforeEach {
-                                syncController.syncProgressMock.accept(0.75)
+                                syncController.syncProgressMock.send(0.75)
                             }
 
                             it("should show correct progress") {
@@ -463,9 +462,10 @@ class MainViewControllerSpec: QuickSpec {
 
                         context("when sync finishes") {
                             beforeEach {
-                                syncController.syncObserver?(.completed)
-                                syncController.syncProgressMock.accept(nil)
-                                syncController.isSynchronizingMock.accept(false)
+                                syncController.syncSubject?.send(())
+                                syncController.syncSubject?.send(completion: .finished)
+                                syncController.syncProgressMock.send(nil)
+                                syncController.isSynchronizingMock.send(false)
                             }
 
                             it("should enable buttons") {
@@ -485,7 +485,7 @@ class MainViewControllerSpec: QuickSpec {
 
                             beforeEach {
                                 error = NSError(domain: "test", code: 123, userInfo: nil)
-                                syncController.syncObserver?(.error(error))
+                                syncController.syncSubject?.send(completion: .failure(error))
                             }
 
                             it("should present error alert") {

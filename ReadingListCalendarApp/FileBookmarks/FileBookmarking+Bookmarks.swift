@@ -1,14 +1,14 @@
+import Combine
 import Foundation
-import RxSwift
 
 extension FileBookmarking {
 
-    func bookmarksFileURL() -> Single<URL?> {
-        return fileURL(forKey: "bookmarks_file_url")
+    func bookmarksFileURL() -> AnyPublisher<URL?, Error> {
+        fileURL(forKey: "bookmarks_file_url")
     }
 
-    func setBookmarksFileURL(_ url: URL?) -> Completable {
-        return setFileURL(url, forKey: "bookmarks_file_url")
+    func setBookmarksFileURL(_ url: URL?) -> AnyPublisher<Void, Error> {
+        setFileURL(url, forKey: "bookmarks_file_url")
     }
 
 }

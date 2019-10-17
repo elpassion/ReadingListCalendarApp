@@ -1,12 +1,11 @@
+import Combine
 import EventKit
-import RxSwift
 
 extension CalendarsProviding {
-    func eventCalendars() -> Single<[EKCalendar]> {
-        return .create { observer in
+    func eventCalendars() -> AnyPublisher<[EKCalendar], Never> {
+        Future { complete in
             let calendars = self.calendars(for: .event)
-            observer(.success(calendars))
-            return Disposables.create()
-        }
+            complete(.success(calendars))
+        }.eraseToAnyPublisher()
     }
 }

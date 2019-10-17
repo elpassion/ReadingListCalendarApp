@@ -1,6 +1,6 @@
-import RxSwift
+import Combine
 
 protocol CalendarIdStoring {
-    func calendarId() -> Single<String?>
-    func setCalendarId(_ id: String?) -> Completable
+    func calendarId() -> AnyPublisher<String?, Never>
+    func setCalendarId(_ id: String?) -> AnyPublisher<Void, Never>
 }

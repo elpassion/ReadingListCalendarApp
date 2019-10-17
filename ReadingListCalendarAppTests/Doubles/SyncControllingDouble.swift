@@ -1,24 +1,26 @@
+import Combine
 import Foundation
-import RxSwift
-import RxCocoa
 @testable import ReadingListCalendarApp
 
 class SyncControllingDouble: SyncControlling {
-    let isSynchronizingMock = BehaviorRelay<Bool>(value: false)
-    let syncProgressMock = BehaviorRelay<Double?>(value: nil)
+    let isSynchronizingMock = CurrentValueSubject<Bool, Never>(false)
+    let syncProgressMock = CurrentValueSubject<Double?, Never>(nil)
     private(set) var didSyncBookmarksUrl: URL?
     private(set) var didSyncCalendarId: String?
-    private(set) var syncObserver: Completable.CompletableObserver?
+    private(set) var syncSubject: PassthroughSubject<Void, Error>?
 
-    var isSynchronizing: Driver<Bool> { return isSynchronizingMock.asDriver() }
-    var syncProgress: Driver<Double?> { return syncProgressMock.asDriver() }
+    func isSynchronizing() -> AnyPublisher<Bool, Never> {
+        isSynchronizingMock.eraseToAnyPublisher()
+    }
 
-    func sync(bookmarksUrl: URL, calendarId: String) -> Completable {
-        return .create { observer in
-            self.didSyncBookmarksUrl = bookmarksUrl
-            self.didSyncCalendarId = calendarId
-            self.syncObserver = observer
-            return Disposables.create()
-        }
+    func syncProgress() -> AnyPublisher<Double?, Never> {
+        syncProgressMock.eraseToAnyPublisher()
+    }
+
+    func sync(bookmarksUrl: URL, calendarId: String) -> AnyPublisher<Void, Error> {
+        didSyncBookmarksUrl = bookmarksUrl
+        didSyncCalendarId = calendarId
+        syncSubject = PassthroughSubject()
+        return syncSubject!.eraseToAnyPublisher()
     }
 }

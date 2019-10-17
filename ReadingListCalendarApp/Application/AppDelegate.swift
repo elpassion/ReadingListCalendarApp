@@ -1,7 +1,6 @@
 import Cocoa
+import Combine
 import EventKit
-import RxCocoa
-import RxSwift
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -34,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Private
 
-    private let disposeBag = DisposeBag()
+    private var syncSubscription: AnyCancellable?
 
     private func runApp() {
         let controller = mainWindowControllerFactory.create(
@@ -51,27 +50,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func runSync() {
+        syncSubscription?.cancel()
+        syncSubscription = nil
+
         let bookmarksURL = fileBookmarks.bookmarksFileURL()
-            .asObservable()
             .compactMap { $0 }
+            .eraseToAnyPublisher()
 
         let calendarId = calendarIdStore.calendarId()
-            .asObservable()
             .compactMap { $0 }
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
 
-        Observable.combineLatest(bookmarksURL, calendarId)
+        syncSubscription = Publishers
+            .CombineLatest(bookmarksURL, calendarId)
             .flatMap(syncController.sync(bookmarksUrl:calendarId:))
-            .observeOn(MainScheduler.instance)
-            .subscribe(onError: { [weak self] error in
-                if self?.launchArguments.contains("-headless") == false {
-                    self?.alertFactory.createError(error).runModal()
-                }
-            }, onDisposed: { [weak self] in
+            .sink(receiveCompletion: { [weak self] completion in
                 if self?.launchArguments.contains("-headless") == true {
                     self?.appTerminator.terminate(nil)
+                } else if case .failure(let error) = completion {
+                    self?.alertFactory.createError(error).runModal()
                 }
-            })
-            .disposed(by: disposeBag)
+            }, receiveValue: { _ in })
     }
 
 }

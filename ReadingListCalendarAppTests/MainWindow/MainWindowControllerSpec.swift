@@ -1,7 +1,5 @@
 import Quick
 import Nimble
-import RxSwift
-import RxCocoa
 import EventKit
 @testable import ReadingListCalendarApp
 

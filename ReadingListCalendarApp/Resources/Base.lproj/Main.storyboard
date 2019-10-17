@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -111,7 +111,7 @@
                                 <gridCells>
                                     <gridCell row="NNP-pK-W8u" column="yzj-33-8pi" headOfMergedCell="IRT-wz-5oo" id="IRT-wz-5oo">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iu1-YP-KZZ">
-                                            <rect key="frame" x="-2" y="346" width="506" height="21"/>
+                                            <rect key="frame" x="-2" y="347" width="506" height="20"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="📚  Reading List" id="JPl-j9-63H">
                                                 <font key="font" metaFont="system" size="17"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -122,13 +122,13 @@
                                     <gridCell row="NNP-pK-W8u" column="G77-vm-lLm" headOfMergedCell="IRT-wz-5oo" id="8WW-Ok-dg5"/>
                                     <gridCell row="e8b-Cg-fNT" column="yzj-33-8pi" headOfMergedCell="0f5-xS-mU0" id="0f5-xS-mU0">
                                         <box key="contentView" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="YF3-0g-O9O">
-                                            <rect key="frame" x="0.0" y="333" width="502" height="5"/>
+                                            <rect key="frame" x="0.0" y="334" width="502" height="5"/>
                                         </box>
                                     </gridCell>
                                     <gridCell row="e8b-Cg-fNT" column="G77-vm-lLm" headOfMergedCell="0f5-xS-mU0" id="1hW-2e-bhJ"/>
                                     <gridCell row="s2c-Da-31t" column="yzj-33-8pi" id="cdT-ev-Par">
                                         <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="t0c-Ea-Ouf">
-                                            <rect key="frame" x="-2" y="307" width="336" height="17"/>
+                                            <rect key="frame" x="-2" y="308" width="336" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="truncatingMiddle" title="/path/to/Bookmarks.plist" id="SfT-Tk-zOt">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -142,7 +142,7 @@
                                     </gridCell>
                                     <gridCell row="s2c-Da-31t" column="G77-vm-lLm" id="Fvn-Zm-hFg">
                                         <button key="contentView" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pLG-gs-ED3">
-                                            <rect key="frame" x="336" y="297" width="172" height="32"/>
+                                            <rect key="frame" x="336" y="298" width="172" height="32"/>
                                             <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="T1k-iA-XbA">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -151,11 +151,14 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <accessibility identifier="bookmarksPathButton"/>
+                                            <connections>
+                                                <action selector="bookmarksPathButtonAction:" target="XfG-lQ-9wD" id="vWb-Am-cbd"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="nll-CA-9ep" column="yzj-33-8pi" headOfMergedCell="o2K-S5-6x9" id="o2K-S5-6x9">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eAf-me-hd0">
-                                            <rect key="frame" x="-2" y="277" width="506" height="17"/>
+                                            <rect key="frame" x="-2" y="279" width="506" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Bookmarks file access status" id="eWu-3M-nU9">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -170,7 +173,7 @@
                                     <gridCell row="nll-CA-9ep" column="G77-vm-lLm" headOfMergedCell="o2K-S5-6x9" id="Zx6-20-WzJ"/>
                                     <gridCell row="7uG-pA-vW2" column="yzj-33-8pi" headOfMergedCell="Sc5-Sh-6md" id="Sc5-Sh-6md">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="El4-tX-pwu">
-                                            <rect key="frame" x="-2" y="226" width="506" height="21"/>
+                                            <rect key="frame" x="-2" y="229" width="506" height="20"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="📅  Calendar" id="wxV-tm-wlg">
                                                 <font key="font" metaFont="system" size="17"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -181,13 +184,13 @@
                                     <gridCell row="7uG-pA-vW2" column="G77-vm-lLm" headOfMergedCell="Sc5-Sh-6md" id="Ikd-Js-g8E"/>
                                     <gridCell row="yze-V1-Fsa" column="yzj-33-8pi" headOfMergedCell="dX2-S7-pB0" id="dX2-S7-pB0">
                                         <box key="contentView" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="yBO-Jg-Ekz">
-                                            <rect key="frame" x="0.0" y="213" width="502" height="5"/>
+                                            <rect key="frame" x="0.0" y="216" width="502" height="5"/>
                                         </box>
                                     </gridCell>
                                     <gridCell row="yze-V1-Fsa" column="G77-vm-lLm" headOfMergedCell="dX2-S7-pB0" id="jl0-wY-zH6"/>
                                     <gridCell row="a3Y-2m-VKH" column="yzj-33-8pi" id="kFB-6q-Cwa">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SCb-yU-5z3">
-                                            <rect key="frame" x="-2" y="187" width="336" height="17"/>
+                                            <rect key="frame" x="-2" y="190" width="336" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Authorization" id="n2x-vt-4bQ">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -201,7 +204,7 @@
                                     </gridCell>
                                     <gridCell row="a3Y-2m-VKH" column="G77-vm-lLm" id="J4x-BO-EEZ">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-Bn-obf">
-                                            <rect key="frame" x="336" y="177" width="172" height="32"/>
+                                            <rect key="frame" x="336" y="180" width="172" height="32"/>
                                             <buttonCell key="cell" type="push" title="Authorize" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P8U-mj-GRz">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -210,11 +213,14 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <accessibility identifier="calendarAuthButton"/>
+                                            <connections>
+                                                <action selector="calendarAuthButtonAction:" target="XfG-lQ-9wD" id="jIZ-nE-4em"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="pFm-sT-hok" column="yzj-33-8pi" id="GZ3-cv-2dX">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j1y-Ds-R03">
-                                            <rect key="frame" x="-2" y="155" width="336" height="17"/>
+                                            <rect key="frame" x="-2" y="159" width="336" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Selected calendar" id="Yjw-vW-7cO">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -228,10 +234,10 @@
                                     </gridCell>
                                     <gridCell row="pFm-sT-hok" column="G77-vm-lLm" id="fzR-gQ-j1m">
                                         <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zVU-kx-ejC">
-                                            <rect key="frame" x="340" y="150" width="165" height="25"/>
+                                            <rect key="frame" x="340" y="153" width="165" height="25"/>
                                             <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="Brf-yf-5be" id="wwQ-co-m1n">
                                                 <behavior key="behavior" lightByContents="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="system"/>
                                                 <menu key="menu" id="Jem-sC-iOP">
                                                     <items>
                                                         <menuItem title="Item 1" state="on" id="Brf-yf-5be"/>
@@ -244,11 +250,14 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <accessibility identifier="calendarSelectionButton"/>
+                                            <connections>
+                                                <action selector="calendarSelectionButtonAction:" target="XfG-lQ-9wD" id="yDH-H0-X07"/>
+                                            </connections>
                                         </popUpButton>
                                     </gridCell>
                                     <gridCell row="pow-gu-WhP" column="yzj-33-8pi" headOfMergedCell="P9m-v6-R0V" id="P9m-v6-R0V">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IJC-B3-EfG">
-                                            <rect key="frame" x="-2" y="102" width="506" height="21"/>
+                                            <rect key="frame" x="-2" y="106" width="506" height="20"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="🔄  Status" id="1Eb-IF-5Hw">
                                                 <font key="font" metaFont="system" size="17"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -259,13 +268,13 @@
                                     <gridCell row="pow-gu-WhP" column="G77-vm-lLm" headOfMergedCell="P9m-v6-R0V" id="E2Y-Jc-lh0"/>
                                     <gridCell row="miU-d9-GUP" column="yzj-33-8pi" headOfMergedCell="FLF-0o-No8" id="FLF-0o-No8">
                                         <box key="contentView" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="fV9-gb-XCh">
-                                            <rect key="frame" x="0.0" y="89" width="502" height="5"/>
+                                            <rect key="frame" x="0.0" y="93" width="502" height="5"/>
                                         </box>
                                     </gridCell>
                                     <gridCell row="miU-d9-GUP" column="G77-vm-lLm" headOfMergedCell="FLF-0o-No8" id="jhV-l9-r60"/>
                                     <gridCell row="E5X-ym-32I" column="yzj-33-8pi" id="gri-kd-zFo">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1As-Ol-284">
-                                            <rect key="frame" x="-2" y="63" width="336" height="17"/>
+                                            <rect key="frame" x="-2" y="67" width="336" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" id="D99-4n-re9">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -279,7 +288,7 @@
                                     </gridCell>
                                     <gridCell row="E5X-ym-32I" column="G77-vm-lLm" id="nri-cD-gaI">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rAD-tH-pPy">
-                                            <rect key="frame" x="336" y="53" width="172" height="32"/>
+                                            <rect key="frame" x="336" y="57" width="172" height="32"/>
                                             <buttonCell key="cell" type="push" title="Synchronize" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gUo-eC-6lL">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -291,11 +300,14 @@ DQ
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <accessibility identifier="synchronizeButton"/>
+                                            <connections>
+                                                <action selector="synchronizeButtonAction:" target="XfG-lQ-9wD" id="eoz-9H-mpS"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="iVm-EI-qot" column="yzj-33-8pi" headOfMergedCell="rf2-VR-J8J" id="rf2-VR-J8J">
                                         <progressIndicator key="contentView" wantsLayer="YES" maxValue="100" doubleValue="33" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="rCe-dy-RsZ">
-                                            <rect key="frame" x="0.0" y="-1" width="502" height="42"/>
+                                            <rect key="frame" x="0.0" y="-1" width="502" height="46"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
                                             </userDefinedRuntimeAttributes>

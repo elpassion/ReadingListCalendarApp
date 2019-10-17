@@ -1,8 +1,6 @@
 import Quick
 import Nimble
 import Cocoa
-import RxSwift
-import RxCocoa
 import EventKit
 @testable import ReadingListCalendarApp
 
@@ -161,7 +159,8 @@ class AppDelegateSpec: QuickSpec {
 
                 context("when sync completes") {
                     beforeEach {
-                        syncController.syncObserver?(.completed)
+                        syncController.syncSubject?.send(())
+                        syncController.syncSubject?.send(completion: .finished)
                     }
 
                     it("should not terminate app") {
@@ -174,7 +173,7 @@ class AppDelegateSpec: QuickSpec {
 
                     beforeEach {
                         error = NSError(domain: "test", code: 123, userInfo: nil)
-                        syncController.syncObserver?(.error(error))
+                        syncController.syncSubject?.send(completion: .failure(error))
                     }
 
                     it("should present error alert") {
@@ -250,7 +249,8 @@ class AppDelegateSpec: QuickSpec {
 
                 context("when sync completes") {
                     beforeEach {
-                        syncController.syncObserver?(.completed)
+                        syncController.syncSubject?.send(())
+                        syncController.syncSubject?.send(completion: .finished)
                     }
 
                     it("should terminate app") {
@@ -264,7 +264,7 @@ class AppDelegateSpec: QuickSpec {
 
                     beforeEach {
                         error = NSError(domain: "test", code: 123, userInfo: nil)
-                        syncController.syncObserver?(.error(error))
+                        syncController.syncSubject?.send(completion: .failure(error))
                     }
 
                     it("should not present error alert") {

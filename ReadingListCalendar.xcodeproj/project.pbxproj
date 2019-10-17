@@ -42,23 +42,22 @@
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
 		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
 		314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E106802226FA1E00703714 /* Quick.framework */; };
+		314F008723577460002A2659 /* Publisher+Materialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F008623577460002A2659 /* Publisher+Materialize.swift */; };
 		314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */; };
 		314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */; };
 		314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */; };
-		314FE6B1222C7C4F00473D54 /* NSPopUpButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */; };
+		314FE6B1222C7C4F00473D54 /* NSPopUpButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE6B0222C7C4F00473D54 /* NSPopUpButton+Combine.swift */; };
 		3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */; };
 		3156BBAF222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3156BBAE222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift */; };
 		3156BBB2222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3156BBB1222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift */; };
-		3169C2A52356902200A7D052 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3169C29F23568FA600A7D052 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3169C2A62356902D00A7D052 /* RxRelay.framework.dSYM in Copy Framework dSYMs */ = {isa = PBXBuildFile; fileRef = 3169C2A023568FA600A7D052 /* RxRelay.framework.dSYM */; };
 		31741EAC22296C6300B0BCD0 /* FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAB22296C6300B0BCD0 /* FileReadablity.swift */; };
 		31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */; };
 		31741EB022296CC300B0BCD0 /* FileReadablity+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */; };
 		31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */; };
-		31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */; };
+		31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */; };
 		31741EB9222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */; };
 		31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */; };
-		31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */; };
+		317D54D92358B419005CC8C5 /* Publisher+ReceiveOptionally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D54D82358B419005CC8C5 /* Publisher+ReceiveOptionally.swift */; };
 		31819A7B234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */; };
 		31819A7D234D380700C69934 /* NSWindowControllerDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */; };
 		31819A7F234D382800C69934 /* FileOpenerCreatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */; };
@@ -83,17 +82,9 @@
 		31819AA5234D447800C69934 /* AppTerminating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA4234D447800C69934 /* AppTerminating.swift */; };
 		31819AA7234D455300C69934 /* AppTerminatingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31819AA6234D455300C69934 /* AppTerminatingDouble.swift */; };
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
-		319BCF8E2228605100CD4D14 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF892228602C00CD4D14 /* RxCocoa.framework */; };
-		319BCF8F2228605100CD4D14 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF892228602C00CD4D14 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		319BCF902228605100CD4D14 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF872228602C00CD4D14 /* RxSwift.framework */; };
-		319BCF912228605100CD4D14 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF872228602C00CD4D14 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		319BCF9E222860EF00CD4D14 /* RxCocoa.framework.dSYM in Copy Framework dSYMs */ = {isa = PBXBuildFile; fileRef = 319BCF9C222860DF00CD4D14 /* RxCocoa.framework.dSYM */; };
-		319BCF9F222860F100CD4D14 /* RxSwift.framework.dSYM in Copy Framework dSYMs */ = {isa = PBXBuildFile; fileRef = 319BCF9B222860DF00CD4D14 /* RxSwift.framework.dSYM */; };
-		319BCFA02228620400CD4D14 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF8B2228602C00CD4D14 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		319BCFA12228620400CD4D14 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 319BCF882228602C00CD4D14 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */; };
+		319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */; };
 		319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */; };
-		31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */; };
+		31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift */; };
 		31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */; };
 		31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBC222DEB38008EAAC0 /* SyncController.swift */; };
 		31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */; };
@@ -111,9 +102,7 @@
 		31DB9A89222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A88222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift */; };
 		31DB9A8C222B782000A34B81 /* ModalAlertFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB9A8B222B782000A34B81 /* ModalAlertFactorySpec.swift */; };
 		31E05AF6222899F30011A1CA /* NSView+AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */; };
-		31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFA2228B3C90011A1CA /* FuncUtils.swift */; };
 		31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */; };
-		31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */; };
 		31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */; };
 		31E1F7C9224B5D86008D05AA /* FileReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7C8224B5D86008D05AA /* FileReading.swift */; };
 		31E1F7CB224B5DB7008D05AA /* FileManager+FileReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1F7CA224B5DB7008D05AA /* FileManager+FileReading.swift */; };
@@ -157,21 +146,6 @@
 			files = (
 				31140E0D2227025B00522D23 /* Nimble.framework in Embed Frameworks */,
 				31140E0E2227025B00522D23 /* Quick.framework in Embed Frameworks */,
-				319BCFA02228620400CD4D14 /* RxBlocking.framework in Embed Frameworks */,
-				319BCFA12228620400CD4D14 /* RxTest.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		319BCF922228605100CD4D14 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				319BCF8F2228605100CD4D14 /* RxCocoa.framework in Embed Frameworks */,
-				3169C2A52356902200A7D052 /* RxRelay.framework in Embed Frameworks */,
-				319BCF912228605100CD4D14 /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,9 +156,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				319BCF9E222860EF00CD4D14 /* RxCocoa.framework.dSYM in Copy Framework dSYMs */,
-				3169C2A62356902D00A7D052 /* RxRelay.framework.dSYM in Copy Framework dSYMs */,
-				319BCF9F222860F100CD4D14 /* RxSwift.framework.dSYM in Copy Framework dSYMs */,
 			);
 			name = "Copy Framework dSYMs";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,27 +197,24 @@
 		313DBD7622257145003B0242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		313DBD7B22257145003B0242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313DBD7C22257145003B0242 /* ReadingListCalendarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadingListCalendarApp.entitlements; sourceTree = "<group>"; };
+		314F008623577460002A2659 /* Publisher+Materialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Materialize.swift"; sourceTree = "<group>"; };
 		314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsProviding.swift; sourceTree = "<group>"; };
 		314FE6AC222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarsProviding+EventCalendars.swift"; sourceTree = "<group>"; };
 		314FE6AE222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarsProviding.swift"; sourceTree = "<group>"; };
-		314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Rx.swift"; sourceTree = "<group>"; };
+		314FE6B0222C7C4F00473D54 /* NSPopUpButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Combine.swift"; sourceTree = "<group>"; };
 		3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarIdStoring.swift; sourceTree = "<group>"; };
 		3156BBAE222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CalendarIdStoring.swift"; sourceTree = "<group>"; };
 		3156BBB1222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCalendarIdStoringSpec.swift; sourceTree = "<group>"; };
-		3169C29F23568FA600A7D052 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/Mac/RxRelay.framework; sourceTree = "<group>"; };
-		3169C2A023568FA600A7D052 /* RxRelay.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxRelay.framework.dSYM; path = Carthage/Build/Mac/RxRelay.framework.dSYM; sourceTree = "<group>"; };
-		3169C2A123568FC300A7D052 /* RxTest.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxTest.framework.dSYM; path = Carthage/Build/Mac/RxTest.framework.dSYM; sourceTree = "<group>"; };
 		3169C2A223568FC300A7D052 /* Nimble.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Nimble.framework.dSYM; path = Carthage/Build/Mac/Nimble.framework.dSYM; sourceTree = "<group>"; };
-		3169C2A323568FC300A7D052 /* RxBlocking.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxBlocking.framework.dSYM; path = Carthage/Build/Mac/RxBlocking.framework.dSYM; sourceTree = "<group>"; };
 		3169C2A423568FC300A7D052 /* Quick.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Quick.framework.dSYM; path = Carthage/Build/Mac/Quick.framework.dSYM; sourceTree = "<group>"; };
 		31741EAB22296C6300B0BCD0 /* FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadablity.swift; sourceTree = "<group>"; };
 		31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+FileReadablity.swift"; sourceTree = "<group>"; };
 		31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadablity+URL.swift"; sourceTree = "<group>"; };
 		31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAuthorizing.swift; sourceTree = "<group>"; };
-		31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarAuthorizing+Rx.swift"; sourceTree = "<group>"; };
+		31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarAuthorizing+Combine.swift"; sourceTree = "<group>"; };
 		31741EB8222974F700B0BCD0 /* EKEventStore+CalendarAuthorizng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+CalendarAuthorizng.swift"; sourceTree = "<group>"; };
 		31741EBA2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAuthorizationStatus+Text.swift"; sourceTree = "<group>"; };
-		31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableAndThen.swift; sourceTree = "<group>"; };
+		317D54D82358B419005CC8C5 /* Publisher+ReceiveOptionally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+ReceiveOptionally.swift"; sourceTree = "<group>"; };
 		31819A7A234D37CB00C69934 /* MainWindowControllerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowControllerCreatingDouble.swift; sourceTree = "<group>"; };
 		31819A7C234D380700C69934 /* NSWindowControllerDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindowControllerDouble.swift; sourceTree = "<group>"; };
 		31819A7E234D382800C69934 /* FileOpenerCreatingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenerCreatingDouble.swift; sourceTree = "<group>"; };
@@ -275,15 +243,9 @@
 		318732EF2226F53B009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318732F02226F552009F5289 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		318AAA0F2226A61C0033CAA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		319BCF872228602C00CD4D14 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
-		319BCF882228602C00CD4D14 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/Mac/RxTest.framework; sourceTree = "<group>"; };
-		319BCF892228602C00CD4D14 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
-		319BCF8B2228602C00CD4D14 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/Mac/RxBlocking.framework; sourceTree = "<group>"; };
-		319BCF9B222860DF00CD4D14 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/Mac/RxSwift.framework.dSYM; sourceTree = "<group>"; };
-		319BCF9C222860DF00CD4D14 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/Mac/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
-		319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Rx.swift"; sourceTree = "<group>"; };
+		319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Combine.swift"; sourceTree = "<group>"; };
 		319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
-		31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Rx.swift"; sourceTree = "<group>"; };
+		31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Combine.swift"; sourceTree = "<group>"; };
 		31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControlling.swift; sourceTree = "<group>"; };
 		31C56FBC222DEB38008EAAC0 /* SyncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncController.swift; sourceTree = "<group>"; };
 		31C56FBF222DEC20008EAAC0 /* SyncControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControllerSpec.swift; sourceTree = "<group>"; };
@@ -301,9 +263,7 @@
 		31DB9A88222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlertCreating+CalendarAuthorizationDenied.swift"; sourceTree = "<group>"; };
 		31DB9A8B222B782000A34B81 /* ModalAlertFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertFactorySpec.swift; sourceTree = "<group>"; };
 		31E05AF5222899F30011A1CA /* NSView+AccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityElement.swift"; sourceTree = "<group>"; };
-		31E05AFA2228B3C90011A1CA /* FuncUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncUtils.swift; sourceTree = "<group>"; };
 		31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpenerCreating+BookmarksFileOpener.swift"; sourceTree = "<group>"; };
-		31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletableAsDriver.swift; sourceTree = "<group>"; };
 		31E05B052228C2450011A1CA /* FileBookmarking+Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileBookmarking+Bookmarks.swift"; sourceTree = "<group>"; };
 		31E1067F2226FA0300703714 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		31E106802226FA1E00703714 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
@@ -331,15 +291,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		313DBD6E22257144003B0242 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				319BCF8E2228605100CD4D14 /* RxCocoa.framework in Frameworks */,
-				319BCF902228605100CD4D14 /* RxSwift.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		314A86B02226FCEE00B73B69 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,7 +369,7 @@
 				31E05AFD2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift */,
 				31EA657F222C498100AC6BD4 /* FileOpenerFactory.swift */,
 				31140E312227552300522D23 /* FileOpening.swift */,
-				319BCFA22228685F00CD4D14 /* FileOpening+Rx.swift */,
+				319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */,
 				31140E2F2227551A00522D23 /* NSOpenPanel+FileOpening.swift */,
 			);
 			path = FileOpener;
@@ -490,6 +441,14 @@
 			path = ReadingListCalendarApp;
 			sourceTree = "<group>";
 		};
+		314F00852357744B002A2659 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				314F008623577460002A2659 /* Publisher+Materialize.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
 		3156BBB0222C9D0E00293301 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,7 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				31741EB42229739300B0BCD0 /* CalendarAuthorizing.swift */,
-				31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift */,
+				31741EB6222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift */,
 				3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */,
 				3105D1D1224BB68800B46979 /* CalendarProviding.swift */,
 				314FE6AA222C7BE200473D54 /* CalendarsProviding.swift */,
@@ -573,6 +532,7 @@
 				31DB9A8A222B780600A34B81 /* ModalAlert */,
 				31140E2D22274DC100522D23 /* Resources */,
 				31C56FBE222DEC15008EAAC0 /* Sync */,
+				314F00852357744B002A2659 /* TestHelpers */,
 			);
 			path = ReadingListCalendarAppTests;
 			sourceTree = "<group>";
@@ -638,14 +598,12 @@
 		31E05AF92228B3B90011A1CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				31741EBC222992B900B0BCD0 /* CompletableAndThen.swift */,
-				31E05B032228C20C0011A1CA /* CompletableAsDriver.swift */,
 				31D3072022E2830500FFBE52 /* Error+Message.swift */,
 				31D3072422E2876700FFBE52 /* Error+Title.swift */,
-				31E05AFA2228B3C90011A1CA /* FuncUtils.swift */,
-				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Rx.swift */,
-				31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift */,
+				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Combine.swift */,
+				31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift */,
 				31E1F7E6224B7673008D05AA /* Optional+OrThrow.swift */,
+				317D54D82358B419005CC8C5 /* Publisher+ReceiveOptionally.swift */,
 				3126AC1E222DD4B200B0919B /* URL+Functions.swift */,
 			);
 			path = Helpers;
@@ -658,16 +616,6 @@
 				3169C2A223568FC300A7D052 /* Nimble.framework.dSYM */,
 				31E106802226FA1E00703714 /* Quick.framework */,
 				3169C2A423568FC300A7D052 /* Quick.framework.dSYM */,
-				319BCF8B2228602C00CD4D14 /* RxBlocking.framework */,
-				3169C2A323568FC300A7D052 /* RxBlocking.framework.dSYM */,
-				319BCF892228602C00CD4D14 /* RxCocoa.framework */,
-				319BCF9C222860DF00CD4D14 /* RxCocoa.framework.dSYM */,
-				3169C29F23568FA600A7D052 /* RxRelay.framework */,
-				3169C2A023568FA600A7D052 /* RxRelay.framework.dSYM */,
-				319BCF872228602C00CD4D14 /* RxSwift.framework */,
-				319BCF9B222860DF00CD4D14 /* RxSwift.framework.dSYM */,
-				319BCF882228602C00CD4D14 /* RxTest.framework */,
-				3169C2A123568FC300A7D052 /* RxTest.framework.dSYM */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -719,9 +667,7 @@
 			buildPhases = (
 				318732ED2226F4AB009F5289 /* Run SwiftLint */,
 				313DBD6D22257144003B0242 /* Sources */,
-				313DBD6E22257144003B0242 /* Frameworks */,
 				313DBD6F22257144003B0242 /* Resources */,
-				319BCF922228605100CD4D14 /* Embed Frameworks */,
 				319BCF932228606E00CD4D14 /* Copy Framework dSYMs */,
 			);
 			buildRules = (
@@ -869,23 +815,23 @@
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
 				314FE6AF222C7C2E00473D54 /* EKEventStore+CalendarsProviding.swift in Sources */,
 				3105D1D0224BB66A00B46979 /* EKEventStore+ReadingListItemEventCreating.swift in Sources */,
-				31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Rx.swift in Sources */,
+				31741EB7222974D300B0BCD0 /* CalendarAuthorizing+Combine.swift in Sources */,
 				31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */,
-				31741EBD222992B900B0BCD0 /* CompletableAndThen.swift in Sources */,
 				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
 				31E1F7E3224B7474008D05AA /* Bookmark+ReadingList.swift in Sources */,
-				319BCFA32228685F00CD4D14 /* FileOpening+Rx.swift in Sources */,
+				319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				3105D1CA224BB60D00B46979 /* ReadingListItemEventProviding.swift in Sources */,
 				31E1F7D2224B5F2E008D05AA /* URIDict.swift in Sources */,
 				31E1F7E7224B7673008D05AA /* Optional+OrThrow.swift in Sources */,
 				3105D1D7224BB6B500B46979 /* EventSaving.swift in Sources */,
-				31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Rx.swift in Sources */,
+				31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift in Sources */,
 				31140E322227552300522D23 /* FileOpening.swift in Sources */,
 				314FE6AB222C7BE200473D54 /* CalendarsProviding.swift in Sources */,
 				31E1F7D4224B5F41008D05AA /* ReadingListInfo.swift in Sources */,
 				31E1F7C9224B5D86008D05AA /* FileReading.swift in Sources */,
+				317D54D92358B419005CC8C5 /* Publisher+ReceiveOptionally.swift in Sources */,
 				3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */,
 				31DB9A83222B710300A34B81 /* NSAlert+ModalAlert.swift in Sources */,
 				31E1F7D0224B5EF3008D05AA /* Bookmark.swift in Sources */,
@@ -902,12 +848,11 @@
 				31E1F7CB224B5DB7008D05AA /* FileManager+FileReading.swift in Sources */,
 				31EA6580222C498100AC6BD4 /* FileOpenerFactory.swift in Sources */,
 				31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */,
-				314FE6B1222C7C4F00473D54 /* NSPopUpButton+Rx.swift in Sources */,
+				314FE6B1222C7C4F00473D54 /* NSPopUpButton+Combine.swift in Sources */,
 				31DB9A89222B712900A34B81 /* ModalAlertCreating+CalendarAuthorizationDenied.swift in Sources */,
 				3105D1D9224BB6CB00B46979 /* EKEventStore+EventSaving.swift in Sources */,
 				3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */,
 				31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */,
-				31E05B042228C20C0011A1CA /* CompletableAsDriver.swift in Sources */,
 				3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */,
 				31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */,
 				31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */,
@@ -924,7 +869,6 @@
 				31E1F7D6224B663D008D05AA /* BookmarksLoading.swift in Sources */,
 				31DB9A81222B70F700A34B81 /* ModalAlert.swift in Sources */,
 				3126AC1B222DD42200B0919B /* ModalAlert+Functions.swift in Sources */,
-				31E05AFC2228B3D40011A1CA /* FuncUtils.swift in Sources */,
 				31E1F7DA224B6713008D05AA /* BookmarksLoadingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -975,6 +919,7 @@
 				3105D1DB224BB82A00B46979 /* EKEventStoreReadingListItemEventCreatingSpec.swift in Sources */,
 				31819A8F234D39B600C69934 /* FileOpeningDouble.swift in Sources */,
 				31E1F7DD224B67B7008D05AA /* BookmarksLoaderSpec.swift in Sources */,
+				314F008723577460002A2659 /* Publisher+Materialize.swift in Sources */,
 				31C56FC0222DEC20008EAAC0 /* SyncControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1054,7 +999,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1113,7 +1058,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1134,10 +1079,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P38XW29864;
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ReadingListCalendarApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1161,10 +1103,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P38XW29864;
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ReadingListCalendarApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

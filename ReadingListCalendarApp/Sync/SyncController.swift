@@ -1,7 +1,6 @@
+import Combine
 import EventKit
 import Foundation
-import RxCocoa
-import RxSwift
 
 class SyncController: SyncControlling {
 
@@ -19,37 +18,37 @@ class SyncController: SyncControlling {
     var eventProvider: ReadingListItemEventProviding
     var eventCreator: ReadingListItemEventCreating
     var eventSaver: EventSaving
-    var syncScheduler: ImmediateSchedulerType = ConcurrentDispatchQueueScheduler(qos: .background)
 
     // MARK: - SyncControlling
 
-    var isSynchronizing: Driver<Bool> {
-        return progressRelay.asDriver().map { $0 != nil }.distinctUntilChanged()
+    func isSynchronizing() -> AnyPublisher<Bool, Never> {
+        progress.map { $0 != nil }.removeDuplicates().eraseToAnyPublisher()
     }
 
-    var syncProgress: Driver<Double?> {
-        return progressRelay.asDriver()
+    func syncProgress() -> AnyPublisher<Double?, Never> {
+        progress.eraseToAnyPublisher()
     }
 
-    func sync(bookmarksUrl: URL, calendarId: String) -> Completable {
-        return Completable.create { observer in
-            do {
-                try self.performSync(bookmarksUrl: bookmarksUrl, calendarId: calendarId)
-                observer(.completed)
-            } catch {
-                observer(.error(error))
+    func sync(bookmarksUrl: URL, calendarId: String) -> AnyPublisher<Void, Error> {
+        Future { complete in
+            DispatchQueue.global(qos: .background).async {
+                do {
+                    try self.performSync(bookmarksUrl: bookmarksUrl, calendarId: calendarId)
+                    complete(.success(()))
+                } catch {
+                    complete(.failure(error))
+                }
+                self.progress.send(nil)
             }
-            self.progressRelay.accept(nil)
-            return Disposables.create()
-        }.subscribeOn(syncScheduler)
+        }.eraseToAnyPublisher()
     }
 
     // MARK: - Private
 
-    private let progressRelay = BehaviorRelay<Double?>(value: nil)
+    private let progress = CurrentValueSubject<Double?, Never>(nil)
 
     private func performSync(bookmarksUrl: URL, calendarId: String) throws {
-        progressRelay.accept(0)
+        progress.send(0)
         let bookmarks = try bookmarksLoader.load(fromURL: bookmarksUrl)
         let calendar = try (calendarProvider.calendar(withIdentifier: calendarId)).or(SyncError.calendarNotFound)
         let items = try bookmarks.readingListItems()
@@ -59,7 +58,7 @@ class SyncController: SyncControlling {
                 let event = eventCreator.createEvent(for: item, in: calendar)
                 try eventSaver.save(event, span: .thisEvent, commit: true)
             }
-            progressRelay.accept(Double(offset + 1) / Double(items.count))
+            progress.send(Double(offset + 1) / Double(items.count))
         }
     }
 
