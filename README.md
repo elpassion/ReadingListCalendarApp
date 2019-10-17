@@ -1,6 +1,6 @@
 # ReadingListCalendar
 
-![Swift v5.0](https://img.shields.io/badge/swift-v5.0-orange.svg)
+![Swift v5.1](https://img.shields.io/badge/swift-v5.1-orange.svg)
 ![platform macOS](https://img.shields.io/badge/platform-macOS-blue.svg)
 ![code coverage 100%](https://img.shields.io/badge/covergage-100%25-success.svg)
 
@@ -10,7 +10,17 @@ Inspired by [Tweet by Marcin Krzyżanowski](https://twitter.com/krzyzanowskim/st
 
 ![Reading List Calendar App](Misc/screenshot-1.png)
 
-Application accepts following launch arguments:
+## Install
+
+- macOS 10.15 or newer is required (last version that supports macOS 10.14 is [v1.0.2](https://github.com/elpassion/ReadingListCalendarApp/releases/tag/v1.0.2_3))
+- Download latest version from [releases page](https://github.com/elpassion/ReadingListCalendarApp/releases)
+- Unzip archive and copy `Reading List Calendar.app` to `/Applications` folder
+- Start the app and configure it for your needs
+- Optionally, to setup automatic sync in background, follow [wiki page](https://github.com/elpassion/ReadingListCalendarApp/wiki)
+
+## Launch arguments
+
+Application accepts following (optional) launch arguments:
 
 |Argument|Description|
 |:--|:--|
@@ -27,21 +37,21 @@ open -a "Reading List Calendar" --args -sync -headless
 
 - [x] MVP - adding reading list items to choosen calendar
 - [x] Automatic synchronization in background (using launch arguments)
+- [x] Migrate from RxSwift to Combine
 - [ ] UI for configuring automatic synchronization in background
 
-## Setup
+## Develop
 
-Requirements: 
+### Requirements
 
 - Xcode 11.1
 - [SwiftLint](https://github.com/realm/SwiftLint)
 - [Carthage](https://github.com/Carthage/Carthage)
 
-To set up the project, run `setup.sh` in Terminal.
+### Setup
 
-## Develop
-
-Open `ReadingListCalendar.xcodeproj` in Xcode.
+- Run `setup.sh` in Terminal
+- Open `ReadingListCalendar.xcodeproj` in Xcode
 
 ### Build targets
 
