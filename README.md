@@ -54,7 +54,7 @@ Open `ReadingListCalendar.xcodeproj` in Xcode.
 
 |Scheme|Purpose|
 |:--|:--|
-|`App`|Build, run, test and archive the app|
+|`ReadingListCalendar`|Build, run, test and archive the app|
 
 ## License
 
