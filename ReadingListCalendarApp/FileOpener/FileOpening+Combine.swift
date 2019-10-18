@@ -3,8 +3,14 @@ import Foundation
 
 extension FileOpening {
     func openFile() -> AnyPublisher<URL, Never> {
-        Future { complete in
-            self.openFile { complete(.success($0)) }
-        }.compactMap { $0 }.eraseToAnyPublisher()
+        SimplePublisher { subscriber in
+            self.openFile { url in
+                if let url = url {
+                    subscriber.receive(url)
+                }
+                subscriber.receive(completion: .finished)
+            }
+            return .empty()
+        }.eraseToAnyPublisher()
     }
 }

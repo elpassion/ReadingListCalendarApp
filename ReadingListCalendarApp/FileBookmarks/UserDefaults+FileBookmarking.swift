@@ -3,10 +3,11 @@ import Foundation
 
 extension UserDefaults: FileBookmarking {
     func fileURL(forKey key: String) -> AnyPublisher<URL?, Error> {
-        Future { complete in
+        SimplePublisher { subscriber in
             guard let data = self.object(forKey: key) as? Data else {
-                complete(.success(nil))
-                return
+                subscriber.receive(nil)
+                subscriber.receive(completion: .finished)
+                return .empty()
             }
             do {
                 let url = try NSURL(
@@ -15,15 +16,17 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil,
                     bookmarkDataIsStale: nil
                 )
-                complete(.success(url as URL))
+                subscriber.receive(url as URL)
+                subscriber.receive(completion: .finished)
             } catch {
-                complete(.failure(error))
+                subscriber.receive(completion: .failure(error))
             }
+            return .empty()
         }.eraseToAnyPublisher()
     }
 
     func setFileURL(_ url: URL?, forKey key: String) -> AnyPublisher<Void, Error> {
-        Future { complete in
+        SimplePublisher { subscriber in
             do {
                 let data = try url?.bookmarkData(
                     options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess],
@@ -31,10 +34,12 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil
                 )
                 self.set(data, forKey: key)
-                complete(.success(()))
+                subscriber.receive()
+                subscriber.receive(completion: .finished)
             } catch {
-                complete(.failure(error))
+                subscriber.receive(completion: .failure(error))
             }
+            return .empty()
         }.eraseToAnyPublisher()
     }
 }

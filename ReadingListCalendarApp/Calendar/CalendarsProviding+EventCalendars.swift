@@ -3,9 +3,10 @@ import EventKit
 
 extension CalendarsProviding {
     func eventCalendars() -> AnyPublisher<[EKCalendar], Never> {
-        Future { complete in
-            let calendars = self.calendars(for: .event)
-            complete(.success(calendars))
+        SimplePublisher { subscriber in
+            subscriber.receive(self.calendars(for: .event))
+            subscriber.receive(completion: .finished)
+            return .empty()
         }.eraseToAnyPublisher()
     }
 }

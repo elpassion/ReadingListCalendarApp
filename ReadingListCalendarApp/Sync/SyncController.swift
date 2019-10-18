@@ -30,16 +30,16 @@ class SyncController: SyncControlling {
     }
 
     func sync(bookmarksUrl: URL, calendarId: String) -> AnyPublisher<Void, Error> {
-        Future { complete in
-            DispatchQueue.global(qos: .background).async {
-                do {
-                    try self.performSync(bookmarksUrl: bookmarksUrl, calendarId: calendarId)
-                    complete(.success(()))
-                } catch {
-                    complete(.failure(error))
-                }
-                self.progress.send(nil)
+        SimplePublisher { subscriber in
+            do {
+                try self.performSync(bookmarksUrl: bookmarksUrl, calendarId: calendarId)
+                subscriber.receive()
+                subscriber.receive(completion: .finished)
+            } catch {
+                subscriber.receive(completion: .failure(error))
             }
+            self.progress.send(nil)
+            return .empty()
         }.eraseToAnyPublisher()
     }
 

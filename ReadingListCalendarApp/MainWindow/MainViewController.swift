@@ -103,7 +103,7 @@ class MainViewController: NSViewController {
                 self.syncController.sync(
                     bookmarksUrl: $0.bookmarksUrl,
                     calendarId: $0.calendarId
-                )
+                ).subscribe(on: DispatchQueue.global(qos: .background))
             }
             .receive(optionallyOn: uiScheduler)
             .sink(receiveCompletion: { [weak self] completion in
