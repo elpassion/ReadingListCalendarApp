@@ -5,13 +5,17 @@ class CalendarIdStoringDouble: CalendarIdStoring {
     var mockedCalendarId: String?
 
     func calendarId() -> AnyPublisher<String?, Never> {
-        Future { $0(.success(self.mockedCalendarId)) }.eraseToAnyPublisher()
+        CustomPublisher(request: { subscriber, _ in
+            _ = subscriber.receive(self.mockedCalendarId)
+            subscriber.receive(completion: .finished)
+        }).eraseToAnyPublisher()
     }
 
     func setCalendarId(_ id: String?) -> AnyPublisher<Void, Never> {
-        Future { complete in
+        CustomPublisher(request: { subscriber, _ in
             self.mockedCalendarId = id
-            complete(.success(()))
-        }.eraseToAnyPublisher()
+            _ = subscriber.receive()
+            subscriber.receive(completion: .finished)
+        }).eraseToAnyPublisher()
     }
 }

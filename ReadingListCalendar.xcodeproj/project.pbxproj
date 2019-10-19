@@ -84,6 +84,7 @@
 		318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318AAA0F2226A61C0033CAA5 /* MainViewController.swift */; };
 		319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */; };
 		319BCFA52228891D00CD4D14 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */; };
+		31B80AA72359268F00249857 /* CustomPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B80AA62359268F00249857 /* CustomPublisher.swift */; };
 		31C56FB8222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift */; };
 		31C56FBB222DEB10008EAAC0 /* SyncControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */; };
 		31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C56FBC222DEB38008EAAC0 /* SyncController.swift */; };
@@ -245,6 +246,7 @@
 		318AAA0F2226A61C0033CAA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		319BCFA22228685F00CD4D14 /* FileOpening+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpening+Combine.swift"; sourceTree = "<group>"; };
 		319BCFA42228891D00CD4D14 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
+		31B80AA62359268F00249857 /* CustomPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPublisher.swift; sourceTree = "<group>"; };
 		31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSProgressIndicator+Combine.swift"; sourceTree = "<group>"; };
 		31C56FBA222DEB10008EAAC0 /* SyncControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncControlling.swift; sourceTree = "<group>"; };
 		31C56FBC222DEB38008EAAC0 /* SyncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncController.swift; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 		31E05AF92228B3B90011A1CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				31B80AA62359268F00249857 /* CustomPublisher.swift */,
 				31D3072022E2830500FFBE52 /* Error+Message.swift */,
 				31D3072422E2876700FFBE52 /* Error+Title.swift */,
 				314FE6B0222C7C4F00473D54 /* NSPopUpButton+Combine.swift */,
@@ -819,6 +822,7 @@
 				31E1F7CD224B5DD1008D05AA /* FileReading+URL.swift in Sources */,
 				31741EAE22296CA400B0BCD0 /* FileManager+FileReadablity.swift in Sources */,
 				31E1F7E3224B7474008D05AA /* Bookmark+ReadingList.swift in Sources */,
+				31B80AA72359268F00249857 /* CustomPublisher.swift in Sources */,
 				319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,

@@ -3,21 +3,22 @@ import EventKit
 
 extension CalendarAuthorizing {
     func eventsAuthorizationStatus() -> AnyPublisher<EKAuthorizationStatus, Never> {
-        Future { complete in
-            let status = type(of: self).authorizationStatus(for: .event)
-            complete(.success(status))
-        }.eraseToAnyPublisher()
+        CustomPublisher(request: { subscriber, _ in
+            _ = subscriber.receive(type(of: self).authorizationStatus(for: .event))
+            subscriber.receive(completion: .finished)
+        }).eraseToAnyPublisher()
     }
 
     func requestAccessToEvents() -> AnyPublisher<Void, Error> {
-        Future { complete in
+        CustomPublisher(request: { subscriber, _ in
             self.requestAccess(to: .event) { _, error in
                 if let error = error {
-                    complete(.failure(error))
+                    subscriber.receive(completion: .failure(error))
                 } else {
-                    complete(.success(()))
+                    _ = subscriber.receive()
+                    subscriber.receive(completion: .finished)
                 }
             }
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 }

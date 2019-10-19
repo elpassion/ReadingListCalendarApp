@@ -3,9 +3,10 @@ import Foundation
 
 extension UserDefaults: FileBookmarking {
     func fileURL(forKey key: String) -> AnyPublisher<URL?, Error> {
-        Future { complete in
+        CustomPublisher(request: { subscriber, _ in
             guard let data = self.object(forKey: key) as? Data else {
-                complete(.success(nil))
+                _ = subscriber.receive(nil)
+                subscriber.receive(completion: .finished)
                 return
             }
             do {
@@ -15,15 +16,16 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil,
                     bookmarkDataIsStale: nil
                 )
-                complete(.success(url as URL))
+                _ = subscriber.receive(url as URL)
+                subscriber.receive(completion: .finished)
             } catch {
-                complete(.failure(error))
+                subscriber.receive(completion: .failure(error))
             }
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 
     func setFileURL(_ url: URL?, forKey key: String) -> AnyPublisher<Void, Error> {
-        Future { complete in
+        CustomPublisher(request: { subscriber, _ in
             do {
                 let data = try url?.bookmarkData(
                     options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess],
@@ -31,10 +33,11 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil
                 )
                 self.set(data, forKey: key)
-                complete(.success(()))
+                _ = subscriber.receive()
+                subscriber.receive(completion: .finished)
             } catch {
-                complete(.failure(error))
+                subscriber.receive(completion: .failure(error))
             }
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 }
