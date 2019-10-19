@@ -3,19 +3,17 @@ import Foundation
 
 extension UserDefaults: CalendarIdStoring {
     func calendarId() -> AnyPublisher<String?, Never> {
-        SimplePublisher { subscriber in
-            subscriber.receive(self.string(forKey: "calendar_id"))
+        CustomPublisher(request: { subscriber, _ in
+            _ = subscriber.receive(self.string(forKey: "calendar_id"))
             subscriber.receive(completion: .finished)
-            return .empty()
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 
     func setCalendarId(_ id: String?) -> AnyPublisher<Void, Never> {
-        SimplePublisher { subscriber in
+        CustomPublisher(request: { subscriber, _ in
             self.set(id, forKey: "calendar_id")
-            subscriber.receive()
+            _ = subscriber.receive()
             subscriber.receive(completion: .finished)
-            return .empty()
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 }

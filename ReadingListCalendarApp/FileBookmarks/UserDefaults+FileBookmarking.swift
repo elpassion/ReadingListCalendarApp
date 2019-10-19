@@ -3,11 +3,11 @@ import Foundation
 
 extension UserDefaults: FileBookmarking {
     func fileURL(forKey key: String) -> AnyPublisher<URL?, Error> {
-        SimplePublisher { subscriber in
+        CustomPublisher(request: { subscriber, _ in
             guard let data = self.object(forKey: key) as? Data else {
-                subscriber.receive(nil)
+                _ = subscriber.receive(nil)
                 subscriber.receive(completion: .finished)
-                return .empty()
+                return
             }
             do {
                 let url = try NSURL(
@@ -16,17 +16,16 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil,
                     bookmarkDataIsStale: nil
                 )
-                subscriber.receive(url as URL)
+                _ = subscriber.receive(url as URL)
                 subscriber.receive(completion: .finished)
             } catch {
                 subscriber.receive(completion: .failure(error))
             }
-            return .empty()
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 
     func setFileURL(_ url: URL?, forKey key: String) -> AnyPublisher<Void, Error> {
-        SimplePublisher { subscriber in
+        CustomPublisher(request: { subscriber, _ in
             do {
                 let data = try url?.bookmarkData(
                     options: [.withSecurityScope, .securityScopeAllowOnlyReadAccess],
@@ -34,12 +33,11 @@ extension UserDefaults: FileBookmarking {
                     relativeTo: nil
                 )
                 self.set(data, forKey: key)
-                subscriber.receive()
+                _ = subscriber.receive()
                 subscriber.receive(completion: .finished)
             } catch {
                 subscriber.receive(completion: .failure(error))
             }
-            return .empty()
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 }

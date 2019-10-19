@@ -6,19 +6,17 @@ class FileBookmarkingDouble: FileBookmarking {
     var urls = [String: URL]()
 
     func fileURL(forKey key: String) -> AnyPublisher<URL?, Error> {
-        SimplePublisher { subscriber in
-            subscriber.receive(self.urls[key])
+        CustomPublisher(request: { subscriber, _ in
+            _ = subscriber.receive(self.urls[key])
             subscriber.receive(completion: .finished)
-            return .empty()
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 
     func setFileURL(_ url: URL?, forKey key: String) -> AnyPublisher<Void, Error> {
-        SimplePublisher { subscriber in
+        CustomPublisher(request: { subscriber, _ in
             self.urls[key] = url
-            subscriber.receive()
+            _ = subscriber.receive()
             subscriber.receive(completion: .finished)
-            return .empty()
-        }.eraseToAnyPublisher()
+        }).eraseToAnyPublisher()
     }
 }
