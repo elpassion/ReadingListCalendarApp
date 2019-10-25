@@ -34,10 +34,16 @@
 		31140E40222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */; };
 		31143F65222603ED00580FE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31143F63222603ED00580FE3 /* Main.storyboard */; };
 		3114C3B5224D15A2004F658C /* ModalAlertCreating+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114C3B4224D15A2004F658C /* ModalAlertCreating+Error.swift */; };
+		311E2C862363048800657F52 /* ReadingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E2C852363048800657F52 /* ReadingListView.swift */; };
+		311E2C882363049600657F52 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E2C872363049600657F52 /* CalendarView.swift */; };
+		311E2C8A236304A100657F52 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E2C89236304A100657F52 /* StatusView.swift */; };
+		311E2C8C236306A100657F52 /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E2C8B236306A100657F52 /* HorizontalLine.swift */; };
+		311E2C8E236306CA00657F52 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E2C8D236306CA00657F52 /* ProgressBar.swift */; };
 		3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC18222DD3CC00B0919B /* FileOpener+Functions.swift */; };
 		3126AC1B222DD42200B0919B /* ModalAlert+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */; };
 		3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */; };
 		3126AC1F222DD4B200B0919B /* URL+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1E222DD4B200B0919B /* URL+Functions.swift */; };
+		313898822360EF3300BA6B3A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313898812360EF3300BA6B3A /* MainView.swift */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
 		314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E1067F2226FA0300703714 /* Nimble.framework */; };
@@ -189,10 +195,16 @@
 		31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFileBookmarkingSpec.swift; sourceTree = "<group>"; };
 		31143F64222603ED00580FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3114C3B4224D15A2004F658C /* ModalAlertCreating+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlertCreating+Error.swift"; sourceTree = "<group>"; };
+		311E2C852363048800657F52 /* ReadingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListView.swift; sourceTree = "<group>"; };
+		311E2C872363049600657F52 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		311E2C89236304A100657F52 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		311E2C8B236306A100657F52 /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
+		311E2C8D236306CA00657F52 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		3126AC18222DD3CC00B0919B /* FileOpener+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileOpener+Functions.swift"; sourceTree = "<group>"; };
 		3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlert+Functions.swift"; sourceTree = "<group>"; };
 		3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadability+Functions.swift"; sourceTree = "<group>"; };
 		3126AC1E222DD4B200B0919B /* URL+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Functions.swift"; sourceTree = "<group>"; };
+		313898812360EF3300BA6B3A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313DBD7422257144003B0242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		313DBD7622257145003B0242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -329,6 +341,7 @@
 		31140E2922274D0300522D23 /* MainWindow */ = {
 			isa = PBXGroup;
 			children = (
+				311E2C842363046200657F52 /* Views */,
 				318AAA0F2226A61C0033CAA5 /* MainViewController.swift */,
 				31140E102227279400522D23 /* MainWindowController.swift */,
 				31140E1222272A4400522D23 /* MainWindowControllerCreating.swift */,
@@ -402,6 +415,19 @@
 				31140E3F222762E600522D23 /* UserDefaultsFileBookmarkingSpec.swift */,
 			);
 			path = FileBookmarks;
+			sourceTree = "<group>";
+		};
+		311E2C842363046200657F52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				311E2C872363049600657F52 /* CalendarView.swift */,
+				311E2C8B236306A100657F52 /* HorizontalLine.swift */,
+				313898812360EF3300BA6B3A /* MainView.swift */,
+				311E2C8D236306CA00657F52 /* ProgressBar.swift */,
+				311E2C852363048800657F52 /* ReadingListView.swift */,
+				311E2C89236304A100657F52 /* StatusView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		313DBD6822257144003B0242 = {
@@ -808,11 +834,14 @@
 			files = (
 				3105D1D5224BB6A200B46979 /* EKEventStore+CalendarProviding.swift in Sources */,
 				31D3072122E2830500FFBE52 /* Error+Message.swift in Sources */,
+				311E2C8A236304A100657F52 /* StatusView.swift in Sources */,
 				313DBD7522257144003B0242 /* AppDelegate.swift in Sources */,
 				3105D1C8224BB5EB00B46979 /* SyncError.swift in Sources */,
 				318AAA102226A61C0033CAA5 /* MainViewController.swift in Sources */,
 				31E1F7E1224B7441008D05AA /* ReadingListItem.swift in Sources */,
 				3105D1CC224BB62D00B46979 /* EKEventStore+ReadingListItemEventProviding.swift in Sources */,
+				311E2C8E236306CA00657F52 /* ProgressBar.swift in Sources */,
+				311E2C862363048800657F52 /* ReadingListView.swift in Sources */,
 				3105D1CE224BB64C00B46979 /* ReadingListItemEventCreating.swift in Sources */,
 				31E05B062228C2450011A1CA /* FileBookmarking+Bookmarks.swift in Sources */,
 				31140E302227551A00522D23 /* NSOpenPanel+FileOpening.swift in Sources */,
@@ -825,6 +854,7 @@
 				31B80AA72359268F00249857 /* CustomPublisher.swift in Sources */,
 				319BCFA32228685F00CD4D14 /* FileOpening+Combine.swift in Sources */,
 				31140E2422273E3500522D23 /* main.swift in Sources */,
+				313898822360EF3300BA6B3A /* MainView.swift in Sources */,
 				31140E3B222760FF00522D23 /* FileBookmarking.swift in Sources */,
 				3105D1CA224BB60D00B46979 /* ReadingListItemEventProviding.swift in Sources */,
 				31E1F7D2224B5F2E008D05AA /* URIDict.swift in Sources */,
@@ -846,6 +876,7 @@
 				31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */,
 				31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */,
 				314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */,
+				311E2C8C236306A100657F52 /* HorizontalLine.swift in Sources */,
 				31D3072522E2876700FFBE52 /* Error+Title.swift in Sources */,
 				3114C3B5224D15A2004F658C /* ModalAlertCreating+Error.swift in Sources */,
 				31DB9A87222B711400A34B81 /* ModalAlertFactory.swift in Sources */,
@@ -857,6 +888,7 @@
 				3105D1D9224BB6CB00B46979 /* EKEventStore+EventSaving.swift in Sources */,
 				3156BBAD222C9B0000293301 /* CalendarIdStoring.swift in Sources */,
 				31DB9A85222B710C00A34B81 /* ModalAlertCreating.swift in Sources */,
+				311E2C882363049600657F52 /* CalendarView.swift in Sources */,
 				3126AC19222DD3CC00B0919B /* FileOpener+Functions.swift in Sources */,
 				31C56FBD222DEB38008EAAC0 /* SyncController.swift in Sources */,
 				31741EBB2229929900B0BCD0 /* EKAuthorizationStatus+Text.swift in Sources */,
