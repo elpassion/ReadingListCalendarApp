@@ -8,6 +8,7 @@ struct ProgressBar: NSViewRepresentable {
     func makeNSView(context: NSViewRepresentableContext<ProgressBar>) -> NSProgressIndicator {
         let nsView = NSProgressIndicator(frame: .zero)
         nsView.style = .bar
+        nsView.isIndeterminate = false
         nsView.isDisplayedWhenStopped = true
         nsView.minValue = 0
         nsView.maxValue = 100
@@ -15,7 +16,10 @@ struct ProgressBar: NSViewRepresentable {
     }
 
     func updateNSView(_ nsView: NSProgressIndicator, context: NSViewRepresentableContext<ProgressBar>) {
-        nsView.update(fractionCompleted: fractionCompleted)
+        let doubleValue = fractionCompleted.map {
+            nsView.minValue + (nsView.maxValue - nsView.minValue) * $0
+        }
+        nsView.doubleValue = doubleValue ?? 0
     }
 
 }
