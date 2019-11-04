@@ -45,6 +45,8 @@
 		3126AC1F222DD4B200B0919B /* URL+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1E222DD4B200B0919B /* URL+Functions.swift */; };
 		312ACEAB2370CE340089B85A /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312ACEAA2370CE340089B85A /* Button.swift */; };
 		312ACEAD2370CE9D0089B85A /* String+KeyEquivalent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312ACEAC2370CE9D0089B85A /* String+KeyEquivalent.swift */; };
+		312ACEB02370D32C0089B85A /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312ACEAF2370D31D0089B85A /* SnapshotTesting.framework */; };
+		312ACEB12370D3300089B85A /* SnapshotTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 312ACEAF2370D31D0089B85A /* SnapshotTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		313898822360EF3300BA6B3A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313898812360EF3300BA6B3A /* MainView.swift */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
@@ -155,6 +157,7 @@
 			files = (
 				31140E0D2227025B00522D23 /* Nimble.framework in Embed Frameworks */,
 				31140E0E2227025B00522D23 /* Quick.framework in Embed Frameworks */,
+				312ACEB12370D3300089B85A /* SnapshotTesting.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +211,7 @@
 		3126AC1E222DD4B200B0919B /* URL+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Functions.swift"; sourceTree = "<group>"; };
 		312ACEAA2370CE340089B85A /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		312ACEAC2370CE9D0089B85A /* String+KeyEquivalent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+KeyEquivalent.swift"; sourceTree = "<group>"; };
+		312ACEAF2370D31D0089B85A /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/Mac/SnapshotTesting.framework; sourceTree = "<group>"; };
 		313898812360EF3300BA6B3A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313DBD7422257144003B0242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,8 +226,6 @@
 		3156BBAC222C9B0000293301 /* CalendarIdStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarIdStoring.swift; sourceTree = "<group>"; };
 		3156BBAE222C9B1A00293301 /* UserDefaults+CalendarIdStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CalendarIdStoring.swift"; sourceTree = "<group>"; };
 		3156BBB1222C9D2600293301 /* UserDefaultsCalendarIdStoringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCalendarIdStoringSpec.swift; sourceTree = "<group>"; };
-		3169C2A223568FC300A7D052 /* Nimble.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Nimble.framework.dSYM; path = Carthage/Build/Mac/Nimble.framework.dSYM; sourceTree = "<group>"; };
-		3169C2A423568FC300A7D052 /* Quick.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Quick.framework.dSYM; path = Carthage/Build/Mac/Quick.framework.dSYM; sourceTree = "<group>"; };
 		31741EAB22296C6300B0BCD0 /* FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReadablity.swift; sourceTree = "<group>"; };
 		31741EAD22296CA400B0BCD0 /* FileManager+FileReadablity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+FileReadablity.swift"; sourceTree = "<group>"; };
 		31741EAF22296CC300B0BCD0 /* FileReadablity+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadablity+URL.swift"; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			files = (
 				314A86B12226FD0000B73B69 /* Nimble.framework in Frameworks */,
 				314A86B22226FD0000B73B69 /* Quick.framework in Frameworks */,
+				312ACEB02370D32C0089B85A /* SnapshotTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,9 +651,8 @@
 			isa = PBXGroup;
 			children = (
 				31E1067F2226FA0300703714 /* Nimble.framework */,
-				3169C2A223568FC300A7D052 /* Nimble.framework.dSYM */,
 				31E106802226FA1E00703714 /* Quick.framework */,
-				3169C2A423568FC300A7D052 /* Quick.framework.dSYM */,
+				312ACEAF2370D31D0089B85A /* SnapshotTesting.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
