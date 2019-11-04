@@ -11,10 +11,9 @@ struct CalendarView: View {
             HStack(alignment: .firstTextBaseline, spacing: 10) {
                 Text("Authorization")
                 Spacer()
-                Button(action: {}, label: {
-                    Text("Authorize")
-                })
-            }
+                Button("Authorize", action: {})
+                    .frame(width: 172)
+            }.frame(maxWidth: .infinity, alignment: .trailing)
             HStack(alignment: .firstTextBaseline, spacing: 10) {
                 Text("Selected calendar")
                 Spacer()
@@ -22,8 +21,8 @@ struct CalendarView: View {
                     Text("Personal").tag("calendar-a")
                     Text("Reading List").tag("calendar-b")
                     Text("Family").tag("calendar-c")
-                }
-            }
+                }.frame(width: 172)
+            }.frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
 

@@ -43,6 +43,8 @@
 		3126AC1B222DD42200B0919B /* ModalAlert+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */; };
 		3126AC1D222DD46A00B0919B /* FileReadability+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */; };
 		3126AC1F222DD4B200B0919B /* URL+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3126AC1E222DD4B200B0919B /* URL+Functions.swift */; };
+		312ACEAB2370CE340089B85A /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312ACEAA2370CE340089B85A /* Button.swift */; };
+		312ACEAD2370CE9D0089B85A /* String+KeyEquivalent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312ACEAC2370CE9D0089B85A /* String+KeyEquivalent.swift */; };
 		313898822360EF3300BA6B3A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313898812360EF3300BA6B3A /* MainView.swift */; };
 		313DBD7522257144003B0242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313DBD7422257144003B0242 /* AppDelegate.swift */; };
 		313DBD7722257145003B0242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313DBD7622257145003B0242 /* Assets.xcassets */; };
@@ -204,6 +206,8 @@
 		3126AC1A222DD42200B0919B /* ModalAlert+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModalAlert+Functions.swift"; sourceTree = "<group>"; };
 		3126AC1C222DD46A00B0919B /* FileReadability+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileReadability+Functions.swift"; sourceTree = "<group>"; };
 		3126AC1E222DD4B200B0919B /* URL+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Functions.swift"; sourceTree = "<group>"; };
+		312ACEAA2370CE340089B85A /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		312ACEAC2370CE9D0089B85A /* String+KeyEquivalent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+KeyEquivalent.swift"; sourceTree = "<group>"; };
 		313898812360EF3300BA6B3A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		313DBD7122257144003B0242 /* Reading List Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		313DBD7422257144003B0242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 		311E2C842363046200657F52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				312ACEAA2370CE340089B85A /* Button.swift */,
 				311E2C872363049600657F52 /* CalendarView.swift */,
 				311E2C8B236306A100657F52 /* HorizontalLine.swift */,
 				313898812360EF3300BA6B3A /* MainView.swift */,
@@ -633,6 +638,7 @@
 				31C56FB7222DEADA008EAAC0 /* NSProgressIndicator+Combine.swift */,
 				31E1F7E6224B7673008D05AA /* Optional+OrThrow.swift */,
 				317D54D82358B419005CC8C5 /* Publisher+ReceiveOptionally.swift */,
+				312ACEAC2370CE9D0089B85A /* String+KeyEquivalent.swift */,
 				3126AC1E222DD4B200B0919B /* URL+Functions.swift */,
 			);
 			path = Helpers;
@@ -872,7 +878,9 @@
 				31140E112227279400522D23 /* MainWindowController.swift in Sources */,
 				31E1F7D8224B6665008D05AA /* BookmarksLoader.swift in Sources */,
 				31EA657E222C492700AC6BD4 /* FileOpenerCreating.swift in Sources */,
+				312ACEAB2370CE340089B85A /* Button.swift in Sources */,
 				31140E1322272A4400522D23 /* MainWindowControllerCreating.swift in Sources */,
+				312ACEAD2370CE9D0089B85A /* String+KeyEquivalent.swift in Sources */,
 				31741EB52229739300B0BCD0 /* CalendarAuthorizing.swift in Sources */,
 				31E05AFE2228B9360011A1CA /* FileOpenerCreating+BookmarksFileOpener.swift in Sources */,
 				314FE6AD222C7C0900473D54 /* CalendarsProviding+EventCalendars.swift in Sources */,

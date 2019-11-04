@@ -12,10 +12,9 @@ struct ReadingListView: View {
             HStack(alignment: .firstTextBaseline, spacing: 10) {
                 Text("/path/to/Bookmarks.plist")
                 Spacer()
-                Button(action: {}, label: {
-                    Text("Change")
-                })
-            }
+                Button("Change", action: {})
+                    .frame(width: 172)
+            }.frame(maxWidth: .infinity, alignment: .trailing)
             Text("Bookmarks file access status")
         }
     }

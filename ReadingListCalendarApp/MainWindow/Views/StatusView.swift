@@ -8,9 +8,12 @@ struct StatusView: View {
                 .font(.headline)
                 .fontWeight(.medium)
             HorizontalLine()
-            Button(action: {}, label: {
-                Text("Synchronize")
-            }).frame(maxWidth: .infinity, alignment: .trailing)
+            HStack {
+                Spacer()
+                Button("Synchronize", action: {})
+                    .keyEquivalent(.returnKeyEquivalent)
+                    .frame(width: 172)
+            }.frame(maxWidth: .infinity, alignment: .trailing)
             ProgressBar(fractionCompleted: 0.33)
                 .padding(.top, 20)
         }
